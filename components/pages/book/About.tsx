@@ -3,8 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { useState } from 'react';
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { MdOutlineShoppingCart, MdOutlineKeyboardArrowUp,  MdOutlinePeopleAlt } from "react-icons/md";
+import { PiBookOpenText, PiClipboardText } from "react-icons/pi";
+import { GrTarget } from "react-icons/gr";
+import { IconType } from "react-icons";
 
 interface DescriptionPart {
   text: string;
@@ -101,15 +103,42 @@ const aboutMockData: AboutData = {
 
 interface CardData {
     title: string,
-    description: string
+    description: string,
+    icon: IconType,
+    iconColor: string,
+    bgColor: string
     
 }
 
 const cardsMockData: CardData[] = [
-    {title: "Conteúdo prático", description: "Conhecimento para colocar em ação."},
-    {title: "Exercícios práticos", description: "Da reflexão à prática."},
-    {title: "Aplicação para a vida real", description: "Planejamento para objetivos reais."},
-    {title: "Protagonismo financeiro", description: "Você no controle da sua vida financeira."}
+    {
+        title: "Conteúdo prático", 
+        description: "Conhecimento para colocar em ação.",
+        icon: PiBookOpenText,
+        iconColor: "#7C4DFF",
+        bgColor: "#F2F0FD"
+    },
+    {
+        title: "Exercícios práticos", 
+        description: "Da reflexão à prática.",
+        icon: PiClipboardText,
+        iconColor: "#01AEAA",
+        bgColor: "#D7ECF1"
+    },
+    {
+        title: "Aplicação para a vida real", 
+        description: "Planejamento para objetivos reais.",
+        icon: GrTarget,
+        iconColor: "#071F6B",
+        bgColor: "#DAE6F7"
+    },
+    {
+        title: "Protagonismo financeiro", 
+        description: "Você no controle da sua vida financeira.",
+        icon:  MdOutlinePeopleAlt,
+        iconColor: "#7C4DFF",
+        bgColor: "#F2F0FD"
+    }
 ]
     
 function renderBookImage(display: string): React.JSX.Element {
@@ -145,52 +174,103 @@ export default function About(){
     }
 
     return(
-        <section className="flex flex-nowrap items-center gap-[78px] px-[22px] md:px-[64px] w-full max-w-[1440px] m-auto mt-[56px] mb-[40px] md:mb-[60px]">
-            {renderBookImage("hidden md:flex")}
-            <div className='w-full md:w-[637px]'>
-                <div>
-                    <span className='text-[20px] md:text-[24px] mb-[14px] font-bold bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent uppercase'>{aboutMockData.tag}</span>
-                    <div className='w-[40px] h-[5px] rounded-[10px] mt-[11px] mb-[6px]  bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8]'></div>
-                </div>
-                <h1 className='text-[24px] md:text-[48px] font-extrabold leading-[30px] md:leading-[60px]'>
-                    {aboutMockData.title.title} 
-                    <span className='text-[#7C4DFF]'>{aboutMockData.title.span}</span>
-                </h1>
-                {renderBookImage("md:hidden flex m-auto my-[40px]")}
-                {renderParagraphs(aboutMockData.description.slice(0,2))}
-                <div className='hidden md:block'>
-                    {renderParagraphs(aboutMockData.description.slice(2))}
-                </div>
-                <div className={`md:hidden ${isVisible ? '' : 'hidden'} `}>
-                    {renderParagraphs(aboutMockData.description.slice(2))}
-                </div>
-                <button onClick={toggleView}
-                        className='flex items-center text-[14px] bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent underline font-semibold md:hidden'>
-                    {isVisible ? aboutMockData.showMore.on : aboutMockData.showMore.off}
-                    {/* Definição do Gradiente SVG */}
-                    <svg width="0" height="0" className="absolute">
-                        <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#2ED8E8" />
-                        <stop offset="100%" stopColor="#7C4DFF" />
-                        </linearGradient>
-                    </svg>
+        <div>
+            <section className="flex flex-nowrap items-center gap-[78px] px-[22px] md:px-[64px] w-full max-w-[1440px] m-auto mt-[56px] mb-[40px] md:mb-[60px]">
+                {renderBookImage("hidden md:flex")}
+                <div className='w-full md:w-[637px]'>
+                    <div>
+                        <span className='text-[20px] md:text-[24px] mb-[14px] font-bold bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent uppercase'>{aboutMockData.tag}</span>
+                        <div className='w-[40px] h-[5px] rounded-[10px] mt-[11px] mb-[6px]  bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8]'></div>
+                    </div>
+                    <h1 className='text-[24px] md:text-[48px] font-extrabold leading-[30px] md:leading-[60px]'>
+                        {aboutMockData.title.title} 
+                        <span className='text-[#7C4DFF]'>{aboutMockData.title.span}</span>
+                    </h1>
+                    {renderBookImage("md:hidden flex m-auto my-[40px]")}
+                    {renderParagraphs(aboutMockData.description.slice(0,2))}
+                    <div className='hidden md:block'>
+                        {renderParagraphs(aboutMockData.description.slice(2))}
+                    </div>
+                    <div className={`md:hidden ${isVisible ? '' : 'hidden'} `}>
+                        {renderParagraphs(aboutMockData.description.slice(2))}
+                    </div>
+                    <button onClick={toggleView}
+                            className='flex items-center text-[14px] bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent underline font-semibold md:hidden'>
+                        {isVisible ? aboutMockData.showMore.on : aboutMockData.showMore.off}
+                        {/* Definição do Gradiente SVG */}
+                        <svg width="0" height="0" className="absolute">
+                            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#2ED8E8" />
+                            <stop offset="100%" stopColor="#7C4DFF" />
+                            </linearGradient>
+                        </svg>
 
-                    {/* Ícone utilizando a URL do Gradiente */}
-                    <MdOutlineKeyboardArrowUp 
-                        size={20}
-                        style={{ fill: 'url(#icon-gradient)' }}
-                        className={`transition-transform duration-200 ${isVisible ? '' : 'rotate-180'}`} 
-                    />
-                </button>
-                <p className='text-[#7C4DFF] text-[18px] md:text-[22px] font-extrabold mt-[40px] text-center md:text-left'>{aboutMockData.pitch}</p>
-                <a href={aboutMockData.buyButton.link} target="_blank">
-                    <button className='flex items-center text-white content-center p-4 md:py-[18px] md:px-[24px] mt-[7px] md:mt-[40px] gap-[8px] rounded-[10px] bg-[#7C4DFF] font-bold shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] cursor-pointer m-auto md:m-0'>
-                    <MdOutlineShoppingCart className='w-[20px] h-[20px]' />
-                    {aboutMockData.buyButton.text}
+                        {/* Ícone utilizando a URL do Gradiente */}
+                        <MdOutlineKeyboardArrowUp 
+                            size={20}
+                            style={{ fill: 'url(#icon-gradient)' }}
+                            className={`transition-transform duration-200 ${isVisible ? '' : 'rotate-180'}`} 
+                        />
                     </button>
-                </a>
-                
-            </div>
-        </section>
+                    <p className='text-[#7C4DFF] text-[18px] md:text-[22px] font-extrabold mt-[40px] text-center md:text-left'>{aboutMockData.pitch}</p>
+                    <a href={aboutMockData.buyButton.link} target="_blank">
+                        <button className='flex items-center text-white content-center p-4 md:py-[18px] md:px-[24px] mt-[7px] md:mt-[40px] gap-[8px] rounded-[10px] bg-[#7C4DFF] font-bold shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] cursor-pointer m-auto md:m-0'>
+                        <MdOutlineShoppingCart className='w-[20px] h-[20px]' />
+                        {aboutMockData.buyButton.text}
+                        </button>
+                    </a>
+                    
+                </div>
+            </section>
+
+            {/* cards versão desktop */}
+            <section className="hidden md:grid grid-cols-2 lg:grid-cols-4 bg-white rounded-[10px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] p-6 lg:p-8 m-[50px]">
+                {cardsMockData.map((card, index) => {
+                    const Icon = card.icon;
+                    return (
+                        <div
+                            key={index}
+                            className={`flex flex-col items-center gap-3 px-4 py-6 lg:py-4 lg:px-6 border-[#F2F0FD]
+                                ${index === 1 ? "border-r-0 lg:border-r-2 " : ""}
+                                ${index % 2 === 0 ? "border-r-2" : ""}
+                                ${index <= 1 ? "border-b-2 lg:border-b-0 " : ""}
+                            `}
+                        >
+                        <div
+                            className="w-[105px] h-[105px] rounded-full flex items-center justify-center"
+                            style={{ backgroundColor: card.bgColor }}
+                        >
+                        <Icon size={44} style={{ color: card.iconColor }} />
+                        </div>
+
+                        <h3 className="text-[20px] text-center font-bold leading-tight">
+                            {card.title}
+                        </h3>
+                        <span className="text-[20px] font-semibold leading-snug text-center">
+                            {card.description}
+                        </span>
+                        </div>
+                    );
+                })}
+            </section>
+
+            {/* cards versão mobile */}
+            <section className='md:hidden grid grid-cols-2 gap-x-2 gap-y-[5px] mx-[22px] '>
+                {cardsMockData.map((card, index) => {
+                    const Icon = card.icon;
+                    return (
+                        <div key={index}
+                            className='rounded-[15px] flex gap-2 items-center min-h-15 px-3 py-4'
+                            style={{ backgroundColor: card.bgColor }}
+                        >
+                            <Icon size={21} style={{ color: card.iconColor }} className='shrink-0' />
+                            <span className='text-[14px] font-extrabold leading-tight break-words hyphens-auto'
+                                    style={{color: card.iconColor}}
+                            > {card.title} </span>
+                        </div>
+                    )
+                })}
+            </section>
+        </div>
     )
 }
