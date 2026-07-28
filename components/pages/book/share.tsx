@@ -39,7 +39,7 @@ export default function Share() {
 		<h1 className="text-lg md:text-2xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-left md:text-center">
 			{data.title}
 		</h1>
-		<div className="w-[50px] h-[6px] m-5 bg-gradient-to-r from-primary to-secondary rounded-[10px]" />
+		<div className="w-[50px] h-[6px] mt-5 mb-5 bg-gradient-to-r from-primary to-secondary rounded-[10px]" />
 		<h2 className="text-2xl md:text-4xl font-extrabold mb-5 text-left md:text-center">
 			{renderHighlightedText(data.call)}
 		</h2>
