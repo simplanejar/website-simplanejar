@@ -1,9 +1,8 @@
+import Values from "@/components/pages/about/Values";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <h1>
-      aaaaaaa
-    </h1>
+    <Values />
   );
 }
