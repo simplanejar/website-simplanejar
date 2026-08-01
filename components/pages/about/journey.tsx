@@ -74,7 +74,6 @@ const data = {
     }
 }
 
-// index 0,1,2 -> primary | index 3,4,5 (last is the arrow) -> #01AEAA
 const CONNECTOR_SECONDARY_COLOR = "#01AEAA";
 
 function renderHighlightedText(
@@ -90,101 +89,171 @@ function renderHighlightedText(
   )
 }
 
+function QuoteBox({ className = "" }: { className?: string }) {
+    return (
+        <div className={`relative w-!auto min-h-[140px] p-4 sm:p-5 bg-card-bg shadow-[0_2px_8px_0_rgba(0,0,0,0.35)] rounded-[10px] ${className}`}>
+            <img
+                className="absolute top-3 left-3 sm:top-4 sm:left-4 w-5 h-3 sm:w-6 sm:h-4"
+                src="/about/journey/open-quote.png"
+                alt=""
+            />
+            <p className="font-bold text-center text-base sm:text-lg md:text-2xl px-6 sm:px-10 md:px-16 py-2 break-words">
+                {renderHighlightedText(data.quote)}
+            </p>
+            <img
+                className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-5 h-3 sm:w-6 sm:h-4"
+                src="/about/journey/close-quote.png"
+                alt=""
+            />
+        </div>
+    )
+}
+
 export default function Journey() {
     return (
         <div className="">
-            <div className="flex flex-row">
-                <div className="flex-column w-[50%] p-15">
+            <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col w-full md:w-[50%] p-6 md:p-15">
                     <h1 className="text-lg md:text-2xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-left">{data.title}</h1>
                     <div className="w-[50px] h-[6px] mt-5 mb-5 bg-gradient-to-r from-primary to-secondary rounded-[10px]"/>
                     <h2 className="text-2xl md:text-4xl font-extrabold mb-5 text-left">{renderHighlightedText(data.subtitle, "          bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent", true)}</h2>
                     <p className="w-[100%] font-medium text-lg">{renderHighlightedText(data.description)}</p>
-                    <div className="relative w-[100%] min-h-[140px] p-5 mt-10 text-2xl bg-card-bg shadow-[0_2px_8px_0_rgba(0,0,0,0.35)] rounded-[10px]">
-                        <img
-                            className="absolute top-4 left-4 w-6 h-4"
-                            src="/about/journey/open-quote.png"
-                            alt=""
-                        />
-                        <p className="font-bold text-center px-16 py-2">
-                            {renderHighlightedText(data.quote)}
-                        </p>
-                        <img
-                            className="absolute bottom-4 right-4 w-6 h-4"
-                            src="/about/journey/close-quote.png"
-                            alt=""
-                        />
+
+                    <QuoteBox className="hidden md:block mt-10" />
+                </div>
+
+                <div className="w-full md:w-[50%] md:flex-shrink-0 overflow-hidden">
+                    <img
+                        src="/about/journey/journey.png"
+                        alt=""
+                        className="w-full h-full md:h-full object-cover object-center"
+                    />
+                </div>
+
+                <QuoteBox className="md:hidden mt-6 mx-4 sm:mx-6" />
+            </div>
+
+            <div className="flex flex-col md:flex-row w-full items-start px-6 md:pl-20 md:pr-20 mt-10 gap-10 md:gap-0 md:overflow-x-auto">
+                <div className="hidden md:flex md:flex-row md:min-w-max md:w-full">
+                    {data.dates.map((dt, index) => {
+                        const Icon = dt.icon;
+                        const isLast = index === data.dates.length - 1;
+                        const isSecondHalf = index >= 3;
+                        const accentColor = dt.color ? dt.color : undefined;
+
+                        return (
+                            <div key={index} className="flex flex-row items-start" style={{ flex: isLast ? "0 0 auto" : "1 1 0%" }}>
+                                <div className="flex flex-col items-center text-center flex-shrink-0 w-40">
+                                    <h3
+                                        className="text-primary font-bold"
+                                        style={accentColor ? { color: accentColor } : undefined}
+                                    >
+                                        {dt.year}
+                                    </h3>
+
+                                    <Icon
+                                        className="text-primary h-10 w-10 mt-2 mb-2"
+                                        style={accentColor ? { color: accentColor } : undefined}
+                                    />
+
+                                    <h4
+                                        className="text-primary font-semibold mb-4"
+                                        style={accentColor ? { color: accentColor } : undefined}
+                                    >
+                                        {dt.title}
+                                    </h4>
+
+                                    <p>{dt.description}</p>
+                                </div>
+
+                                {!isLast ? (
+                                    <div className="w-16 lg:w-24 flex items-center h-4 mt-[50px] flex-shrink-0">
+                                        <div
+                                            className={`w-full h-[2px] ${!isSecondHalf ? "bg-primary" : ""}`}
+                                            style={isSecondHalf ? { backgroundColor: CONNECTOR_SECONDARY_COLOR } : undefined}
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="w-16 lg:w-24 flex items-center h-4 mt-[50px] flex-shrink-0">
+                                        <div
+                                            className="w-full h-[2px]"
+                                            style={{ backgroundColor: CONNECTOR_SECONDARY_COLOR }}
+                                        />
+                                        <FaArrowRight
+                                            className="text-sm flex-shrink-0"
+                                            style={{ color: CONNECTOR_SECONDARY_COLOR }}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+
+                <div className="flex md:hidden flex-col w-full gap-8">
+                    {data.dates.map((dt, index) => {
+                        const Icon = dt.icon;
+                        const isLast = index === data.dates.length - 1;
+                        const accentColor = dt.color ? dt.color : undefined;
+
+                        return (
+                            <div key={index} className="grid grid-cols-3 grid-rows-3 gap-x-4 gap-y-2 w-full">
+                                <div className="col-start-1 row-start-1 flex items-center justify-center">
+                                    <Icon
+                                        className="h-8 w-8 text-primary"
+                                        style={accentColor ? { color: accentColor } : undefined}
+                                    />
+                                </div>
+
+                                <div className="col-start-2 col-span-2 row-start-1 flex items-center">
+                                    <h4
+                                        className="text-primary font-semibold leading-snug"
+                                        style={accentColor ? { color: accentColor } : undefined}
+                                    >
+                                        {dt.year} - {dt.title}
+                                    </h4>
+                                </div>
+
+                                <div className="col-start-1 row-start-2 row-span-2 flex justify-center">
+                                    <div
+                                        className="w-[2px] h-full bg-primary"
+                                        style={accentColor ? { backgroundColor: accentColor } : undefined}
+                                    />
+                                </div>
+
+                                <div className="col-start-2 col-span-2 row-start-2 row-span-2">
+                                    <p>{dt.description}</p>
+                                </div>
+
+                                {isLast && (
+                                    <div className="col-start-1 row-start-4 flex justify-center pt-1">
+                                        <FaArrowRight
+                                            className="text-sm rotate-90 mt-[-15px]"
+                                            style={{ color: CONNECTOR_SECONDARY_COLOR }}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            <div className="mt-15 mb-15 mx-6 md:ml-10 md:mr-10 flex flex-col md:flex-row items-start md:items-center p-5 justify-between gap-6 md:gap-0">
+                <div className="flex flex-row md:contents items-center w-full">
+                    <div className="bg-primary rounded-[100px] h-fit w-fit p-3 md:p-5 flex-shrink-0">
+                        <PiUsersThree className="text-white h-6 w-6 md:h-15 md:w-15"/>
                     </div>
-                </div>
-                <img src="/about/journey/journey.png" alt="" className="w-[50%]" />
-            </div>
-
-            <div className="flex flex-row w-[100%] items-start pl-20 pr-20 mt-10">
-                {data.dates.map((dt, index) => {
-                    const Icon = dt.icon;
-                    const isLast = index === data.dates.length - 1;
-                    const isSecondHalf = index >= 3;
-                    return (
-                        <div key={index} className="flex flex-row items-start flex-1">
-                            <div className="flex flex-col items-center text-center flex-shrink-0 w-40">
-                                <h3
-                                    className="text-primary font-bold"
-                                    style={dt.color ? { color: dt.color } : undefined}
-                                >
-                                    {dt.year}
-                                </h3>
-
-                                <Icon
-                                    className="text-primary h-10 w-10 mt-2 mb-2"
-                                    style={dt.color ? { color: dt.color } : undefined}
-                                />
-
-                                <h4
-                                    className="text-primary font-semibold mb-4"
-                                    style={dt.color ? { color: dt.color } : undefined}
-                                >
-                                    {dt.title}
-                                </h4>
-
-                                <p>{dt.description}</p>
-                            </div>
-
-                        {!isLast ? (
-                            <div className="flex-1 flex items-center h-4 mt-[50px] -mx-6 z-0">
-                                <div
-                                    className={`w-full h-[2px] ${!isSecondHalf ? "bg-primary" : ""}`}
-                                    style={isSecondHalf ? { backgroundColor: CONNECTOR_SECONDARY_COLOR } : undefined}
-                                />
-                            </div>
-                        ) : (
-                            <div className="flex-1 flex items-center h-4 mt-[50px] -mx-6 z-0">
-                                <div
-                                    className="w-full h-[2px]"
-                                    style={{ backgroundColor: CONNECTOR_SECONDARY_COLOR }}
-                                />
-                                <FaArrowRight
-                                    className="text-sm flex-shrink-0"
-                                    style={{ color: CONNECTOR_SECONDARY_COLOR }}
-                                />
-                            </div>
-                        )}
-                        </div>
-                    );
-                })}
-                
-            </div>
-            <div className="mt-15 mb-15 ml-10 mr-10 flex flex-row items-center p-5 justify-between">
-                <div className="bg-primary rounded-[100px] h-fit w-fit p-5">
-                    <PiUsersThree className="text-white h-15 w-15"/>
-                </div>
-                <div className="flex flex-col ml-5 justify-center mr-5">
-                    <h3 className="font-semibold">{data.lowcard.top}</h3>
-                    <h2 className="font-semibold text-2xl">{renderHighlightedText(data.lowcard.main, "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent", true)}</h2>
+                    <div className="flex flex-col ml-4 md:ml-5 justify-center md:mr-5 text-left">
+                        <h3 className="font-semibold">{data.lowcard.top}</h3>
+                        <h2 className="font-semibold text-2xl">{renderHighlightedText(data.lowcard.main, "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent", true)}</h2>
+                    </div>
                 </div>
                 {data.lowcard.icons.map((item, index) => {
                     const Icon = item.icon
                     return (
-                    <div className="flex flex-row items-center w-[18%]" key={index}>
-                        <div className="bg-card-bg shadow-[0_2px_8px_0_rgba(0,0,0,0.35)] h-fit w-fit rounded-[100px] p-3 m-4">
+                    <div className="flex flex-row items-center text-left w-full md:w-[18%]" key={index}>
+                        <div className="bg-card-bg shadow-[0_2px_8px_0_rgba(0,0,0,0.35)] h-fit w-fit rounded-[100px] p-3 m-4 flex-shrink-0">
                             <Icon className="text-primary h-10 w-10"/>
                         </div>
                         <p>{item.text}</p>
