@@ -1,9 +1,8 @@
 import Image from "next/image";
+import Founder from "./components/pages/about/founder";
 
 export default function Home() {
   return (
-    <h1>
-      aaaaaaa
-    </h1>
+    <Founder/>
   );
 }
