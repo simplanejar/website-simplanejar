@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Stars from '../components/pages/book/stars'
 
 export default function Home() {
   return (
     <h1>
-      aaaaaaa
+      <Stars />
     </h1>
   );
 }
