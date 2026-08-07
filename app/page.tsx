@@ -1,9 +1,8 @@
 import Image from "next/image";
+import Reviews from "@/components/pages/book/reviews";
 
 export default function Home() {
   return (
-    <h1>
-      aaaaaaa
-    </h1>
+    <Reviews/>
   );
 }
