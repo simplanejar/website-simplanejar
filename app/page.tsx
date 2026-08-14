@@ -1,9 +1,8 @@
 import Image from "next/image";
+import Questionaire from '@/components/pages/investor-profile/questionaire';
 
 export default function Home() {
   return (
-    <h1>
-      aaaaaaa
-    </h1>
+    <Questionaire />
   );
 }
