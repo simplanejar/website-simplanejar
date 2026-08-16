@@ -201,10 +201,10 @@ function FormCard({ data }: { data: ContactBodyData["form"] }) {
     const SendIcon = data.send.icon;
  
     return (
-        <div className="rounded-[10px] bg-[#FCFCFE] pl-[35px] pr-[45px] pt-3 pb-8 shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
-            <div className="mb-2 flex items-center gap-3">
-                <span className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full bg-[#7C4DFF] text-white">
-                    <TitleIcon size={30} />
+        <div className="rounded-[10px] bg-[#FCFCFE] px-4 md:pl-[35px] md:pr-[45px] pt-3 pb-8 shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mt-2 md:mt-0 ">
+            <div className="mb-2 flex items-center justify-center md:justify-start gap-3 ">
+                <span className="flex h-10 w-10 md:h-15 md:w-15 shrink-0 items-center justify-center rounded-full bg-[#7C4DFF] text-white">
+                    <TitleIcon className="text-[20px] md:text-[30px]" />
                 </span>
                 <h2 className="text-[20px] text-[#071F6B] font-extrabold">{data.title.text}</h2>
             </div>
@@ -216,7 +216,7 @@ function FormCard({ data }: { data: ContactBodyData["form"] }) {
  
                 <button
                     type="submit"
-                    className="mt-3 flex items-center justify-center gap-6 rounded-[10px] bg-[#7C4DFF] py-3 text-[20px] font-bold text-white cursor-pointer"
+                    className="mt-3 flex items-center justify-center gap-6 rounded-[10px] bg-[#7C4DFF] py-3 md:text-[20px] font-bold text-white cursor-pointer"
                 >
                     <SendIcon size={18} />
                     {data.send.text}
@@ -231,21 +231,21 @@ function ContactCard({ data }: { data: ContactBodyData["contact"] }) {
     const HeartIcon = data.heartIcon;
  
     return (
-        <div className="relative overflow-hidden rounded-[10px] bg-[#F2F0FD] py-6 px-9">
-            <div className="pointer-events-none absolute right-[10px] top-3">
+        <div className="relative rounded-[10px] bg-[#F2F0FD] py-8 px-5 md:px-9">
+            <div className="pointer-events-none hidden md:block absolute right-[10px] top-3">
                 <Image src={data.image.src} alt={data.image.alt} width={146} height={58} />
             </div>
  
-            <div className="flex items-start gap-8">
-                <span className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full bg-[#7C4DFF] text-white">
-                    <EmailIcon size={30} />
+            <div className="flex items-start gap-2 md:gap-8">
+                <span className="flex h-10 w-10 md:h-15 md:w-15 shrink-0 items-center justify-center rounded-full bg-[#7C4DFF] text-white">
+                    <EmailIcon className="text-[20px] md:text-[30px]" />
                 </span>
                 <div className="flex flex-col">
-                    <h2 className="text-[20px] text-[#071F6B] font-bold">{data.title}</h2>
+                    <h2 className="text-[18px] md:text-[20px] text-[#071F6B] font-bold">{data.title}</h2>
                     <span className="mt-2 h-1 w-[50px] rounded-[10px] bg-[#7C4DFF]" />
                     <a
                         href={data.contact.link}
-                        className="mt-[10px] text-[20px] font-bold text-[#7C4DFF] hover:underline cursor-pointer"
+                        className="mt-[10px] text-[18px] md:text-[20px] font-bold text-[#7C4DFF] hover:underline cursor-pointer"
                     >
                         {data.contact.text}
                     </a>
@@ -254,9 +254,9 @@ function ContactCard({ data }: { data: ContactBodyData["contact"] }) {
  
             <hr className="my-4 border-[#E2DDFF]" />
  
-            <div className="flex items-start gap-8">
-                <span className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full bg-[#E2DDFF] text-[#7C4DFF]">
-                    <HeartIcon size={30} />
+            <div className="flex items-start gap-2 md:gap-8">
+                <span className="flex h-10 w-10 md:h-15 md:w-15 shrink-0 items-center justify-center rounded-full bg-[#E2DDFF] text-[#7C4DFF]">
+                    <HeartIcon className="text-[20px] md:text-[30px]" />
                 </span>
                 <p className="leading-relaxed font-semibold max-w-[261px]">
                     {data.description.map((part, i) => (
@@ -293,11 +293,11 @@ function ChannelCard({ data }: { data: Channel }) {
             </div>
             <a
                 href={data.link}
-                className="flex items-center justify-center gap-2 rounded-[10px] border border-[#7C4DFF] py-2 text-[20px] font-bold text-[#7C4DFF] cursor-pointer"
+                className="flex items-center justify-center gap-2 rounded-[10px] border border-[#7C4DFF] text-[20px] p-[10px] font-bold text-[#7C4DFF] cursor-pointer "
                 target="_blank"
             >
                 {data.button}
-                <ArrowIcon size={20} />
+                <ArrowIcon size={20} className="shrink-0" />
             </a>
         </div>
     );
@@ -305,7 +305,7 @@ function ChannelCard({ data }: { data: Channel }) {
  
 function KeepUpCard({ data }: { data: ContactBodyData["keepUp"] }) {
     return (
-        <div className="rounded-[10px] bg-[#F2F0FD] px-9 py-4">
+        <div className="rounded-[10px] bg-[#F2F0FD] px-4 md:px-9 py-6">
             <h2 className="text-[20px] font-bold text-[#071F6B]">{data.title}</h2>
             <span className="mt-[1px] mb-3 block h-1 w-[50px] rounded-[10px] bg-[#7C4DFF]" />
  
@@ -323,22 +323,23 @@ function BookCard({ data }: { data: ContactBodyData["card"] }) {
     const ArrowIcon = data.button.arrow;
  
     return (
-        <div className="mt-11 mx-[50px] flex flex-col items-start justify-between gap-4 rounded-[10px] bg-[#F2F0FD] py-5 px-11 sm:flex-row sm:items-center">
+        <div className="mt-11 mx-[10px] md:mx-[50px] flex flex-col items-center md:justify-between gap-4 rounded-[10px] bg-[#F2F0FD] p-[10px] md:py-5 md:px-11 md:flex-row">
             <div className="flex items-center">
-                <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#7C4DFF] text-white">
-                    <StarIcon size={50} />
+                <span className="flex h-15 w-15 md:h-20 md:w-20 shrink-0 items-center justify-center rounded-full bg-[#7C4DFF] text-white">
+                    <StarIcon className="text-[30px] md:text-[50px]" />
                 </span>
                     <Image
                         src={data.stars.src}
                         alt={data.stars.alt}
                         width={61}
                         height={78}
+                        className="w-[41px] h-[63px] md:w-[61px] md:h-[78px]"
                     />
-                <div>
-                    <p className="ml-4 text-[20px] font-extrabold text-[#071F6B] sm:text-base">
+                <div className="ml-2 md:ml-4">
+                    <p className="md:text-[20px] leading-tight font-extrabold text-[#071F6B] sm:text-base">
                         {data.text.p1}
                     </p>
-                    <p className="ml-4 text-[20px] font-extrabold text-[#071F6B] sm:text-base">
+                    <p className="md:text-[20px] leading-tight font-extrabold text-[#071F6B] sm:text-base">
                         {data.text.p2}
                     </p>
                 </div>
@@ -346,11 +347,11 @@ function BookCard({ data }: { data: ContactBodyData["card"] }) {
  
             <a
                 href={data.button.link}
-                className="flex w-full items-center justify-center gap-[30px] rounded-[10px] bg-[#7C4DFF] px-6 py-5 text-[20px] font-bold text-white sm:w-auto cursor-pointer"
+                className="flex w-full items-center justify-center gap-[30px] rounded-[10px] bg-[#7C4DFF] px-5 md:px-6 py-2 md:py-5 text-[20px] font-bold text-white md:w-auto cursor-pointer"
             >
-                <ButtonIcon size={30} />
+                <ButtonIcon size={30} className="shrink-0" />
                 {data.button.text}
-                <ArrowIcon size={20} />
+                <ArrowIcon size={20} className="shrink-0" />
             </a>
         </div>
     );
@@ -359,8 +360,8 @@ function BookCard({ data }: { data: ContactBodyData["card"] }) {
 
 export default function ContactBody() {
     return (
-         <section className="w-full">
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 mx-8">
+         <section className="w-full max-w-[1440px] m-auto">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 mx-4 md:mx-8">
                 <FormCard data={contactBodyMockData.form} />
                 <div className="flex flex-col gap-6">
                     <ContactCard data={contactBodyMockData.contact} />
