@@ -1,9 +1,8 @@
 import Image from "next/image";
 
+import Book from "@/components/pages/investor-profile/book";
 export default function Home() {
   return (
-    <h1>
-      aaaaaaa
-    </h1>
+    <Book/>
   );
 }
