@@ -4,14 +4,12 @@ import "./globals.css";
 import Navbar from "./navbar";
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Nunito } from "next/font/google";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const nunito = Nunito({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"], // Nunito tem essas variações
+  variable: "--font-nunito",
 });
 
 const nunito = Nunito({
