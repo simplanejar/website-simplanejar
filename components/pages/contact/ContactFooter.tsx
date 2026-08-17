@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ImageData, StyledText } from "./ContactPage";
+import { ImageData, StyledText } from ".";
 
 interface ContactFooterData {
     icon: ImageData;

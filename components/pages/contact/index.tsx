@@ -19,7 +19,6 @@ export default function ContactPage() {
     <ContactHero />
     <ContactBody />
     <ContactFooter />
-    <h1 className="bg-[#071F6B]">teste</h1>
     </>
   )
 }

@@ -5,7 +5,7 @@ import React, { SubmitEvent, useRef } from 'react';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 
-import { ImageData, StyledText } from "./ContactPage";
+import { ImageData, StyledText } from ".";
 
 import type { IconType } from "react-icons";
 import { MdEditNote, MdOutlinePerson, MdOutlineMail } from "react-icons/md";

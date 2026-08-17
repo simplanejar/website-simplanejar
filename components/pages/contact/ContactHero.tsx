@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ImageData } from './ContactPage'
+import { ImageData } from '.'
 import type { IconType } from "react-icons";
 import { LuMessageSquare } from "react-icons/lu";
 
