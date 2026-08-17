@@ -3,7 +3,10 @@
 import Image from "next/image";
 import React, { SubmitEvent, useRef } from 'react';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { ToastContainer, toast, Zoom } from 'react-toastify';
+
 import { ImageData, StyledText } from "./ContactPage";
+
 import type { IconType } from "react-icons";
 import { MdEditNote, MdOutlinePerson, MdOutlineMail } from "react-icons/md";
 import { BiSolidEditAlt } from "react-icons/bi";
@@ -40,6 +43,10 @@ interface ContactBodyData {
         send: {
             text: string;
             icon: IconType;
+        },
+        notify: {
+            success: string;
+            error: string;
         }
     },
     contact: {
@@ -98,6 +105,10 @@ const contactBodyMockData: ContactBodyData = {
         send: {
             text: "Enviar mensagem",
             icon: IoMdSend
+        },
+        notify: {
+            success: "Sua resposta foi enviada!",
+            error: "Algo deu errado. Tente novamente."
         }
     },
     contact: {
@@ -201,27 +212,53 @@ function FormCard({ data }: { data: ContactBodyData["form"] }) {
     const TitleIcon = data.title.icon;
     const SendIcon = data.send.icon;
 
+    const notifySuccess = () => toast.success(data.notify.success, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+    });
+
+    const notifyError = () => toast.error(data.notify.error, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+    });
+
     const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e: SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    const sendEmail = (e: SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-    if (!form.current) return;
+        if (!form.current) return;
 
-    emailjs
-      .sendForm(process.env.NEXT_PUBLIC_SERVICE_ID!, process.env.NEXT_PUBLIC_TEMPLATE_ID!, form.current, {
-        publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY!,
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-          form.current && form.current.reset(); 
-        },
-        (error: EmailJSResponseStatus) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
+        emailjs
+        .sendForm(process.env.NEXT_PUBLIC_SERVICE_ID!, process.env.NEXT_PUBLIC_TEMPLATE_ID!, form.current, {
+            publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY!,
+        })
+        .then(
+            () => {
+                console.log('SUCCESS!');
+                form.current && form.current.reset(); 
+                notifySuccess();
+            },
+            (error: EmailJSResponseStatus) => {
+                console.log('FAILED...', error.text);
+                notifyError();
+            },
+        );
+    };
 
  
     return (
@@ -246,6 +283,7 @@ function FormCard({ data }: { data: ContactBodyData["form"] }) {
                     {data.send.text}
                 </button>
             </form>
+            <ToastContainer />
         </div>
     );
 }
