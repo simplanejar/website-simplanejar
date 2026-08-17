@@ -52,10 +52,10 @@ export default function ContactHero() {
                 </div>
             </div>
             <div className="hidden md:block relative w-[807px] h-full shrink-0 grow-0 overflow-hidden">
-                <Image src={data.imageDesktop.src} alt={data.imageDesktop.alt} fill  className="object-cover object-left" />
+                <Image src={data.imageDesktop.src} alt={data.imageDesktop.alt} fill priority sizes="807px" className="object-cover object-left" />
             </div>
             <div className="md:hidden shrink-0">
-                <Image src={data.imageMobile.src} alt={data.imageMobile.alt} width={180} height={164}/>
+                <Image src={data.imageMobile.src} alt={data.imageMobile.alt} width={180} height={164} priority className="w-[180px] h-auto"/>
             </div>
         </section>
     );
