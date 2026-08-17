@@ -3,19 +3,19 @@ import { Geist, Geist_Mono, Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar";
 
-
-import { Nunito } from "next/font/google";
-
-const nunito = Nunito({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"], // Nunito tem essas variações
-  variable: "--font-nunito",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 const nunito = Nunito({
-	variable: "--font-nunito",
-	subsets: ["latin"],
-	display: "swap",
+  variable: "--font-nunito",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
