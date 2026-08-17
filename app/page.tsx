@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Founder from "./components/pages/about/founder";
+import SuitabilityTest from "./components/pages/investor-profile/test/suitabilityTest";
 
 export default function Home() {
   return (
-    <Founder/>
+    <SuitabilityTest/>
   );
 }
