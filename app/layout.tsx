@@ -14,6 +14,8 @@ const nunito = Nunito({
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"], // Nunito tem essas variações
+  variable: "--font-nunito",
 });
 
 export const metadata: Metadata = {
