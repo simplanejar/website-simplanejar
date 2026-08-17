@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ImageData } from './ContactPage'
 import type { IconType } from "react-icons";
 import { LuMessageSquare } from "react-icons/lu";
 
@@ -6,17 +7,13 @@ interface MixedText {
     normal: string;
     highlight: string;
 }
-interface Image {
-    src: string;
-    alt: string;
-}
 
 interface ContactHeroData {
     title: MixedText;
     description: MixedText;
     icon: IconType;
-    imageDesktop: Image;
-    imageMobile: Image;
+    imageDesktop: ImageData;
+    imageMobile: ImageData;
 }
 
 const contactHeroMockData: ContactHeroData = {

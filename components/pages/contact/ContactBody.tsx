@@ -1,5 +1,9 @@
+"use client"
 
 import Image from "next/image";
+import React, { SubmitEvent, useRef } from 'react';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { ImageData, StyledText } from "./ContactPage";
 import type { IconType } from "react-icons";
 import { MdEditNote, MdOutlinePerson, MdOutlineMail } from "react-icons/md";
 import { BiSolidEditAlt } from "react-icons/bi";
@@ -8,10 +12,6 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
 import { FiBookOpen } from "react-icons/fi";
 
-interface Image {
-    src: string;
-    alt: string;
-}
 
 interface FormField {
     text: string;
@@ -24,13 +24,8 @@ interface Channel {
     description: string;
     button: string;
     link: string;
-    image: Image;
+    image: ImageData;
     arrow: IconType;
-}
-
-interface StyledText {
-    text: string;
-    highlighted ?: boolean;
 }
 
 interface ContactBodyData {
@@ -56,7 +51,7 @@ interface ContactBodyData {
         description: StyledText[];
         emailIcon: IconType;
         heartIcon: IconType;
-        image: Image;
+        image: ImageData;
     },
     keepUp: {
         title: string;
@@ -69,7 +64,7 @@ interface ContactBodyData {
                 p2: string;
             }
         icon: IconType;
-        stars: Image;
+        stars: ImageData;
         button: {
             text: string;
             link: string;
@@ -179,7 +174,10 @@ function FormInput({ field, isTextarea = false }: { field: FormField; isTextarea
                     <textarea
                         placeholder={field.placeholder}
                         rows={4}
-                        className="w-full resize-none bg-transparent text-gray-700 placeholder:text-[rgba(7,31,107,0.60)] outline-none placeholder:font-bold"
+                        name="message"
+                        required
+                        className="w-full resize-none bg-transparent text-gray-700 placeholder:text-[rgba(7,31,107,0.60)] outline-none placeholder:font-bold autofill:shadow-[inset_0_0_0px_1000px_#fff] autofill:text-[#6a7a9b]"
+                        
                     />
                 </div>
             ) : (
@@ -187,8 +185,11 @@ function FormInput({ field, isTextarea = false }: { field: FormField; isTextarea
                     <Icon className="shrink-0 text-[#7C4DFF]" size={20} />
                     <input
                         type={field.text === "E-mail" ? 'email' : 'text' }
+                        name={field.text === "E-mail" ? 'email' : 'name' }
                         placeholder={field.placeholder}
-                        className="w-full bg-transparent text-gray-700 placeholder:text-[rgba(7,31,107,0.60)] outline-none placeholder:font-bold"
+                        required
+                        className="w-full bg-transparent text-gray-700 placeholder:text-[rgba(7,31,107,0.60)] outline-none placeholder:font-bold autofill:shadow-[inset_0_0_0px_1000px_#fff] autofill:text-[#6a7a9b]"
+                        
                     />
                 </div>
             )}
@@ -199,6 +200,29 @@ function FormInput({ field, isTextarea = false }: { field: FormField; isTextarea
 function FormCard({ data }: { data: ContactBodyData["form"] }) {
     const TitleIcon = data.title.icon;
     const SendIcon = data.send.icon;
+
+    const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(process.env.NEXT_PUBLIC_SERVICE_ID!, process.env.NEXT_PUBLIC_TEMPLATE_ID!, form.current, {
+        publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY!,
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          form.current && form.current.reset(); 
+        },
+        (error: EmailJSResponseStatus) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
  
     return (
         <div className="rounded-[10px] bg-[#FCFCFE] px-4 md:pl-[35px] md:pr-[45px] pt-3 pb-8 shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mt-2 md:mt-0 ">
@@ -209,7 +233,7 @@ function FormCard({ data }: { data: ContactBodyData["form"] }) {
                 <h2 className="text-[20px] text-[#071F6B] font-extrabold">{data.title.text}</h2>
             </div>
  
-            <form className="flex flex-col gap-2">
+            <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-2">
                 <FormInput field={data.name} />
                 <FormInput field={data.email} />
                 <FormInput field={data.message} isTextarea />
@@ -284,7 +308,7 @@ function ChannelCard({ data }: { data: Channel }) {
                     alt={data.image.alt}
                     width={60}
                     height={42}
-                    className="shrink-0"
+                    className="shrink-0 h-auto"
                 />
                 <div className="flex flex-col">
                     <span className="text-[20px] text-[#071F6B] font-bold">{data.title}</span>
