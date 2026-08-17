@@ -3,24 +3,31 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-gradient: linear-gradient(90deg, #9100ff 0%, #00cfe8 100%);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-nunito), var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.gradient-text {
+  display: inline-block;
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-background {
+  background-image: var(--brand-gradient);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-nunito), var(--font-geist-sans), sans-serif;
 }
