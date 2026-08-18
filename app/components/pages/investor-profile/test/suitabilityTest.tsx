@@ -35,8 +35,10 @@ import {
   FaClockRotateLeft,
   FaEnvelope,
   FaTriangleExclamation,
+  FaExclamation,
 } from "react-icons/fa6";
 import { TbDotsFilled } from "react-icons/tb";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 /* -------------------------------------------------------------------------- */
 /*  TEXTOS                                                                    */
@@ -47,7 +49,7 @@ const sidebar = {
   title: "Descubra qual é o seu perfil de ",
   spanTitle: "investidor",
   subtitle:
-    "Responda às perguntas ao lado com sinceridade para receber um resultado que combina com você.",
+    "Responda às perguntas a seguir com sinceridade para receber um resultado que combina com você.",
   card: {
     title: "Importante",
     body: "Este teste tem caráter educacional e não representa recomendação de investimentos.",
@@ -172,6 +174,8 @@ const buttons = {
   next: "Próxima etapa",
   redo: "Refazer o teste",
 };
+
+const featuresTitle = "Características deste perfil"
 
 const confidential = "Suas respostas são confidenciais.";
 
@@ -338,12 +342,6 @@ interface ProfileData {
   behaviour: string;
   features: { title: string; text: string; icon: IconType }[];
   icon: IconType;
-  accent: {
-    text: string;
-    iconBg: string;
-    iconText: string;
-    ring: string;
-  };
 }
 
 const profiles: Record<ProfileKey, ProfileData> = {
@@ -355,12 +353,6 @@ const profiles: Record<ProfileKey, ProfileData> = {
     behaviour: conservative.behaviour,
     features: conservative.features,
     icon: FaShieldHalved,
-    accent: {
-      text: "text-emerald-600",
-      iconBg: "bg-violet-100",
-      iconText: "text-emerald-600",
-      ring: "ring-emerald-100",
-    },
   },
   moderado: {
     key: "moderado",
@@ -370,12 +362,6 @@ const profiles: Record<ProfileKey, ProfileData> = {
     behaviour: moderate.behaviour,
     features: moderate.features,
     icon: FaScaleBalanced,
-    accent: {
-      text: "text-violet-600",
-      iconBg: "bg-violet-100",
-      iconText: "text-violet-600",
-      ring: "ring-violet-100",
-    },
   },
   arrojado: {
     key: "arrojado",
@@ -385,12 +371,6 @@ const profiles: Record<ProfileKey, ProfileData> = {
     behaviour: arrojado.behaviour,
     features: arrojado.features,
     icon: FaRocket,
-    accent: {
-      text: "text-orange-500",
-      iconBg: "bg-violet-100",
-      iconText: "text-orange-500",
-      ring: "ring-orange-100",
-    },
   },
   agressivo: {
     key: "agressivo",
@@ -400,12 +380,6 @@ const profiles: Record<ProfileKey, ProfileData> = {
     behaviour: agressive.behaviour,
     features: agressive.features,
     icon: FaRocket,
-    accent: {
-      text: "text-pink-600",
-      iconBg: "bg-violet-100",
-      iconText: "text-pink-600",
-      ring: "ring-pink-100",
-    },
   },
 };
 
@@ -420,27 +394,11 @@ function getProfileFromScore(score: number): ProfileKey {
 /*  ENVIO DO RESULTADO POR E-MAIL (EmailJS)                                  */
 /* -------------------------------------------------------------------------- */
 
-// EmailJS é feito pra ser chamado direto do browser (por isso não precisa de
-// uma API própria no servidor) — a "chave pública" não é secreta, mas o
-// Service ID e o Template ID precisam existir no seu painel do EmailJS
-// (https://dashboard.emailjs.com). Configure como variáveis de ambiente:
-//
-//   NEXT_PUBLIC_EMAILJS_SERVICE_ID=...
-//   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=...
-//   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=...
-//
-// (se o projeto usar Vite em vez de Next.js, troque o prefixo pra
-// import.meta.env.VITE_...)
-//
-// No template do EmailJS, use as variáveis {{to_email}}, {{profile}},
-// {{score}}, {{submitted_at}} e {{answers}} — "answers" já chega pronto,
-// formatado como texto com uma pergunta e resposta por linha.
-
 const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
 const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
 const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
 
-// endereço da cliente que deve receber o resultado de cada teste preenchido
+// substituir por email da simone
 const RESULTS_TO_EMAIL = "laraasouzadasilva@gmail.com";
 
 type AnswerValue = number | number[];
@@ -608,32 +566,32 @@ export default function SuitabilityTest() {
 function Sidebar({ complete }: { complete: boolean }) {
   return (
     <aside className="lg:sticky lg:top-8 lg:self-start">
-      <span className="text-xs font-bold tracking-wide text-violet-600">{sidebar.test}</span>
+      <span className="self-start bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent text-[20px] font-extrabold">{sidebar.test}</span>
 
-      <div className="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-violet-100">
-        <FaLightbulb className="h-5 w-5 text-violet-600" />
+      <div className="mt-4 flex size-16 items-center justify-center rounded-full bg-[#F2F0FD]">
+        <FaLightbulb className="size-8 text-[#7C4DFF]" />
       </div>
 
-      <h2 className="mt-4 text-2xl font-bold leading-snug text-slate-900">
-        Descubra qual é o seu{" "}
-        <span className="text-violet-600">perfil de investidor.</span>
+      <h2 className="mt-4 text-[24px] font-extrabold leading-snug">
+        {sidebar.title}
+        <span className="text-[#7C4DFF]"> {sidebar.spanTitle}</span>
       </h2>
 
-      {/* barra decorativa: cheia quando o resultado já saiu, parcial durante o teste */}
       <div className="mt-4 h-1 w-24 overflow-hidden rounded-full bg-slate-200">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-violet-600 to-blue-400 transition-all"
-          style={{ width: complete ? "100%" : "40%" }}
+          className="h-full w-full rounded-full bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] transition-all"
         />
       </div>
 
-      <p className="mt-4 text-sm leading-relaxed text-slate-500">{sidebar.subtitle}</p>
+      <p className="mt-4 text-[16px]">{sidebar.subtitle}</p>
 
-      <div className="mt-6 flex gap-3 rounded-xl bg-violet-50 p-4">
-        <FaCircleExclamation className="mt-0.5 h-5 w-5 shrink-0 text-violet-600" />
+      <div className="mt-6 flex flex-col gap-3 rounded-xl bg-[#E2DDFF] p-4">
+        <div className="mt-0.5 size-10 shrink-0 rounded-full bg-[#F2F0FD] flex items-center justify-center"> 
+          <FaExclamation className="shrink-0 text-[#7C4DFF] size-6"/> 
+        </div>
         <div>
-          <p className="text-sm font-semibold text-slate-900">{sidebar.card.title}</p>
-          <p className="mt-1 text-sm leading-relaxed text-slate-500">{sidebar.card.body}</p>
+          <p className="text-[16px] font-extrabold">{sidebar.card.title}</p>
+          <p className="mt-1 text-[16px]">{sidebar.card.body}</p>
         </div>
       </div>
     </aside>
@@ -678,23 +636,23 @@ function QuestionPanel({
       {/* Cabeçalho / progresso */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
         <div>
-          <span className="text-sm font-semibold text-violet-600">
+          <span className="text-[18px] font-extrabold text-[#7C4DFF]">
             Etapa {step + 1} de {totalSteps}
           </span>
-          <p className="text-sm text-slate-500">{stepTitles[step]}</p>
+          <p className="text-[16px] font-extralight">{stepTitles[step]}</p>
         </div>
-        <span className="text-sm text-slate-400">
+        <span className="text-[16px] font-extralight">
           {answeredCount} de {totalQuestions} perguntas
         </span>
       </div>
 
       <div className="mb-2 h-2 w-full overflow-hidden rounded-full bg-slate-100">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-violet-600 to-blue-400 transition-all"
+          className="h-full rounded-full bg-[#7C4DFF]"
           style={{ width: `${progressPercent}%` }}
         />
       </div>
-      <p className="mb-8 text-right text-xs font-semibold text-violet-600">{progressPercent}%</p>
+      <p className="mb-8 text-center text-[16px] font-extrabold text-[#7C4DFF] border-b border-slate-300 pb-4">{progressPercent}%</p>
 
       {/* Perguntas da etapa */}
       <div className="space-y-10">
@@ -703,8 +661,8 @@ function QuestionPanel({
           const questionNumber = questionOrder.indexOf(key) + 1;
           return (
             <div key={key}>
-              <h3 className="mb-4 flex items-start gap-3 text-base font-semibold text-slate-900 sm:text-lg">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-600 text-xs font-bold text-white">
+              <h3 className="mb-4 flex items-center gap-4 text-[16px] sm:text-[20px] font-extrabold sm:text-lg">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#7C4DFF] text-[16px] font-bold text-white">
                   {questionNumber}
                 </span>
                 {question.title}
@@ -752,7 +710,7 @@ function QuestionPanel({
                         <Icon className={`h-5 w-5 ${selected ? "text-violet-700" : "text-violet-500"}`} />
                       </span>
 
-                      <span className="text-sm leading-snug text-slate-700">{answerText}</span>
+                      <span className="text-sm leading-snug">{answerText}</span>
                     </button>
                   );
                 })}
@@ -763,18 +721,24 @@ function QuestionPanel({
       </div>
 
       {/* Ações */}
-      <div className="mt-10 flex items-center justify-between gap-3 border-t border-slate-100 pt-6">
+      <div className="flex justify-center">
+        <span className="flex items-center gap-1.5 text-sm text-slate-400 mt-5 sm:hidden">
+            <FaLock className="h-3.5 w-3.5" />
+            {confidential}
+        </span>
+      </div>
+      <div className="mt-5 flex items-center justify-between gap-3 border-t border-slate-300 pt-6">
         <button
           type="button"
           onClick={onBack}
           disabled={!canGoBack}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-600 transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-[#7C4DFF] px-4 py-2.5 text-[14px] sm:text-[18px] font-semibold text-[#7C4DFF] transition-colors hover:bg-violet-100 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          <FaChevronLeft className="h-4 w-4" />
+          <FaChevronLeft className="h-4 w-4 text-[#7C4DFF]" />
           {buttons.back}
         </button>
 
-        <span className="hidden items-center gap-1.5 text-xs text-slate-400 sm:flex">
+        <span className="hidden items-center gap-1.5 text-sm text-slate-400 sm:flex">
           <FaLock className="h-3.5 w-3.5" />
           {confidential}
         </span>
@@ -783,7 +747,7 @@ function QuestionPanel({
           type="button"
           onClick={onNext}
           disabled={!canGoNext}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-[#7C4DFF] px-5 py-2.5 text-[14px] sm:text-[18px] font-semibold text-white transition-colors hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {buttons.next}
           <FaChevronRight className="h-4 w-4" />
@@ -810,32 +774,33 @@ function ResultPanel({
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
-      <span className="text-sm font-semibold text-violet-600">{result.title}</span>
-      <p className="mb-6 text-sm text-slate-500">{result.subtitle}</p>
+      <span className="text-[18px] font-extrabold text-[#7C4DFF]">{result.title}</span>
+      <p className="mb-4 text-[16px] font-extralight">{result.subtitle}</p>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 border-t border-slate-300 pt-6">
         {/* Coluna esquerda: perfil, descrição e "isso significa que você" */}
         <div className="text-center lg:text-left">
-          <div
-            className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full lg:mx-0 ${profile.accent.iconBg}`}
-          >
-            <Icon className={`h-7 w-7 ${profile.accent.iconText}`} />
+          <div className="flex flex-col items-center mb-5">
+            <div
+              className={`mx-auto flex size-24 items-center justify-center rounded-full lg:mx-0 bg-[#F2F0FD]`}
+            >
+              <Icon className={`size-12 text-[#7C4DFF]`} />
+            </div>
+            <p className="mt-4 text-[20px] font-semibold">{inCommonResult.title}</p>
+            <h2 className={`text-[40px] font-extrabold text-[#7C4DFF] leading-10`}>{profile.name}</h2>
           </div>
 
-          <p className="mt-4 text-sm text-slate-500">{inCommonResult.title}</p>
-          <h2 className={`text-3xl font-extrabold ${profile.accent.text}`}>{profile.name}</h2>
-
-          <div className="mt-4 rounded-xl bg-violet-50 p-4 text-sm leading-relaxed text-slate-600">
+          <div className="mt-4 rounded-xl bg-[#E2DDFF] p-4 text-[16px] text-center">
             {profile.description}
           </div>
 
-          <p className={`mt-5 text-left text-sm font-semibold ${profile.accent.text}`}>
+          <p className={`mt-5 text-left text-[16px] font-semibold text-[#7C4DFF]`}>
             {inCommonResult.meaning}
           </p>
           <ul className="mt-3 space-y-2.5 text-left">
             {profile.meaning.map((item, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
-                <FaCircleCheck className={`mt-0.5 h-4 w-4 shrink-0 ${profile.accent.text}`} />
+              <li key={i} className="flex items-start gap-2.5 text-sm">
+                <FaRegCheckCircle className={`mt-0.5 h-4 w-4 shrink-0 text-[#7C4DFF]`} />
                 {item}
               </li>
             ))}
@@ -845,29 +810,29 @@ function ResultPanel({
         {/* Coluna direita: comportamento + características */}
         <div>
           <div className="rounded-xl border border-violet-100 bg-white p-4">
-            <p className="flex items-center gap-2 text-sm font-semibold text-violet-600">
-              <FaCircleInfo className="h-4 w-4" />
+            <p className="flex items-center gap-2 text-[20px] font-extrabold text-violet-600">
+              <FaCircleInfo className="size-6" />
               {inCommonResult.behaviour}
               {profile.name}?
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">{profile.behaviour}</p>
+            <p className="mt-2 text-[16px] leading-relaxed">{profile.behaviour}</p>
           </div>
 
-          <div className="mt-4 rounded-xl bg-violet-50 p-4">
-            <p className="mb-4 text-sm font-semibold text-slate-700">Características deste perfil</p>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mt-4 rounded-xl bg-[#E2DDFF] p-4">
+            <p className="mb-4 text-[16px] font-extrabold text-[#7C4DFF]">{featuresTitle}</p>
+            <div className="grid grid-cols-1 gap-4 ">
               {profile.features.map((feature, i) => {
                 const FeatureIcon = feature.icon;
                 return (
                   <div key={i} className="flex gap-3">
                     <span
-                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white ${profile.accent.iconText}`}
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#7C4DFF]`}
                     >
                       <FeatureIcon className="h-4 w-4" />
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">{feature.title}</p>
-                      <p className="mt-0.5 text-sm leading-snug text-slate-500">{feature.text}</p>
+                      <p className="text-[16px] font-semibold ">{feature.title}</p>
+                      <p className="mt-0.5 text-[16px] ">{feature.text}</p>
                     </div>
                   </div>
                 );
@@ -877,7 +842,7 @@ function ResultPanel({
         </div>
       </div>
 
-      <div className="mt-8 flex flex-col-reverse items-center justify-between gap-4 border-t border-slate-100 pt-6 sm:flex-row">
+      <div className="mt-8 flex flex-col-reverse items-center justify-between gap-4 border-t border-slate-300 pt-6 sm:flex-row">
         <div className="flex flex-col gap-1 sm:gap-0.5">
           <span className="flex items-center gap-1.5 text-xs text-slate-400">
             <FaLock className="h-3.5 w-3.5" />
@@ -906,7 +871,7 @@ function ResultPanel({
         <button
           type="button"
           onClick={onRedo}
-          className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-violet-700 sm:w-auto"
+          className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-violet-600 px-5 py-2.5 text-[18px] font-semibold text-white transition-colors hover:bg-violet-700 sm:w-auto"
         >
           <FaArrowRotateRight className="h-4 w-4" />
           {buttons.redo}
