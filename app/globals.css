@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -12,6 +13,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-dancing: "Dancing Script", cursive;
+  --color-brand-purple: #7c4dff;
+  --color-brand-cyan: #2ed8e8;
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-dark-blue: var(--dark-blue);
@@ -30,6 +35,7 @@
 }
 body {
   color: var(--foreground);
+  font-family: var(--font-sans);
   font-family: var(--font-nunito);
 }
 }
