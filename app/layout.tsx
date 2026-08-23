@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Nunito } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar";
+import Footer from "./footer";
 
-import "./globals.css";
-
+// Configuração única da fonte Nunito
 const nunito = Nunito({
-  variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"], // Nunito tem essas variações
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-nunito",
 });
 
@@ -42,12 +35,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} h-full antialiased`}
+      lang="pt-BR"
+      className={`${nunito.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-sans">
         <Navbar />
         {children}
+        <Footer/>
       </body>
     </html>
   );
