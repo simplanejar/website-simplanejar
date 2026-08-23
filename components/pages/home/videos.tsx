@@ -45,7 +45,7 @@ const seriesData = [
 // Triplicamos os dados para criar o loop infinito visualmente (apenas para mobile)
 const infiniteSeriesData = [...seriesData, ...seriesData, ...seriesData];
 
-export default function Videos() {
+export function Videos() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 

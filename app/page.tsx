@@ -1,10 +1,15 @@
-import ContactPage from "@/components/pages/contact";
-import Image from "next/image";
+import { Hero } from "@/components/pages/home/hero";
+import { Book } from "@/components/pages/home/book";
+import { Videos } from "@/components/pages/home/videos";
 import Simulators from "@/components/pages/home/simulators";
 
-import Book from "@/components/pages/investor-profile/book";
 export default function Home() {
   return (
-    <ContactPage />
+    <>
+      <Hero></Hero>
+      <Book></Book>
+      <Simulators></Simulators>
+      <Videos></Videos>
+    </>
   );
 }
