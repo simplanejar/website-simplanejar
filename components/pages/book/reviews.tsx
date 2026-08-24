@@ -70,7 +70,7 @@ const reviewsData: Review[] = [
 // Lista triplicada para permitir o carrossel infinito sem cortes
 const extendedReviews = [...reviewsData, ...reviewsData, ...reviewsData];
 
-export default function Reviews() {
+export function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(reviewsData.length);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
