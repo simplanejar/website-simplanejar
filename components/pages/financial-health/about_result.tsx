@@ -76,7 +76,7 @@ function renderHighlightedText(
   )
 }
 
-export default function AboutResult() {
+export function AboutResult() {
     return(
         <section className="p-5 md:p-20">
             <div>

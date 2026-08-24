@@ -8,6 +8,8 @@ export default function Home() {
     <>
       <Hero></Hero>
       <Book></Book>
+      {/* about */}
+      {/* simone */}
       <Simulators></Simulators>
       <Videos></Videos>
     </>
