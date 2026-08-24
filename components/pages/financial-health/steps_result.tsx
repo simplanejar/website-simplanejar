@@ -79,7 +79,7 @@ function CardArrow({ colour = "#7C4DFF" }: { colour?: string }) {
   )
 }
 
-export default function StepsResults() {
+export function StepsResults() {
     return(
         <section className="p-5 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-30">
             {/* Texto de cima: igual, porém menor e mais estreito no mobile */}

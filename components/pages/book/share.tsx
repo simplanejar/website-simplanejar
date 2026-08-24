@@ -32,7 +32,7 @@ export function renderHighlightedText(
   )
 }
 
-export default function Share() {
+export function Share() {
   return (
     <div className="font-nunito items-center flex flex-col p-6 md:p-20 md:bg-[url('/pages/share.png')] md:bg-cover md:bg-center bg-no-repeat">
 		<div className="items-start md:items-center flex flex-col mb-12 md:mb-20 w-full">

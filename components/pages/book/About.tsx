@@ -166,7 +166,7 @@ paragraphs.map((paragraph, i) =>
 )
 
 
-export default function About(){
+export function About(){
     const [isVisible, setIsVisible] = useState(false);
 
     function toggleView() {
