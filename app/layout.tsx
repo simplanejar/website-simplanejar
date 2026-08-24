@@ -11,11 +11,6 @@ const nunito = Nunito({
   variable: "--font-nunito",
 });
 
-const nunito = Nunito({
-	variable: "--font-nunito",
-	subsets: ["latin"],
-	display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Sim Planejar",
