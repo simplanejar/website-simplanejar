@@ -447,6 +447,7 @@ export default function Simulator() {
                     {isOnTrack 
                       ? <>Com os valores informados, sua projeção indica que você conseguirá gerar aproximadamente <span className="text-[#7C4DFF] font-bold">{formatBRL(estimatedIncome)} por mês</span> na aposentadoria durante {yearsReceiving} anos.</>
                       : <>Sua projeção está próxima da renda desejada. Pequenos ajustes no valor investido, no prazo ou na rentabilidade considerada podem aproximar você do objetivo.</>}
+                      {isFar && <>Com os valores informados, o patrimônio estimado não será suficiente para gerar a renda mensal desejada.</>}
                   </p>
                 </div>
 
