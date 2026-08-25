@@ -259,12 +259,12 @@ export default function Simulator() {
         </h2>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pb-16">
+      <section className="max-w-[1378px] mx-auto px-2 sm:px-6 lg:px-[30px] pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          <form onSubmit={handleCalculate} className="lg:col-span-8 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-[#D9D9D9]/60 space-y-6 sm:space-y-8 h-full">
+          <form onSubmit={handleCalculate} className="lg:col-span-8 bg-white p-5 sm:px-5 sm:py-4 rounded-2xl sm:rounded-3xl shadow-sm border border-[#D9D9D9]/60 space-y-4 h-full">
             {/* Step 1 */}
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <IconPerson className="w-10 h-10 sm:w-11 sm:h-11" />
                 <h3 className="text-lg sm:text-xl font-bold text-foreground">1. Seus dados</h3>
@@ -290,7 +290,7 @@ export default function Simulator() {
             <hr className="border-[#D9D9D9]/60" />
 
             {/* Step 2 */}
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <IconTarget className="w-10 h-10 sm:w-11 sm:h-11" />
                 <h3 className="text-lg sm:text-xl font-bold text-foreground">2. Seu objetivo</h3>
@@ -316,7 +316,7 @@ export default function Simulator() {
             <hr className="border-[#D9D9D9]/60" />
 
             {/* Step 3 */}
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <IconSavings className="w-10 h-10 sm:w-11 sm:h-11" />
                 <h3 className="text-lg sm:text-xl font-bold text-foreground">3. Sua reserva para aposentadoria</h3>
@@ -342,7 +342,7 @@ export default function Simulator() {
             <hr className="border-[#D9D9D9]/60" />
 
             {/* Step 4 */}
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <IconStocks className="w-10 h-10 sm:w-11 sm:h-11" />
                 <h3 className="text-lg sm:text-xl font-bold text-foreground">4. Rentabilidade considerada</h3>
@@ -389,14 +389,14 @@ export default function Simulator() {
           </form>
 
           {/* Banner Sidebar */}
-          <div className="lg:col-span-4 w-full bg-[#F2F0FD] rounded-2xl sm:rounded-3xl pt-6 lg:pt-8 border border-[#E2DDFF] flex flex-col h-full overflow-hidden">
-            <div className="space-y-4 px-6 lg:px-8 mb-6 flex-shrink-0">
+          <div className="lg:col-span-4 w-full bg-[#F5F4FB] rounded-2xl sm:rounded-3xl pt-6 lg:pt-8 border border-[#E2DDFF] flex flex-row-reverse items-center lg:flex-col h-full overflow-hidden">
+            <div className="space-y-2 sm:space-y-5 px-3 md:px-6 lg:px-8 mb-6 lg:flex-shrink-0">
               <IconIdea className="w-12 h-12" />
-              <h3 className="text-2xl font-bold leading-tight text-foreground">Seu futuro começa com uma <span className="text-primary">decisão hoje.</span></h3>
+              <h3 className="sm:text-2xl font-bold leading-tight text-foreground">Seu futuro começa com uma <span className="text-primary">decisão hoje.</span></h3>
               <p className="text-base font-semibold text-foreground leading-snug">Planejar a aposentadoria é transformar objetivos de longo prazo em escolhas conscientes no presente.</p>
             </div>
             <div className="w-full mt-auto flex flex-col justify-end">
-              <Image src={entry2} alt="Casal sorrindo" className="w-full h-auto block rounded-b-2xl sm:rounded-b-3xl" />
+              <Image src={entry2} alt="Casal sorrindo" className="w-full h-auto block rounded-b-2xl min-w-[135px]" />
             </div>
           </div>
         </div>
