@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Sobre() {
+export default function Founder() {
   return (
     //Seção princial
     <section id="sobre" className="relative w-full pt-20 pb-14 px-4 md:px-8 overflow-hidden font-sans">

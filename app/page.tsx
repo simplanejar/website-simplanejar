@@ -2,7 +2,7 @@ import { Hero } from "@/components/pages/home/hero";
 import { Book } from "@/components/pages/home/book";
 import { Videos } from "@/components/pages/home/videos";
 import Simulators from "@/components/pages/home/simulators";
-import Sobre from "@/components/pages/home/about";
+import Founder from "@/components/pages/home/founder";
 
 export default function Home() {
   return (
@@ -10,9 +10,8 @@ export default function Home() {
       <Hero></Hero>
       <Book></Book>
       {/* about */}
-      {/* simone */}
+      <Founder/>
       <Simulators></Simulators>
-      <Sobre></Sobre>
       <Videos></Videos>
     </>
   );
