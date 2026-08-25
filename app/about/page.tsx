@@ -1,13 +1,15 @@
 import Journey from "@/components/pages/about/journey";
+import SobreNavbar from "@/components/pages/about/nav";
 import Values from "@/components/pages/about/Values";
+import Why from "@/components/pages/about/why";
 
 export default function About() {
   return (
     <>
-      {/* nav */}
+      <SobreNavbar />
       {/* about */}
       <Journey/>
-      {/* why */}
+      <Why/>
       <Values/>
       {/* founder */}
     </>

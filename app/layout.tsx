@@ -11,6 +11,7 @@ const nunito = Nunito({
   variable: "--font-nunito",
 });
 
+
 export const metadata: Metadata = {
   title: "Sim Planejar",
   description:
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
   return (
     <html
