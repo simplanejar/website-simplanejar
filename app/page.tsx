@@ -13,6 +13,7 @@ export default function Home() {
       {/* about */}
       {/* simone */}
       {/* <Simulators></Simulators> */}
+      <RetirementSimulator />
       <Simulator />
       <Videos></Videos>
     </>

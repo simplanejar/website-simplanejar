@@ -79,12 +79,34 @@ export default function RetirementSimulator() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans relative overflow-hidden">
       
-      {/* <Image src={elipse2} alt="" width={713} height={651} className="hidden lg:block absolute top-[-4%] right-[6%] w-[500px] pointer-events-none z-0" />
-      <Image src={elipse1} alt="" width={512} height={651} className="hidden lg:block absolute top-[2%] right-[18%] w-[380px] pointer-events-none z-0" />
-      <Image src={elipse3} alt="" width={623} height={651} className="hidden lg:block absolute top-[0%] right-[0%] w-[440px] pointer-events-none z-0" /> */}
-      {/*era para ser as elipses */}
       {/* Hero Section */}
       <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        {/* elipses*/}
+        <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src={elipse2}
+            alt=""
+            width={713}
+            height={651}
+            className="absolute left-[42.7%] top-[3.4%] w-[36.8%] h-auto"
+          />
+          <Image
+            src={elipse1}
+            alt=""
+            width={512}
+            height={651}
+            className="absolute right-[-10.5%] top-[39.3%] w-[29.1%] h-auto"
+          />
+          <Image
+            src={elipse3}
+            alt=""
+            width={623}
+            height={651}
+            className="absolute left-[53.5%] top-[28.8%] w-[39.4%] h-auto"
+          />
+        </div>
+
         {/* Left Column Text */}
         <div className="lg:col-span-6 space-y-4 sm:space-y-5">
           <span className="block lg:hidden text-xs sm:text-sm font-extrabold tracking-wide text-[#7343E0] uppercase">
