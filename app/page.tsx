@@ -11,7 +11,9 @@ export default function Home() {
       <Book></Book>
       <About></About>
       {/* simone */}
-      <Simulators></Simulators>
+      {/* <Simulators></Simulators> */}
+      <RetirementSimulator />
+      <Simulator />
       <Videos></Videos>
     </>
   );
