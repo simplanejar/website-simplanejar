@@ -10,7 +10,7 @@ import type { HeroFeatureCard } from "./types";
 
 const categoryColorStyles = {
   purple: "text-brand-purple",
-  teal: "text-brand-teal",
+  teal: "text-[#01AEAA]",
 } as const;
 
 const iconMap = {
@@ -29,20 +29,20 @@ export function HeroFeatureCardItem({ card, className = "" }: HeroFeatureCardPro
   return (
     <Link
       href={card.href}
-      className={`flex min-h-[95px] items-center gap-4 rounded-[10px] bg-white px-4 py-4 shadow-[0_1px_4px_rgba(0,0,0,0.25)] transition-shadow hover:shadow-md sm:px-5 ${className}`}
+      className={`flex min-h-[70px] items-center gap-2 rounded-[10px] bg-white p-3 shadow-[0_1px_4px_rgba(0,0,0,0.25)] transition-shadow hover:shadow-md sm:min-h-[95px] sm:gap-4 sm:px-5 sm:py-4 ${className}`}
     >
-      <Icon />
+      <Icon className="shrink-0" />
       <div className="min-w-0 flex-1">
         <p
-          className={`text-lg font-semibold leading-[22px] ${categoryColorStyles[card.categoryColor]}`}
+          className={`text-[14px] font-semibold leading-[22px] md:text-[16px] lg:text-[18px] ${categoryColorStyles[card.categoryColor]}`}
         >
           {card.category}
         </p>
-        <p className="whitespace-pre-line text-base font-semibold leading-5 text-brand-dark-blue">
+        <p className="hidden whitespace-pre-line text-[14px] font-semibold leading-5 text-brand-dark-blue sm:block md:text-[16px] lg:text-[18px]">
           {card.title}
         </p>
       </div>
-      <CardArrowIcon className="shrink-0 text-brand-purple" />
+      <CardArrowIcon className="hidden shrink-0 text-brand-purple md:block" />
     </Link>
   );
 }
