@@ -158,7 +158,7 @@ export function About() {
  
                     <button
                         type="button"
-                        className="mt-8 inline-flex items-center gap-2 rounded-[10px] mx-auto bg-[#7C4DFF] px-10 py-5 font-extrabold text-white  shadow-[#7C4DFF]/30 transition hover:bg-[#6B3EF0] hover:shadow-xl hover:shadow-[#7C4DFF]/40 cursor-pointer"
+                        className="mt-8 inline-flex items-center gap-2 rounded-[10px] mx-auto px-10 py-5 font-extrabold text-white bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 cursor-pointer"
                     >
                         {data.button.text}
                         <ButtonIcon className="text-[20px]" />

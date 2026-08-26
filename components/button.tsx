@@ -4,7 +4,7 @@ import type { ButtonProps } from "./button.types";
 
 const variantStyles = {
   primary:
-    "bg-brand-purple text-white shadow-[0_1px_4px_rgba(0,0,0,0.25)] hover:bg-brand-purple/90",
+    "text-white shadow-[0_1px_4px_rgba(0,0,0,0.25)] bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200",
   secondary:
     "border border-brand-teal bg-white text-brand-teal hover:bg-brand-teal/5",
 } as const;

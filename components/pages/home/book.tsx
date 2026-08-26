@@ -343,7 +343,7 @@ export function Book() {
 								href={amazonLink}
 								target="_blank"
 								rel="noreferrer"
-								className="flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[10px] bg-primary px-6 py-4 font-nunito text-base font-extrabold text-white shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] transition-colors hover:bg-primary/90"
+								className="flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[10px] bg-primary px-6 py-4 font-nunito text-base font-extrabold text-white shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200"
 							>
 								<MdOutlineShoppingCart size={20} />
 								Comprar agora na Amazon
@@ -352,13 +352,13 @@ export function Book() {
 
 							<Link
 								href="/book"
-								className="flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[10px] border border-primary px-6 py-4 font-nunito text-base font-extrabold text-primary transition-colors hover:bg-primary/5"
+								className="flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[10px] border border-primary px-6 py-4 font-nunito text-base font-extrabold text-primary hover:bg-primary/5 hover:shadow-lg transition-all duration-200"
 							>
 								Conheça mais sobre o livro
 								<ChevronRight className="h-4 w-4" />
 							</Link>
 						</div>
-					</div>
+					</div> 
 
 					<AmazonReviews
 						reviews={reviews}

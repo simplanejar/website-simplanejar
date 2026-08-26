@@ -96,7 +96,7 @@ export default function Simulators() {
                         </div>
 
                         {/* Botão (Desktop/Tablet) */}
-                        <div className="hidden md:flex w-full sm:w-[304px] h-[59px] rounded-[10px] bg-primary shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] text-white font-nunito text-base font-extrabold flex-row items-center justify-between p-[15px] cursor-pointer hover:bg-[#A280FF] transition-opacity mt-2">
+                        <div className="hidden md:flex w-full sm:w-[304px] h-[59px] rounded-[10px] bg-primary shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] text-white font-nunito text-base font-extrabold flex-row items-center justify-between p-[15px] cursor-pointer hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 transition-opacity mt-2">
                             <button className="bg-transparent border-none font-nunito font-bold p-0 text-white cursor-pointer">
                                 {data.button}
                             </button>
