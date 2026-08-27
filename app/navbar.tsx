@@ -38,7 +38,7 @@ interface ButtonProps {
 
 function Button({ className = "", onClick }: ButtonProps) {
     return (
-        <Link href="/sobre" onClick={onClick} className={`flex items-center justify-center gap-2 rounded-xl bg-[#7C4DFF] px-4 py-3 text-base font-semibold text-white hover:bg-[#A280FF] ${className}`}>
+        <Link href="/sobre" onClick={onClick} className={`flex items-center justify-center gap-2 rounded-xl bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 px-4 py-3 text-base font-semibold text-white ${className}`}>
             <span>Conheça o Sim Planejar!</span>
             <IoIosArrowForward className="shrink-0 text-xl" />
         </Link>

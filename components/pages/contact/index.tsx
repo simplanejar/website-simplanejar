@@ -18,7 +18,6 @@ export default function ContactPage() {
     <>
     <ContactHero />
     <ContactBody />
-    <ContactFooter />
     </>
   )
 }
