@@ -4,6 +4,7 @@ import { Videos } from "@/components/pages/home/videos";
 import Simulators from "@/components/pages/home/simulators";
 import Founder from "@/components/pages/home/founder";
 import { About } from "@/components/pages/home/about";
+import ContactBody from "@/components/pages/contact/ContactBody";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Founder/>
       <Simulators></Simulators>
       <Videos></Videos>
+      <ContactBody />
     </>
   );
 }
