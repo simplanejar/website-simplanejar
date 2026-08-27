@@ -86,7 +86,7 @@ export default function Book() {
 
                     </div>
 
-                    <button className='w-full lg:w-2/5 bg-[#7C4DFF] hover:bg-[#A280FF] transition-colors text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-3'>
+                    <button className='w-full lg:w-2/5 bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 transition-colors text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-3'>
                         <FiBookOpen size={20} /> Conhecer o livro <IoMdArrowForward size={20}/>
                     </button>
                 </div>
