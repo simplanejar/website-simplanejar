@@ -64,7 +64,7 @@ function DownloadButton({imageUrl, nomeArquivo, className = "",}: DownloadButton
 	};
 
 	return (
-		<button onClick={handleClick} disabled={carregando} className={`cursor-pointer flex h-[40px] w-full items-center justify-center gap-2 px-4 text-white rounded-[10px] bg-[var(--stage-color)] transition-colors duration-300 ease-in-out hover:bg-[var(--stage-hover)] md:h-[52px] xl:h-[40px] ${className}`}>
+		<button onClick={handleClick} disabled={carregando} className={`cursor-pointer flex h-[40px] w-full items-center justify-center gap-2 px-4 text-white rounded-[10px] bg-[var(--stage-color)] transition-all duration-200 ease-in-out hover:bg-[var(--stage-hover)] hover:shadow-lg md:h-[52px] xl:h-[40px] ${className}`}>
 			<MdDownload className="shrink-0 text-lg" />
 			<p className="whitespace-nowrap text-base font-semibold md:whitespace-normal md:text-center xl:whitespace-nowrap">
 				{carregando ? "Baixando..." : "Download da Estrela"}
@@ -94,7 +94,7 @@ function InstagramButton({ imageUrl, nomeArquivo, className = "" }: InstagramBut
 	};
 
 	return (
-		<button onClick={handleClick} disabled={carregando} className={`cursor-pointer flex h-[40px] w-full items-center justify-center gap-1 rounded-[10px] border-2 border-[var(--stage-color)] bg-white px-4 text-[var(--stage-color)] transition-colors duration-300 ease-in-out hover:bg-[var(--stage-light)] md:h-[52px] xl:h-[40px] ${className}`}>
+		<button onClick={handleClick} disabled={carregando} className={`cursor-pointer flex h-[40px] w-full items-center justify-center gap-1 rounded-[10px] border-2 border-[var(--stage-color)] bg-white px-4 text-[var(--stage-color)] transition-all duration-200 ease-in-out hover:bg-[var(--stage-light)] hover:shadow-lg md:h-[52px] xl:h-[40px] ${className}`}>
 			<FaInstagram className="shrink-0 text-base" />
 			<p className="whitespace-nowrap text-sm font-semibold md:whitespace-normal md:text-center xl:whitespace-nowrap">
 				{carregando ? "Abrindo..." : "Compartilhar no Instagram"}
@@ -122,8 +122,8 @@ export function Cards({etapa, titulo, descricao, cor, corHover, corClara, isActi
 
 	return (
 		<div style={{ ...stageColors, borderTopColor: cor }}
-			className={`flex h-[345px] w-full shrink-0 flex-col rounded-[10px] border-t-[7px] bg-white p-2 drop-shadow transition-transform duration-300 ease-out sm:h-[380px] sm:px-[10px] sm:py-4 lg:h-[360px] xl:h-[355px] ${isActive ? "sm:-translate-y-1 sm:scale-[1.015]" : "sm:scale-100"} ${className}`}
-		>
+            className={`flex h-[345px] w-full shrink-0 flex-col rounded-[10px] border-t-[7px] bg-white p-2 transition-all duration-200 ease-out sm:h-[380px] sm:px-[10px] sm:py-4 lg:h-[360px] xl:h-[355px] ${isActive ? "sm:-translate-y-1 sm:scale-[1.015] shadow-lg" : "sm:scale-100 hover:shadow-lg"} ${className}`}		
+        >
 			<div className="mb-5 flex shrink-0 items-center gap-4 px-1">
 				
                 <div style={{ borderColor: corClara, boxShadow: `0 3px 8px ${cor}55`,}} className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full border bg-[var(--stage-light)] text-[var(--stage-color)]">

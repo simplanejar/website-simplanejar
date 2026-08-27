@@ -214,7 +214,7 @@ export function About(){
                     </button>
                     <p className='text-[#7C4DFF] text-[18px] md:text-[22px] font-extrabold mt-[40px] text-center md:text-left'>{aboutMockData.pitch}</p>
                     <a href={aboutMockData.buyButton.link} target="_blank">
-                        <button className='flex items-center text-white content-center p-4 md:py-[18px] md:px-[24px] mt-[7px] md:mt-[40px] gap-[8px] rounded-[10px] bg-[#7C4DFF] font-bold shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] cursor-pointer m-auto md:m-0'>
+                        <button className='flex items-center text-white content-center p-4 md:py-[18px] md:px-[24px] mt-[7px] md:mt-[40px] gap-[8px] rounded-[10px] bg-[#7C4DFF] font-bold hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 cursor-pointer m-auto md:m-0'>
                         <MdOutlineShoppingCart className='w-[20px] h-[20px]' />
                         {aboutMockData.buyButton.text}
                         </button>

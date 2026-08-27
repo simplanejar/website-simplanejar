@@ -70,16 +70,20 @@ export function Share() {
             <p className="text-left mt-4">{renderHighlightedText(card.description)}</p>
 
             <button
-              className={`cursor-pointer mt-10 flex flex-row ${
-                index == 0
-                  ? "bg-primary text-background"
-                  : "bg-card-bg text-primary border-1 border-primary border-solid"
-              } rounded-[10px] p-3 pr-10 pl-10 items-center justify-between m-5`}
-            >
-              {index == 0 ? <SlNote className="h-7 w-7" /> : <MdOutlineChat className="h-7 w-7" />}
-              <p className="text-xl">{card.call}</p>
-              <FaArrowRight className="h-5 w-5" />
-            </button>
+                className={`cursor-pointer mt-10 flex flex-row ${
+                    index == 0
+                    ? "bg-primary text-background hover:bg-[#6939E8] hover:shadow-lg"
+                    : "bg-card-bg text-primary border-2 border-primary border-solid hover:bg-primary/5 hover:shadow-lg"
+                } rounded-[10px] p-3 pr-10 pl-10 items-center justify-between m-5 transition-all duration-200`}
+                >
+                {index == 0 ? (
+                    <SlNote className="h-7 w-7" />
+                ) : (
+                    <MdOutlineChat className="h-7 w-7" />
+                )}
+                <p className="text-xl font-bold">{card.call}</p>
+                <FaArrowRight className="h-5 w-5" />
+                </button>
           </div>
         ))}
       </div>
