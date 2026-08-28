@@ -1,4 +1,5 @@
 // src/lib/email.ts
+import type { SubmissionEntry } from "@/components/pages/book/questionnaire/types"; // ajusta o caminho conforme sua estrutura
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import { toast, Zoom } from "react-toastify";
 
@@ -21,12 +22,12 @@ const builders = {
     <p><strong>Email:</strong> ${dados.get("email")}</p>
     <p><strong>Mensagem:</strong> ${dados.get("message")}</p>
   `,
-  feedbackLivro: (dados: FormData) => `
-    <h2>Pedido de orçamento</h2>
-    <p><strong>Empresa:</strong> ${dados.get("empresa")}</p>
-    <p><strong>Escopo:</strong> ${dados.get("escopo")}</p>
-    <p><strong>Email:</strong> ${dados.get("email")}</p>
-  `,
+  feedbackLivro: (dados: { respostas: SubmissionEntry[] }) => `
+  <h2>Feedback do livro</h2>
+  ${dados.respostas
+    .map((r) => `<p><strong>${r.question}:</strong> ${r.answer}</p>`)
+    .join("")}
+`,
   simuladorSonhos: (dados: {
     userName: string;
     userEmail: string;

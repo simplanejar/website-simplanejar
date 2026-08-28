@@ -1,5 +1,6 @@
 "use client";
 
+import { enviarEmail } from "@/src/lib/email";
 import { useState } from "react";
 import { IntroCard } from "./IntroCard";
 import { QuestionnaireCard } from "./QuestionnaireCard";
@@ -10,11 +11,17 @@ import type { Answers, SubmissionEntry } from "./types";
 
 type View = "intro" | "success" | number;
 
+
 function handleSubmit(submission: SubmissionEntry[]) {
-    // aqui deve ser feita a conexão/chamada da api do email js, pra ser enviado o feedback
-    // no momento só esta sendo logado no console
-    // essa função é chamada só uma vez, no final das respostas do questionário
-    console.log(submission);
+    enviarEmail({
+        tipo: "feedbackLivro",
+        subject: "Novo feedback sobre o livro",
+        dados: { respostas: submission },
+        mensagens: {
+            success: "Feedback enviado com sucesso!",
+            error: "Algo deu errado ao enviar seu feedback.",
+        },
+    });
 }
 
 export default function BookQuestionnaire() {
