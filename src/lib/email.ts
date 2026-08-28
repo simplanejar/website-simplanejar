@@ -27,47 +27,93 @@ const builders = {
     <p><strong>Escopo:</strong> ${dados.get("escopo")}</p>
     <p><strong>Email:</strong> ${dados.get("email")}</p>
   `,
-  simuladorSonhos: (dados: FormData) => `
-    <h2>Trabalhe conosco</h2>
-    <p><strong>Nome:</strong> ${dados.get("name")}</p>
-    <p><strong>Área de interesse:</strong> ${dados.get("area")}</p>
+  simuladorSonhos: (dados: {
+    userName: string;
+    userEmail: string;
+    dreamLabel: string;
+    monthlyNeeded: string;
+    months: number;
+    totalValue: string;
+    existingValue: string;
+    returnRate: string;
+  }) => `
+    <h2>Simulação de sonho - ${dados.dreamLabel}</h2>
+    <p><strong>Nome:</strong> ${dados.userName}</p>
+    <p><strong>Email:</strong> ${dados.userEmail}</p>
+    <p><strong>Valor mensal necessário:</strong> ${dados.monthlyNeeded}</p>
+    <p><strong>Prazo:</strong> ${dados.months} meses</p>
+    <p><strong>Valor total:</strong> ${dados.totalValue}</p>
+    <p><strong>Já possui:</strong> ${dados.existingValue}</p>
+    <p><strong>Rentabilidade:</strong> ${dados.returnRate}</p>
   `,
-  simuladorAposentadoria: (dados: FormData) => `
-    <h2>Trabalhe conosco</h2>
-    <p><strong>Nome:</strong> ${dados.get("name")}</p>
-    <p><strong>Área de interesse:</strong> ${dados.get("area")}</p>
-  `,
-} satisfies Record<string, (dados: FormData) => string>;
+  simuladorAposentadoria: (dados: {
+  userEmail: string;
+  idadeAtual: number;
+  idadeAposentadoria: number;
+  rendaDesejada: string;
+  patrimonioEstimado: string;
+  rendaEstimada: string;
+  taxaConsiderada: string;
+}) => `
+  <h2>Simulação de aposentadoria</h2>
+  <p><strong>Email:</strong> ${dados.userEmail}</p>
+  <p><strong>Idade atual:</strong> ${dados.idadeAtual}</p>
+  <p><strong>Idade de aposentadoria:</strong> ${dados.idadeAposentadoria}</p>
+  <p><strong>Renda desejada:</strong> ${dados.rendaDesejada}</p>
+  <p><strong>Patrimônio estimado:</strong> ${dados.patrimonioEstimado}</p>
+  <p><strong>Renda estimada:</strong> ${dados.rendaEstimada}</p>
+  <p><strong>Taxa considerada:</strong> ${dados.taxaConsiderada}</p>
+`,
+} satisfies Record<string, (dados: never) => string>;
 
 type FormType = keyof typeof builders;
 
-// 2. Uma única função de envio, usada por todos
-interface EnviarEmailParams {
-  tipo: FormType;
+interface EnviarEmailParams<T extends FormType> {
+  tipo: T;
   subject: string;
-  form: HTMLFormElement;
+  dados: Parameters<(typeof builders)[T]>[0];
+  userEmail?: string; 
+  extraParams?: Record<string, string>; 
   mensagens: { success: string; error: string };
+  onSuccess?: () => void;
+  onError?: (error: EmailJSResponseStatus) => void;
 }
 
-export function enviarEmail({ tipo, subject, form, mensagens }: EnviarEmailParams) {
-  const dados = new FormData(form);
-  const corpoHtml = builders[tipo](dados);
+
+export function enviarEmail<T extends FormType>({
+  tipo,
+  subject,
+  dados,
+  userEmail,
+  extraParams,
+  mensagens,
+  onSuccess,
+  onError,
+}: EnviarEmailParams<T>) {
+  const builder = builders[tipo] as (dados: unknown) => string;
+  const corpoHtml = builder(dados);
 
   return emailjs
     .send(
       process.env.NEXT_PUBLIC_SERVICE_ID!,
       process.env.NEXT_PUBLIC_TEMPLATE_ID!,
-      { corpo_html: corpoHtml, subject, toEmail: "izabellysouza576@gmail.com" },
+      { corpo_html: 
+          corpoHtml, 
+          subject, 
+          to_simplanejar_email: "izabelly.silva@ejpixel.com.br", 
+          to_user_email: userEmail ?? "",
+          ...extraParams },
       { publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY! }
     )
     .then(
       () => {
-        form.reset();
         toast.success(mensagens.success, toastOptions);
+        onSuccess?.();
       },
       (error: EmailJSResponseStatus) => {
         console.error("FAILED...", error.text);
         toast.error(mensagens.error, toastOptions);
+        onError?.(error);
       }
     );
 }

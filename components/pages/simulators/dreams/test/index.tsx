@@ -6,6 +6,7 @@ import { ChevronDown, TrendingUp, PiggyBank, User, Calendar, Smile, Target, Mail
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast, Zoom } from "react-toastify";
+import { enviarEmail } from "@/src/lib/email";
 
 function formatBRL(value: number) {
 	return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -72,18 +73,6 @@ export default function SonhosSimulator() {
 	const [email, setEmail] = useState("");
 	const [isSending, setIsSending] = useState(false);
 
-	const notifySuccess = () =>
-		toast.success("Sua simulação foi enviada por e-mail!", {
-			position: "bottom-right",
-			autoClose: 3000,
-			hideProgressBar: true,
-			closeOnClick: false,
-			pauseOnHover: false,
-			draggable: false,
-			theme: "light",
-			transition: Zoom,
-		});
-
 	const notifyError = (message?: string) =>
 		toast.error(message || "Algo deu errado. Tente novamente.", {
 			position: "bottom-right",
@@ -129,45 +118,42 @@ export default function SonhosSimulator() {
 	const canCalculate = totalValue > 0 && months > 0;
 	const inputContainerStyle = "bg-[#20357A] border border-[#455790] rounded-xl text-white";
 
-	const handleSendEmail = (e: React.FormEvent) => {
-		e.preventDefault();
+	const handleSendEmail = (e: React.SubmitEvent) => {
+    e.preventDefault();
 
-		if (!email || !email.includes("@")) {
-			notifyError("Por favor, informe um e-mail válido.");
-			return;
-		}
+    if (!email || !email.includes("@")) {
+        notifyError("Por favor, informe um e-mail válido.");
+        return;
+    }
 
-		setIsSending(true);
+    setIsSending(true);
 
-		const templateParams = {
-			user_name: form.name || "Futuro Realizador",
-			user_email: email,
-            extra_email: "sofgazolla@gmail.com", // trocar pelo email da simone
-			dream_label: dreamLabel,
-			monthly_needed: formatBRL(monthlyNeeded),
-			months,
-			total_value: formatBRL(totalValue),
-			existing_value: formatBRL(existing),
-			return_rate: form.returnType === "poupanca" ? `Poupança (${POUPANCA_RATE_AA}% a.a.)` : `${annualReturn}% a.a.`,
-		};
-
-		emailjs
-			.send(process.env.NEXT_PUBLIC_SERVICE_ID!, process.env.NEXT_PUBLIC_TEMPLATE_ID!, templateParams, {
-				publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY!,
-			})
-			.then(
-				() => {
-					setIsSending(false);
-					notifySuccess();
-					setEmail("");
-				},
-				error => {
-					console.error("FAILED...", error);
-					setIsSending(false);
-					notifyError();
-				}
-			);
-	};
+    enviarEmail({
+        tipo: "simuladorSonhos",
+        subject: "Sua simulação de sonho",
+		userEmail: email, 
+        dados: {
+            userName: form.name || "Futuro Realizador",
+            userEmail: email,
+            dreamLabel,
+            monthlyNeeded: formatBRL(monthlyNeeded),
+            months,
+            totalValue: formatBRL(totalValue),
+            existingValue: formatBRL(existing),
+            returnRate: form.returnType === "poupanca" ? `Poupança (${POUPANCA_RATE_AA}% a.a.)` : `${annualReturn}% a.a.`,
+        },
+        extraParams: { to_email: email }, 
+        mensagens: {
+            success: "Sua simulação foi enviada por e-mail!",
+            error: "Algo deu errado. Tente novamente.",
+        },
+        onSuccess: () => {
+            setIsSending(false);
+            setEmail("");
+        },
+        onError: () => setIsSending(false),
+    });
+};
 
 	useEffect(() => {
 		if (showResults && resultsRef.current) {

@@ -219,15 +219,19 @@ function FormCard({ data }: { data: ContactBodyData["form"] }) {
 
     const form = useRef<HTMLFormElement>(null);
 
-    const sendEmail = (e: React.SubmitEvent<HTMLFormElement>) => {e.preventDefault();
-        if (!form.current) return;
+    const sendEmail = (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!form.current) return;
 
-        enviarEmail({
-            tipo: "contato",
-            subject: "Novo contato - Sim Planejar",
-            form: form.current,
-            mensagens: data.notify,
-        });
+    const dados = new FormData(form.current);
+
+    enviarEmail({
+        tipo: "contato", // ou o tipo certo desse form específico
+        subject: "Novo contato - Site",
+        dados,
+        mensagens: data.notify,
+        onSuccess: () => form.current?.reset(),
+    });
 };
 
  
