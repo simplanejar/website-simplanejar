@@ -27,13 +27,13 @@ export const heroContent: HeroContent = {
   buttons: [
     {
       label: "Conheça o Sim Planejar!",
-      href: "/about",
+      href: "/sobre",
       variant: "primary",
       icon: "sparkle",
     },
     {
       label: "Conheça a idealizadora Simone Costa",
-      href: "/about#simone-costa",
+      href: "/sobre#simone-costa",
       variant: "secondary",
       icon: "user",
     },

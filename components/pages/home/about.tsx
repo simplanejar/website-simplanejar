@@ -158,7 +158,7 @@ export function About() {
  
                     <a
                         type="button"
-                        href="/about"
+                        href="/sobre#nossa-jornada"
                         className="mt-8 inline-flex items-center gap-2 rounded-[10px] mx-auto px-10 py-5 font-extrabold text-white bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 cursor-pointer"
                     >
                         {data.button.text}
