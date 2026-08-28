@@ -111,7 +111,7 @@ function QuoteBox({ className = "" }: { className?: string }) {
 
 export default function Journey() {
     return (
-        <div className="">
+        <div id="nossa-jornada">
             <div className="flex flex-col md:flex-row">
                 <div className="flex flex-col w-full md:w-[50%] p-6 md:p-15">
                     <h1 className="text-lg md:text-2xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-left">{data.title}</h1>

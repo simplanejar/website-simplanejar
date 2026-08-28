@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ScrollLink } from "./ScrollLink";
 
 type NavItem = {
   id: string;
@@ -11,9 +12,9 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { id: "sobre-sim-planejar", label: "Sobre o Sim Planejar", path: "/sobre" },
-  { id: "nossa-jornada", label: "Nossa Jornada", path: "/sobre/nossa-jornada" },
-  { id: "nossos-valores", label: "Nossos Valores", path: "/sobre/nossos-valores" },
-  { id: "a-idealizadora", label: "A Idealizadora", path: "/sobre/a-idealizadora" },
+  { id: "nossa-jornada", label: "Nossa Jornada", path: "/sobre/#nossa-jornada" },
+  { id: "nossos-valores", label: "Nossos Valores", path: "/sobre/#nossos-valores" },
+  { id: "a-idealizadora", label: "A Idealizadora", path: "/sobre/#a-idealizadora" },
 ];
 
 export default function SobreNavbar() {
@@ -30,9 +31,9 @@ export default function SobreNavbar() {
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.path;
             return (
-              <Link
-                key={item.id}
-                href={item.path}
+              <ScrollLink 
+              key={item.id}
+                to={item.id}
                 className={[
                   "flex items-center justify-center rounded-[5px] h-[30px] w-[150px] md:w-[200px] border text-sm md:text-base font-medium text-center transition-colors duration-150",
                   isActive
@@ -41,7 +42,19 @@ export default function SobreNavbar() {
                 ].join(" ")}
               >
                 {item.label}
-              </Link>
+              </ScrollLink>
+              // <Link
+              //   key={item.id}
+              //   href={item.path}
+              //   className={[
+              //     "flex items-center justify-center rounded-[5px] h-[30px] w-[150px] md:w-[200px] border text-sm md:text-base font-medium text-center transition-colors duration-150",
+              //     isActive
+              //       ? "border-transparent bg-[#7C4DFF] text-white"
+              //       : "border-[#7C4DFF] bg-white text-[#7C4DFF] hover:bg-purple-50",
+              //   ].join(" ")}
+              // >
+              //   {item.label}
+              // </Link>
             );
           })}
         </div>
