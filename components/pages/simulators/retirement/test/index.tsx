@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { CheckCircle2, Info, Mail, RefreshCcw, ArrowRightLeft, ShieldCheck, Loader2 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import { enviarEmail } from '@/src/lib/email';
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -101,11 +101,6 @@ export default function Simulator() {
   const [isSending, setIsSending] = useState(false);
   const [showEmailInput, setShowEmailInput] = useState(false);
 
-  const notifySuccess = () => toast.success("Sua simulação foi enviada por e-mail!", {
-    position: "bottom-right", autoClose: 3000, hideProgressBar: true,
-    closeOnClick: false, pauseOnHover: false, draggable: false, theme: "light", transition: Zoom,
-  });
-
   const notifyError = (message?: string) => toast.error(message || "Algo deu errado. Tente novamente.", {
     position: "bottom-right", autoClose: 3000, hideProgressBar: true,
     closeOnClick: false, pauseOnHover: false, draggable: false, theme: "light", transition: Zoom,
@@ -184,46 +179,42 @@ export default function Simulator() {
     window.scrollTo({ top: document.getElementById("simulador")?.offsetTop, behavior: 'smooth' });
   };
 
-  const handleSendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
+ const handleSendEmail = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (!email || !email.includes("@")) {
-      notifyError("Por favor, informe um e-mail válido.");
-      return;
-    }
+  if (!email || !email.includes("@")) {
+    notifyError("Por favor, informe um e-mail válido.");
+    return;
+  }
 
-    setIsSending(true);
+  setIsSending(true);
 
-    const templateParams = {
-      user_email: email,
-      extra_email: "sofgazolla@gmail.com",
-      idade_atual: currentAge,
-      idade_aposentadoria: retirementAge,
-      renda_desejada: formatBRL(desiredIncome),
-      patrimonio_estimado: formatBRL(estimatedReserve),
-      renda_estimada: formatBRL(estimatedIncome),
-      taxa_considerada: form.rentabilityType === "poupanca" ? `Poupança (${POUPANCA_RATE_AA}% a.a.)` : `${annualReturn}% a.a.`
-    };
-
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID!,
-        templateParams,
-        { publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY! }
-      )
-      .then(() => {
-          setIsSending(false);
-          notifySuccess();
-          setEmail("");
-          setShowEmailInput(false);
-      })
-      .catch((error) => {
-          console.error("FAILED...", error);
-          setIsSending(false);
-          notifyError();
-      });
-  };
+  enviarEmail({
+    tipo: "simuladorAposentadoria",
+    subject: "Sua simulação de aposentadoria",
+    userEmail: email, 
+    dados: {
+      userEmail: email,
+      idadeAtual: currentAge,
+      idadeAposentadoria: retirementAge,
+      rendaDesejada: formatBRL(desiredIncome),
+      patrimonioEstimado: formatBRL(estimatedReserve),
+      rendaEstimada: formatBRL(estimatedIncome),
+      taxaConsiderada: form.rentabilityType === "poupanca" ? `Poupança (${POUPANCA_RATE_AA}% a.a.)` : `${annualReturn}% a.a.`,
+    },
+    extraParams: { to_email: email }, 
+    mensagens: {
+      success: "Sua simulação foi enviada por e-mail!",
+      error: "Algo deu errado. Tente novamente.",
+    },
+    onSuccess: () => {
+      setIsSending(false);
+      setEmail("");
+      setShowEmailInput(false);
+    },
+    onError: () => setIsSending(false),
+  });
+};
 
   // Pontos do Gráfico
   const chartData = [];

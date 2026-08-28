@@ -15,6 +15,11 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
 import { FiBookOpen } from "react-icons/fi";
 
+{/*Form*/}
+import { enviarEmail } from "@/src/lib/email";
+
+
+
 
 interface FormField {
     text: string;
@@ -207,58 +212,27 @@ function FormInput({ field, isTextarea = false }: { field: FormField; isTextarea
         </div>
     );
 }
- 
+
 function FormCard({ data }: { data: ContactBodyData["form"] }) {
     const TitleIcon = data.title.icon;
     const SendIcon = data.send.icon;
 
-    const notifySuccess = () => toast.success(data.notify.success, {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "light",
-        transition: Zoom,
-    });
-
-    const notifyError = () => toast.error(data.notify.error, {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "light",
-        transition: Zoom,
-    });
-
     const form = useRef<HTMLFormElement>(null);
 
-    const sendEmail = (e: SubmitEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const sendEmail = (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!form.current) return;
 
-        if (!form.current) return;
+    const dados = new FormData(form.current);
 
-        emailjs
-        .sendForm(process.env.NEXT_PUBLIC_SERVICE_ID!, process.env.NEXT_PUBLIC_TEMPLATE_ID!, form.current, {
-            publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY!,
-        })
-        .then(
-            () => {
-                console.log('SUCCESS!');
-                form.current && form.current.reset(); 
-                notifySuccess();
-            },
-            (error: EmailJSResponseStatus) => {
-                console.log('FAILED...', error.text);
-                notifyError();
-            },
-        );
-    };
+    enviarEmail({
+        tipo: "contato", // ou o tipo certo desse form específico
+        subject: "Novo contato - Site",
+        dados,
+        mensagens: data.notify,
+        onSuccess: () => form.current?.reset(),
+    });
+};
 
  
     return (
