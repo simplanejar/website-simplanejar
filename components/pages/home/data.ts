@@ -50,7 +50,7 @@ export const heroContent: HeroContent = {
       category: "Simuladores",
       categoryColor: "teal",
       title: "Explore nossas\nferramentas",
-      href: "#simuladores",
+      href: "/simuladores",
       icon: "calculator",
     },
   ],
