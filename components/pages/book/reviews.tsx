@@ -146,7 +146,7 @@ export function Reviews() {
           <div className="hidden md:block mt-8 md:mt-0">
             <a
               href="#"
-              className="inline-flex items-center gap-4 px-6 py-3.5 border-2 border-[#8c52ff] rounded-xl bg-white hover:bg-[#8c52ff]/5 transition-colors shadow-sm"
+              className="inline-flex items-center gap-4 px-6 py-3.5 border-2 border-[#8c52ff] rounded-xl bg-white hover:bg-[#6939E8]/5 hover:shadow-lg transition-all duration-200"
             >
               <Image
                 src="/images/amazon-logo.png"
@@ -156,7 +156,7 @@ export function Reviews() {
                 unoptimized
                 className="h-6 sm:h-7 w-auto object-contain flex-shrink-0"
               />
-              <span className="text-[#8c52ff] font-bold text-base whitespace-nowrap">
+              <span className="text-[#8c52ff] font-bold text-base whitespace-nowrap ">
                 Ver todas as avaliações na Amazon
               </span>
               <ExternalLink className="w-5 h-5 text-[#8c52ff]" />

@@ -134,7 +134,7 @@ export function Videos() {
                 href="https://www.instagram.com/simplanejar" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex-1 h-[50px] bg-[#FCFCFE] border border-[#7C4DFF] shadow-[0px_4px_4px_#F2F0FD] rounded-[10px] flex items-center justify-center gap-2 px-2"
+                className="flex-1 h-[50px] bg-[#FCFCFE] border border-[#7C4DFF] shadow-[0px_4px_4px_#F2F0FD] rounded-[10px] flex items-center justify-center gap-2 px-2 hover:bg-primary/5 hover:shadow-lg transition-all duration-200"
               >
                 <img src="/instagram.svg" alt="Instagram" className="w-[20px] h-[20px] shrink-0" />
                 <div className="flex flex-col text-left">
@@ -147,7 +147,7 @@ export function Videos() {
                 href="https://www.youtube.com/@simplanejar" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex-1 h-[50px] bg-[#FCFCFE] border border-[#FF3838] shadow-[0px_4px_4px_#F2F0FD] rounded-[10px] flex items-center justify-center gap-2 px-2"
+                className="flex-1 h-[50px] bg-[#FCFCFE] border border-[#FF3838] shadow-[0px_4px_4px_#F2F0FD] rounded-[10px] flex items-center justify-center gap-2 px-2 hover:bg-[#FF3838]/5 hover:shadow-lg transition-all duration-200"
               >
                 <img src="/youtube.svg" alt="YouTube" className="w-[24px] h-[19px] shrink-0" />
                 <div className="flex flex-col text-left">
@@ -322,7 +322,7 @@ export function Videos() {
                 href="https://www.youtube.com/@simplanejar" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full lg:w-auto lg:px-6 h-[48px] bg-[#7C4DFF] rounded-[10px] flex items-center justify-center gap-3 hover:bg-[#A280FF] transition-colors shrink-0"
+                className="w-full lg:w-auto lg:px-6 h-[48px] bg-[#7C4DFF] rounded-[10px] flex items-center justify-center gap-3 bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 shrink-0"
               >
                 <span className="font-semibold text-[15px] leading-[20px] text-[#FFFFFF] text-center">
                   Ver todas as séries no YouTube

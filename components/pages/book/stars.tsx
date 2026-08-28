@@ -11,7 +11,7 @@ const etapas: CardsProps[] = [
 		descricao:
 			"Conhecer a situação financeira atual: receitas, despesas e dívidas.",
 		cor: "#7C4DFF",
-		corHover: "#A280FF",
+		corHover: "#6939E8",
 		corClara: "#F2F0FD",
 	},
 	{
@@ -19,7 +19,7 @@ const etapas: CardsProps[] = [
 		titulo: "Fluxo Financeiro",
 		descricao: "Construir e otimizar o seu fluxo financeiro.",
 		cor: "#01AEAA",
-		corHover: "#01E1DC",
+		corHover: "#018C89",
 		corClara: "#D7ECF1",
 	},
 	{
@@ -28,7 +28,7 @@ const etapas: CardsProps[] = [
 		descricao:
 			"Construir e planejar as reservas de emergência, aposentadoria, sonhos e projetos, proteção e sucessão.",
 		cor: "#7C4DFF",
-		corHover: "#A280FF",
+		corHover: "#6939E8",
 		corClara: "#F2F0FD",
 	},
 	{
@@ -37,7 +37,7 @@ const etapas: CardsProps[] = [
 		descricao:
 			"Praticar e monitorar o seu planejamento financeiro pessoal.",
 		cor: "#E95802",
-		corHover: "#FE9353",
+		corHover: "#C44802",
 		corClara: "#FEEFE9",
 	},
 	{
@@ -46,7 +46,7 @@ const etapas: CardsProps[] = [
 		descricao:
 			"Celebre sua conquista e siga transformando seus planos em realidade.",
 		cor: "#EFA901",
-		corHover: "#FECD58",
+		corHover: "#C58C01",
 		corClara: "#FFF5DC",
 	},
 ];
@@ -177,7 +177,7 @@ export default function Stars() {
 
 					<div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-12 py-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden xl:overflow-visible xl:px-0">
 						{etapas.map((item, index) => (
-							<div key={item.etapa} ref={(element) => { cardRefs.current[index] = element; }} onMouseEnter={() => iniciarHover(index)} onMouseLeave={cancelarHover} onClick={() => selecionarIndice(index)} onFocusCapture={() => selecionarIndice(index)} className="min-w-0 shrink-0 snap-center basis-[calc((100%_-_1rem)/2)] cursor-pointer lg:basis-[calc((100%_-_2rem)/3)] xl:basis-[calc((100%_-_4rem)/5)]">
+							<div key={item.etapa} ref={(element) => { cardRefs.current[index] = element; }} onMouseEnter={() => iniciarHover(index)} onMouseLeave={cancelarHover} onClick={() => selecionarIndice(index)} onFocusCapture={() => selecionarIndice(index)} className="min-w-0 shrink-0 snap-center basis-[calc((100%_-_1rem)/2)] cursor-pointer transition-all duration-200 hover:shadow-lg lg:basis-[calc((100%_-_2rem)/3)] xl:basis-[calc((100%_-_4rem)/5)]">
 								<Cards {...item} isActive={etapaAtiva === item.etapa} />
 							</div>
 						))}

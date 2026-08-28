@@ -28,8 +28,8 @@ export function HeroFeatureCardItem({ card, className = "" }: HeroFeatureCardPro
 
   return (
     <Link
-      href={card.href}
-      className={`flex min-h-[70px] items-center gap-2 rounded-[10px] bg-white p-3 shadow-[0_1px_4px_rgba(0,0,0,0.25)] transition-shadow hover:shadow-md sm:min-h-[95px] sm:gap-4 sm:px-5 sm:py-4 ${className}`}
+        href={card.href}
+        className={`flex min-h-[70px] items-center gap-2 rounded-[10px] bg-white p-3 shadow-[0_1px_4px_rgba(0,0,0,0.25)] transition-shadow duration-200 hover:shadow-[0_3px_8px_rgba(0,0,0,0.18)] sm:min-h-[95px] sm:gap-4 sm:px-5 sm:py-4 ${className}`}
     >
       <Icon className="shrink-0" />
       <div className="min-w-0 flex-1">

@@ -251,7 +251,7 @@ function FormCard({ data }: { data: ContactBodyData["form"] }) {
  
                 <button
                     type="submit"
-                    className="mt-3 flex items-center justify-center gap-6 rounded-[10px] bg-[#7C4DFF] py-3 md:text-[20px] font-bold text-white cursor-pointer"
+                    className="mt-3 flex items-center justify-center gap-6 rounded-[10px] bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 py-3 md:text-[20px] font-bold text-white cursor-pointer"
                 >
                     <SendIcon size={18} />
                     {data.send.text}
@@ -329,7 +329,7 @@ function ChannelCard({ data }: { data: Channel }) {
             </div>
             <a
                 href={data.link}
-                className="flex items-center justify-center gap-2 rounded-[10px] border border-[#7C4DFF] text-[20px] p-[10px] font-bold text-[#7C4DFF] cursor-pointer "
+                className="flex items-center justify-center gap-2 rounded-[10px] border border-[#7C4DFF] hover:bg-primary/5 hover:shadow-lg transition-all duration-200 text-[20px] p-[10px] font-bold text-[#7C4DFF] cursor-pointer "
                 target="_blank"
             >
                 {data.button}
@@ -383,7 +383,7 @@ function BookCard({ data }: { data: ContactBodyData["card"] }) {
  
             <a
                 href={data.button.link}
-                className="flex w-full items-center justify-center gap-[30px] rounded-[10px] bg-[#7C4DFF] px-5 md:px-6 py-2 md:py-5 text-[20px] font-bold text-white md:w-auto cursor-pointer"
+                className="flex w-full items-center justify-center gap-[30px] rounded-[10px] bg-[#7C4DFF] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 px-5 md:px-6 py-2 md:py-5 text-[20px] font-bold text-white md:w-auto cursor-pointer"
             >
                 <ButtonIcon size={30} className="shrink-0" />
                 {data.button.text}

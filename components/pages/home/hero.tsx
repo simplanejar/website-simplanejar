@@ -66,9 +66,7 @@ export function Hero({ content = heroContent }: HeroProps) {
         variant={button.variant}
         icon={Icon ? <Icon /> : undefined}
         className={`w-full justify-center px-3 text-center text-[14px] transition-all md:text-[16px] lg:text-[18px] sm:w-auto ${
-          index === 0
-            ? "hover:bg-[#A280FF]"
-            : "border-[#01AEAA] text-[#01AEAA]"
+	        index === 0 ? "" : "border-2 border-[#01AEAA] text-[#01AEAA] hover:bg-[#D7ECF1] hover:shadow-lg transition-all duration-200"
         }`}
       />
     );
