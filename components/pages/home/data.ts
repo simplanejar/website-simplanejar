@@ -27,13 +27,13 @@ export const heroContent: HeroContent = {
   buttons: [
     {
       label: "Conheça o Sim Planejar!",
-      href: "/sobre",
+      href: "/about",
       variant: "primary",
       icon: "sparkle",
     },
     {
       label: "Conheça a idealizadora Simone Costa",
-      href: "/simone-costa",
+      href: "/about#simone-costa",
       variant: "secondary",
       icon: "user",
     },
@@ -43,14 +43,14 @@ export const heroContent: HeroContent = {
       category: "Livro",
       categoryColor: "purple",
       title: "Planejamento Financeiro:\nVocê no Controle!",
-      href: "/livro",
+      href: "/book",
       icon: "book",
     },
     {
       category: "Simuladores",
       categoryColor: "teal",
       title: "Explore nossas\nferramentas",
-      href: "/simuladores",
+      href: "#simuladores",
       icon: "calculator",
     },
   ],

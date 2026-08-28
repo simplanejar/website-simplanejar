@@ -146,7 +146,7 @@ const valuesData = [
 
 export default function Founder() {
   return (
-    <section className="flex flex-col p-[20px] md:p-[50px] max-w-[1440px] w-full items-center self-center mx-auto">
+    <section id="simone-costa" className="flex flex-col p-[20px] md:p-[50px] max-w-[1440px] w-full items-center self-center mx-auto">
       {/* ---------- MOBILE (< md) ---------- */}
       <div className="flex flex-col items-center w-full md:hidden">
         <h2 className="self-start bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent text-[20px] font-bold">
