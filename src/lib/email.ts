@@ -3,6 +3,8 @@ import type { SubmissionEntry } from "@/components/pages/book/questionnaire/type
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import { toast, Zoom } from "react-toastify";
 
+const emailSimPlanejar = "contato@simplanejar.com";
+
 const toastOptions = {
   position: "bottom-right" as const,
   autoClose: 3000,
@@ -101,7 +103,7 @@ export function enviarEmail<T extends FormType>({
       { corpo_html: 
           corpoHtml, 
           subject, 
-          to_simplanejar_email: "izabelly.silva@ejpixel.com.br", 
+          to_simplanejar_email: emailSimPlanejar, 
           to_user_email: userEmail ?? "",
           ...extraParams },
       { publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY! }
