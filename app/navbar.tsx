@@ -15,11 +15,11 @@ interface SimulatorLink {
 const simulatorLinks: SimulatorLink[] = [
     {
         label: "Simulador de Reserva de Sonhos e Projetos",
-        href: "/simulador-de-sonhos-e-projetos/",
+        href: "/simulador/de-sonhos-e-projetos",
     },
     {
         label: "Simulador de Reserva para Aposentadoria",
-        href: "/simulador-de-renda-na-aposentadoria/",
+        href: "/simulador/de-renda-na-aposentadoria",
     },
     {
         label: "Índice de Saúde Financeira",

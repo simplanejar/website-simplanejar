@@ -160,7 +160,7 @@ const valuesMockData: ValuesData = {
 export default function Values() {
     const textGradient = "bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent";
     return(
-        <div>
+        <div id='nossos-valores'>
             <section className="flex flex-col w-full max-w-360 md:items-center justify-center m-auto">
                 <h2 className={`text-start md:text-center uppercase text-[20px] md:text-[24px] font-bold px-5 ${textGradient}`}>{valuesMockData.titleTag}</h2>
                 <h1 className="text-[24px] md:text-[46px] text-start md:text-center px-5 font-extrabold leading-tight ">{valuesMockData.title}</h1>

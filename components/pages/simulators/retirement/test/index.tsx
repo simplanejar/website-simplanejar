@@ -239,7 +239,7 @@ export default function Simulator() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans relative overflow-hidden">
+    <div id='#simulador' className="min-h-screen bg-background text-foreground font-sans relative overflow-hidden">
       <section id="simulador" className="max-w-4xl mx-auto text-center px-4 sm:px-6 pt-6 pb-6 lg:mt-8">
         <div className="inline-flex items-center gap-2 text-[#7343E0] text-sm sm:text-base font-extrabold tracking-wide uppercase mb-2">
           <IconMenu />

@@ -104,11 +104,11 @@ export default function Footer() {
             <h3 className="text-white font-bold text-xl mb-6 text-center md:text-left">Navegue</h3>
             
             <ul className="grid grid-cols-2 gap-y-4 gap-x-4 w-full max-w-[280px] text-center text-white text-lg font-normal md:max-w-none md:flex md:flex-col md:items-start md:text-left md:w-auto md:gap-6">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Sobre</a></li>
-              <li><a href="#">Livro</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/sobre">Sobre</a></li>
+              <li><a href="/o-livro">Livro</a></li>
               <li><a href="#">Simuladores</a></li>
-              <li><a href="#">Contato</a></li>
+              <li><a href="/contato">Contato</a></li>
             </ul>
           </div>
 

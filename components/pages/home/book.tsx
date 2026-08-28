@@ -351,7 +351,7 @@ export function Book() {
                             </a>
 
                             <Link
-                                href="/book"
+                                href="/o-livro"
                                 className="flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[10px] border border-primary px-5 py-4 font-nunito text-sm xl:text-base font-extrabold text-primary hover:bg-primary/5 hover:shadow-lg transition-all duration-200"
                             >
                                 Conheça mais sobre o livro
