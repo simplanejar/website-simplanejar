@@ -141,7 +141,7 @@ export default function RetirementSimulator() {
 
           <div className="hidden sm:block pt-2">
             <a
-              href="#simulador"
+              href="/simulador/de-renda-na-aposentadoria/form"
               className="inline-flex items-center gap-2 bg-primary hover:bg-[#7343E0] text-white font-extrabold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-200 transition-all text-base"
             >
               Acessar o Simulador

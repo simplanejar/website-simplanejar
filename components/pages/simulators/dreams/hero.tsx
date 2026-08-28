@@ -35,7 +35,7 @@ export default function Hero() {
 							</div>
 
 							{/* substituir o # pelo caminho certo, não consegui fazer isso funcionar :( */}
-							<Link href="#" className="mt-3 flex h-[59px] w-full sm:max-w-[250px] cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--purple)] font-bold text-white hover:bg-[#A280FF]">
+							<Link href="de-sonhos-e-projetos/form" className="mt-3 flex h-[59px] w-full sm:max-w-[250px] cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--purple)] font-bold text-white hover:bg-[#A280FF]">
 								<p className="text-[16px]">Acessar o simulador</p>
 								<FaArrowRight className="text-[16px]" />
 							</Link>
