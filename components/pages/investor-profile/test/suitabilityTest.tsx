@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import type { IconType } from "react-icons";
-import emailjs from "@emailjs/browser";
+import { enviarEmail } from "@/src/lib/email";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   FaLightbulb,
   FaCircleExclamation,
@@ -394,13 +396,6 @@ function getProfileFromScore(score: number): ProfileKey {
 /*  ENVIO DO RESULTADO POR E-MAIL (EmailJS)                                  */
 /* -------------------------------------------------------------------------- */
 
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
-
-// substituir por email da simone
-const RESULTS_TO_EMAIL = "laraasouzadasilva@gmail.com";
-
 type AnswerValue = number | number[];
 
 interface ResultsPayload {
@@ -433,33 +428,27 @@ function buildResultsPayload(
   };
 }
 
-async function sendResultsByEmail(payload: ResultsPayload): Promise<boolean> {
-  if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-    console.error(
-      "EmailJS não está configurado: defina NEXT_PUBLIC_EMAILJS_SERVICE_ID, " +
-        "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID e NEXT_PUBLIC_EMAILJS_PUBLIC_KEY."
-    );
-    return false;
-  }
-
-  try {
-    await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      {
-        to_email: RESULTS_TO_EMAIL,
-        profile: payload.profile,
-        score: String(payload.score),
-        submitted_at: new Date(payload.submittedAt).toLocaleString("pt-BR"),
-        answers: payload.answers.map((a) => `${a.question}\n R: ${a.answer}`).join("\n\n"),
-      },
-      { publicKey: EMAILJS_PUBLIC_KEY }
-    );
-    return true;
-  } catch (err) {
-    console.error("Não foi possível enviar o resultado por e-mail:", err);
-    return false;
-  }
+function sendResultsByEmail(
+  payload: ResultsPayload,
+  onSuccess: () => void,
+  onError: () => void
+) {
+  enviarEmail({
+    tipo: "suitabilidade",
+    subject: "Novo teste de perfil de investidor",
+    dados: {
+      profile: payload.profile,
+      score: payload.score,
+      submittedAt: new Date(payload.submittedAt).toLocaleString("pt-BR"),
+      respostas: payload.answers,
+    },
+    mensagens: {
+      success: "Resultado salvo com sucesso!",
+      error: "Não foi possível salvar o seu resultado.",
+    },
+    onSuccess,
+    onError,
+  });
 }
 
 /* -------------------------------------------------------------------------- */
@@ -499,14 +488,17 @@ export default function SuitabilityTest() {
     });
   }
 
-  async function handleNext() {
+  function handleNext() {
     if (!isStepComplete) return;
     if (isLastStep) {
       setShowResult(true);
       setEmailStatus("sending");
       const payload = buildResultsPayload(answers, score, profile.name);
-      const ok = await sendResultsByEmail(payload);
-      setEmailStatus(ok ? "sent" : "error");
+      sendResultsByEmail(
+        payload,
+        () => setEmailStatus("sent"),
+        () => setEmailStatus("error")
+      );
       return;
     }
     setStep((s) => s + 1);
@@ -555,6 +547,7 @@ export default function SuitabilityTest() {
           />
         )}
       </div>
+      <ToastContainer />
     </section>
   );
 }

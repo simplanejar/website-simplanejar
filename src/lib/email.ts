@@ -3,7 +3,7 @@ import type { SubmissionEntry } from "@/components/pages/book/questionnaire/type
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import { toast, Zoom } from "react-toastify";
 
-const emailSimPlanejar = "contato@simplanejar.com";
+const emailSimPlanejar = process.env.NEXT_PUBLIC_DESTINATION_EMAIL;
 
 const toastOptions = {
   position: "bottom-right" as const,
@@ -67,6 +67,20 @@ const builders = {
   <p><strong>Renda estimada:</strong> ${dados.rendaEstimada}</p>
   <p><strong>Taxa considerada:</strong> ${dados.taxaConsiderada}</p>
 `,
+  suitabilidade: (dados: {
+    profile: string;
+    score: number;
+    submittedAt: string;
+    respostas: { question: string; answer: string }[];
+  }) => `
+    <h2>Novo teste de perfil de investidor</h2>
+    <p><strong>Perfil:</strong> ${dados.profile}</p>
+    <p><strong>Pontuação:</strong> ${dados.score}</p>
+    <p><strong>Data:</strong> ${dados.submittedAt}</p>
+    ${dados.respostas
+      .map((r) => `<p><strong>${r.question}:</strong> ${r.answer}</p>`)
+      .join("")}
+  `,
 } satisfies Record<string, (dados: never) => string>;
 
 type FormType = keyof typeof builders;
