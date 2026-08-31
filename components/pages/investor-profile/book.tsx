@@ -8,7 +8,7 @@ const bookImage = "/book/book-investor.png"
 
 export default function Book() {
     return (
-        <section className='w-full min-h-screen flex flex-col items-center px-4 py-8 bg-[#F8F9FF]'>
+        <section className='w-full min-h-screen flex flex-col items-center px-4 py-8 bg-[#FFFFF]'>
             <header className="text-center max-w-3xl mb-12 flex flex-col items-center">
                 
                 <div className='flex items-center gap-3 text-[#7C4DFF] border rounded-full border-[#F2F0FD] mb-5 pr-5 shadow-sm font-semibold text-sm'>
