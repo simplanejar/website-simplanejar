@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FaLightbulb } from "react-icons/fa";
+import { FaLightbulb, FaTriangleExclamation } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { cardHeader, navButtons, tipBox } from "./data";
 import { QuestionField } from "./QuestionField";
@@ -15,6 +15,8 @@ interface QuestionnaireCardProps {
     onAnswer: (questionId: string, value: Answers[string]) => void;
     onBack: () => void;
     onNext: () => void;
+    isSubmitting?: boolean;
+    submitError?: boolean;
 }
 
 export function QuestionnaireCard({
@@ -25,6 +27,8 @@ export function QuestionnaireCard({
     onAnswer,
     onBack,
     onNext,
+    isSubmitting = false,
+    submitError = false,
 }: QuestionnaireCardProps) {
     const progressPercent = Math.round((stepNumber / totalSteps) * 100);
 
@@ -90,24 +94,35 @@ export function QuestionnaireCard({
                 </aside>
             </div>
 
-            <div className="mt-10 flex items-center justify-between gap-4 border-t border-[#E9E7F5] pt-6">
-                <button
-                    type="button"
-                    onClick={onBack}
-                    className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] border-2 border-primary text-[16px] font-semibold text-primary transition-colors hover:bg-primary/5"
-                >
-                    <IoIosArrowBack className="size-4" />
-                    {navButtons.back}
-                </button>
+            <div className="mt-10 border-t border-[#E9E7F5] pt-6">
+                {submitError && (
+                    <p className="mb-4 flex items-center justify-center gap-1.5 text-sm font-semibold text-amber-600">
+                        <FaTriangleExclamation className="size-3.5 shrink-0" />
+                        Algo deu errado ao enviar seu feedback. Tente novamente.
+                    </p>
+                )}
 
-                <button
-                    type="button"
-                    onClick={onNext}
-                    className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] bg-primary text-[16px] font-semibold text-white transition-colors hover:bg-[#A280FF]"
-                >
-                    {navButtons.next}
-                    <IoIosArrowForward className="size-4" />
-                </button>
+                <div className="flex items-center justify-between gap-4">
+                    <button
+                        type="button"
+                        onClick={onBack}
+                        disabled={isSubmitting}
+                        className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] border-2 border-primary text-[16px] font-semibold text-primary transition-colors hover:bg-primary/5 disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                        <IoIosArrowBack className="size-4" />
+                        {navButtons.back}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={onNext}
+                        disabled={isSubmitting}
+                        className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] bg-primary text-[16px] font-semibold text-white transition-colors hover:bg-[#A280FF] disabled:cursor-not-allowed disabled:opacity-70"
+                    >
+                        {isSubmitting ? "Enviando..." : navButtons.next}
+                        {!isSubmitting && <IoIosArrowForward className="size-4" />}
+                    </button>
+                </div>
             </div>
         </div>
     );
