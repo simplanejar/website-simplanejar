@@ -45,11 +45,10 @@ const IconPatrimonio = ({ className = "w-11 h-11" }: { className?: string }) => 
   <Image src={house} alt="Casa" className={className} />
 );
 
-
-
 const IconArrow = ({ className = "w-4 h-4" }: { className?: string }) => (
   <Image src={arrow} alt="" className={className} />
 );
+
 export default function RetirementSimulator() {
 
   const featureCards = [
@@ -80,7 +79,7 @@ export default function RetirementSimulator() {
     <div className="min-h-screen bg-background text-foreground font-sans relative overflow-hidden">
       
       {/* Hero Section */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
         
         {/* elipses*/}
         <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none">
@@ -109,12 +108,12 @@ export default function RetirementSimulator() {
 
         {/* Left Column Text */}
         <div className="lg:col-span-6 space-y-4 sm:space-y-5">
-          <span className="block lg:hidden text-xs sm:text-sm font-extrabold tracking-wide text-[#7343E0] uppercase">
+          <span className="block lg:!hidden gradient-text text-base break-words font-extrabold tracking-wide text-[#7343E0] uppercase">
             SIMULADOR DE RESERVA PARA APOSENTADORIA
           </span>
 
           <div className="hidden lg:block space-y-1">
-            <span className="block text-2xl font-extrabold text-[#7343E0] uppercase">
+            <span className="block text-2xl font-extrabold gradient-text whitespace-nowrap uppercase">
               SIMULADOR DE
             </span>
             <h1 className="text-5xl font-extrabold leading-[60px]">
@@ -135,7 +134,7 @@ export default function RetirementSimulator() {
             <span className="text-primary">investir por mês</span> para construir uma aposentadoria mais tranquila e alcançar seus objetivos.
           </p>
 
-          <p className="text-sm sm:text-lg lg:text-xl font-semibold leading-7 lg:leading-9 text-foreground">
+          <p className="text-base sm:text-lg lg:text-xl font-semibold leading-7 lg:leading-9 text-foreground">
             Explore diferentes cenários e tome decisões mais conscientes para o seu futuro financeiro.
           </p>
 
@@ -151,7 +150,7 @@ export default function RetirementSimulator() {
         </div>
 
         {/* Right Column */}
-        <div className="lg:col-span-6 mt-8 lg:mt-0">
+        <div className="lg:col-span-6 mt-2 lg:mt-0">
           <div className="hidden lg:grid grid-cols-3 gap-3 xl:gap-4 w-full items-end">
             {featureCards.map(({ icon: Icon, title, description, panelImage }, idx) => (
               <div
@@ -182,13 +181,13 @@ export default function RetirementSimulator() {
             {featureCards.map(({ icon: Icon, title, description, mobileImage }, i) => (
               <div
                 key={title}
-                className={`flex items-start gap-4 py-5 ${i !== featureCards.length - 1 ? 'border-b border-[#D9D9D9]/60' : ''}`}
+                className={`flex items-start gap-4 py-3.5 ${i !== featureCards.length - 1 ? 'border-b border-[#D9D9D9]/60' : ''}`}
               >
-                <Image src={mobileImage} alt={title} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
+                <Image src={mobileImage} alt={title} className="w-[114px] h-[85px] rounded-xl object-cover flex-shrink-0" />
                 <Icon className="w-9 h-9 flex-shrink-0" />
                 <div>
-                  <h3 className="font-bold text-[#7343E0] text-sm mb-1">{title}</h3>
-                  <p className="text-sm text-slate-600 leading-snug">{description}</p>
+                  <h3 className="font-bold text-[#7343E0] text-base mb-1">{title}</h3>
+                  <p className="text-base text-slate-600 leading-snug">{description}</p>
                 </div>
               </div>
             ))}
