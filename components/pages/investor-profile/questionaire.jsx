@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import Image from "next/image"
+import Link from "next/link"
 import "@/app/layout"
 
 import Alvo from "./assetsQuestionaire/alvo.svg";
@@ -152,12 +153,11 @@ export default function Questionaire() {
                     </div>
 
 
-                    {/* adicionar caminho do botão */}
                     <div className="font-bold hidden md:block md:text-[clamp(12px,1vw,30px)] mt-4">
-                        <button className="w-full md:w-auto flex flex-row justify-center items-center gap-[1.5vw] py-[1vw] px-[6vw] border-none cursor-pointer rounded-[1vw] bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
+                        <Link href="/suitability/form" className="w-full md:w-auto flex flex-row justify-center items-center gap-[1.5vw] py-[1vw] px-[6vw] border-none cursor-pointer rounded-[1vw] bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
                             <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-[4vw] max-w-[30px]" />
                             {button}
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -193,12 +193,11 @@ export default function Questionaire() {
                 />
             </div>
 
-            {/* adicionar caminho do botão (igual o anterior) */}
             <div className="font-bold text-[clamp(12px,3vw,20px)] block md:hidden mt-[50px]">
-                <button className="w-full md:w-auto flex flex-row justify-center items-center gap-[1.5vw] py-[3vw] px-[6vw] border-none cursor-pointer rounded-[1vw] bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#A280FF]">
+                <Link href="/suitability/form" className="w-full md:w-auto flex flex-row justify-center items-center gap-[1.5vw] py-[3vw] px-[6vw] border-none cursor-pointer rounded-[1vw] bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#A280FF]">
                     <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-[4vw] max-w-[30px]" />
                     {button}
-                </button>
+                </Link>
             </div>
         </section>
     )
