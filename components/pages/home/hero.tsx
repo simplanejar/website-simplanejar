@@ -21,7 +21,7 @@ type HeroProps = {
 export function Hero({ content = heroContent }: HeroProps) {
   return (
     <section className="relative w-full overflow-hidden px-4 py-6 sm:px-6 sm:py-11 lg:px-8">
-      <div className="mx-auto flex w-full max-w-[1398px] flex-col">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col">
         <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(400px,760px)] lg:items-center lg:gap-10">
           
           <div className="order-1 flex flex-col">
