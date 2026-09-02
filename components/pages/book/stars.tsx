@@ -151,7 +151,7 @@ export default function Stars() {
 						</p>
 					</div>
 
-					<div className="flex w-full justify-center md:justify-start lg:w-auto lg:shrink-0 lg:justify-end">
+					<div className="flex w-full justify-center lg:w-auto lg:shrink-0 lg:justify-end">
 						<Journey etapas={etapas} etapaAtiva={etapaAtiva} onEtapaClick={irParaEtapa} />
 					</div>
 				</div>
