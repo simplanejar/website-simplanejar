@@ -40,7 +40,7 @@ export default function ContactHero() {
     const Icon = contactHeroMockData.icon;
     const data = contactHeroMockData;
     return (
-        <section className="flex w-full md:h-[309px] justify-between items-end md:items-center overflow-hidden">
+        <section className="mx-auto max-w-[1440px] flex w-full md:h-[309px] justify-between items-end md:items-center overflow-hidden">
             <div className="flex max-[1112px]:flex-col max-[1112px]:gap-2 max-[1112px]:mt-[6px] gap-6 pl-[10px] md:pl-5 max-w-[430px] md:mr-6 row-0">
                 <div className="w-10 h-10 md:w-20 md:h-20 aspect-square rounded-[80px] bg-[#F2F0FD] flex items-center justify-center">
                     <Icon color="#7C4DFF" className="w-5 h-5 md:w-10 md:h-10" />

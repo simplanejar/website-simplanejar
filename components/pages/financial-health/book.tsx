@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Alvo from "@/assets/alvo.png";
 import Board from "@/assets/board.png";
 import Checklist from "@/assets/checklist.png";
@@ -7,151 +8,95 @@ import Pessoa from "@/assets/pessoa.png";
 import Seta from "@/assets/seta.png";
 import Livro_Gigante from "@/assets/livro gigante.png";
 import Divisor_titulo from "@/assets/divisor-titulo.png";
-import Divisor_beneficios from "@/assets/divisor-beneficios.png";
 
-export function Book(){
-    return(<section className=" m-[20px_25px] flex">
-      <div className="ml-[40px] z-10">
-        <p
-          className="font-extrabold text-[var(--COR_LETRAS)] rounded-[20px]
-                      bg-[#7C4DFF]/20 w-fit p-[10px_25px] 
-                      mt-[75px] text-[16px]"
-        >
-          QUER MUDAR ESSA REALIDADE?
-        </p>
-
-        {/* Título */}
-        <h1 className="mb-[40px] p-[0] text-[50px] font-extrabold">
-          Quer mudar <br /> essa{" "}
-          <span
-            className="bg-[linear-gradient(90deg,_#7C4DFF,_#2ED8E8)] bg-clip-text
-                      text-transparent"
-          >
-            realidade?
+export function Book() {
+  return (
+    <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 my-8 lg:my-16 font-sans overflow-hidden">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+        
+        {/* Coluna da Esquerda: Textos, Benefícios e Botão */}
+        <div className="w-full lg:w-[60%] flex flex-col items-start z-10">
+          <span className="font-extrabold text-[#7C4DFF] rounded-full bg-[#7C4DFF]/10 px-6 py-2.5 text-sm sm:text-base mb-6">
+            QUER MUDAR ESSA REALIDADE?
           </span>
-        </h1>
 
-        <img
-          src={Divisor_titulo.src}
-          alt="Divisor do título para o texto"
-          className="mb-[40px]"
-        />
+          {/* Título */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#000416] leading-tight mb-6">
+            Quer mudar <br className="hidden sm:block" /> essa{" "}
+            <span className="bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent">
+              realidade?
+            </span>
+          </h1>
 
-        {/* Textinho */}
-        <p className=" mb-[70px] font-semibold text-[20px] leading-[2]">
-          Conhecer a situação financeira é importante, mas <br />a transformação
-          começa quando você{" "}
-          <span className="text-[var(--COR_LETRAS)]">decide agir.</span> <br />
-          Conheça o livro{" "}
-          <span className="text-[var(--COR_LETRAS)]">
-            Planejamento Financeiro.
-          </span>{" "}
-          <br />
-          O melhor momento para começar não é quando <br />
-          tudo estiver perfeito,{" "}
-          <span className="text-[var(--COR_LETRAS)]">é agora.</span> <br />
-          Transforme conhecimento em{" "}
-          <span className="text-[var(--COR_LETRAS)]">ação.</span>
-        </p>
+          <div className="gradient-background h-[5px] w-[40px] rounded-[10px] mb-6" />
 
-        <div
-          className="flex bg-[var(--COR_BACKGROUND)] w-[105vh] h-[280px] rounded-[10px] mb-[140px]
-                     justify-around items-center"
-        >
+          {/* Textinho */}
+          <p className="font-semibold text-base sm:text-lg lg:text-xl text-[#000416] leading-relaxed mb-8">
+            Conhecer a situação financeira é importante, mas a transformação começa quando você{" "}
+            <span className="text-[#7C4DFF]">decide agir.</span> <br className="hidden sm:block" />
+            Conheça o livro{" "}
+            <span className="text-[#7C4DFF]">
+              Planejamento Financeiro.
+            </span>{" "}
+            <br className="hidden sm:block" />
+            O melhor momento para começar não é quando tudo estiver perfeito,{" "}
+            <span className="text-[#7C4DFF]">é agora.</span> <br className="hidden sm:block" />
+            Transforme conhecimento em{" "}
+            <span className="text-[#7C4DFF]">ação.</span>
+          </p>
+
           {/* Benefícios */}
-          <div className="flex flex-col p-[25px] items-center">
-            <img
-              src={Board.src}
-              alt="Vetor prancheta"
-              width="91px"
-              height="91px"
-            />
-            <p
-              className="text-center mt-[20px] font-bold text-[var(--COR_LETRAS_BENEFICIOS)]
-                          text-[20px] leading-[1]"
-            >
-              Conhecimento <br /> para colocar <br /> em ação
-            </p>
-          </div>
-          <img
-            src={Divisor_beneficios.src}
-            alt="Divisor do benefício para o outro"
-            className="mt-[20px]"
-            width="2px"
-            height="194px"
-          />
+          <div className="w-full bg-[#FCFCFE] rounded-2xl p-6 lg:p-8 shadow-sm border border-[#F2F0FD] grid grid-cols-2 lg:grid-cols-4 gap-6 items-center justify-items-center mb-10">
+            <div className="flex flex-col items-center text-center">
+              <Image src={Board} alt="Vetor prancheta" width={72} height={72} className="w-14 h-14 lg:w-18 lg:h-18 object-contain" />
+              <p className="mt-4 font-bold text-[#071F6B] text-sm lg:text-base leading-tight">
+                Conhecimento <br /> para colocar <br /> em ação
+              </p>
+            </div>
 
-          <div className="flex flex-col p-[25px] items-center -translate-y-[10px]">
-            <img
-              src={Checklist.src}
-              alt="Vetor checklist"
-              width="91px"
-              height="91px"
-            />
-            <p
-              className="text-center mt-[20px] font-bold text-[var(--COR_LETRAS_BENEFICIOS)]
-                          text-[20px] leading-[1]"
-            >
-              Da reflexão à <br /> prática
-            </p>
+            <div className="flex flex-col items-center text-center">
+              <Image src={Checklist} alt="Vetor checklist" width={72} height={72} className="w-14 h-14 lg:w-18 lg:h-18 object-contain" />
+              <p className="mt-4 font-bold text-[#071F6B] text-sm lg:text-base leading-tight">
+                Da reflexão à <br /> prática
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <Image src={Alvo} alt="Vetor alvo" width={72} height={72} className="w-14 h-14 lg:w-18 lg:h-18 object-contain" />
+              <p className="mt-4 font-bold text-[#071F6B] text-sm lg:text-base leading-tight">
+                Planejamento <br /> para seus <br /> objetivos
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <Image src={Pessoa} alt="Vetor pessoa" width={72} height={72} className="w-14 h-14 lg:w-18 lg:h-18 object-contain" />
+              <p className="mt-4 font-bold text-[#071F6B] text-sm lg:text-base leading-tight">
+                Você no controle <br /> da sua vida <br /> financeira
+              </p>
+            </div>
           </div>
-          <img
-            src={Divisor_beneficios.src}
-            alt="Divisor do benefício para o outro"
-            className="mt-[20px]"
-            width="2px"
-            height="194px"
-          />
-          <div className="flex flex-col p-[25px] items-center">
-            <img src={Alvo.src} alt="Vetor alvo" width="91px" height="91px" />
-            <p
-              className="text-center mt-[20px] font-bold text-[var(--COR_LETRAS_BENEFICIOS)]
-                          text-[20px] leading-[1]"
-            >
-              Planejamento <br /> para seus <br /> objetivos
-            </p>
-          </div>
-          <img
-            src={Divisor_beneficios.src}
-            alt="Divisor do benefício para o outro"
-            className="mt-[20px]"
-            width="2px"
-            height="194px"
-          />
-          <div className="flex flex-col p-[25px] items-center">
-            <img
-              src={Pessoa.src}
-              alt="Vetor pessoa"
-              width="91px"
-              height="91px"
-            />
-            <p
-              className="text-center mt-[20px] font-bold text-[var(--COR_LETRAS_BENEFICIOS)]
-                          text-[20px] leading-[1]"
-            >
-              Você no controle <br /> da sua vida <br /> financeira
-            </p>
-          </div>
+
+          {/* Botão Livro */}
+          <Link
+            href="/o-livro"
+            className="w-full sm:w-auto bg-[#7C4DFF] hover:bg-[#6939E8] transition-all duration-200 text-white font-bold text-lg px-8 py-4 rounded-xl flex items-center justify-center gap-6 shadow-md"
+          >
+            <Image src={Livro} alt="Vetor livro" width={32} height={24} className="w-8 h-auto object-contain" />
+            <span>Conhecer o livro</span>
+            <Image src={Seta} alt="Vetor seta" width={24} height={24} className="w-6 h-6 object-contain" />
+          </Link>
         </div>
 
-        <Link
-          href="/book"
-          className="bg-[var(--COR_LETRAS)] w-fit flex gap-[40px] items-center p-[15px_30px] rounded-[10px]"
-        >
-          {/* Botão Livro */}
-          <img src={Livro.src} alt="Vetor livro" width="44px" height="32px" />
-          <p className="text-[#FFFFFF] font-bold text-[20px]">Conhecer o livro</p>
-          <img src={Seta.src} alt="Vetor seta" width="32px" height="32px" />
-        </Link>
-      </div>
+        {/* Coluna da Direita: Imagem do Livro */}
+        <div className="w-full lg:w-[40%] flex justify-center items-center shrink-0">
+          <Image
+            src={Livro_Gigante}
+            alt="Livro de Simone Costa: Planejamento Financeiro"
+            className="w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[500px] h-auto object-contain"
+          />
+        </div>
 
-      {/* Imagem Livro */}
-      <div className="ml-[-53px] mt-[70px] z-0">
-        <img
-          src={Livro_Gigante.src}
-          alt="Livro de Simone Costa: Planejamento Financeiro"
-          className="scale-[1.3]"
-        />
       </div>
-    </section>);
+    </section>
+  );
 }
