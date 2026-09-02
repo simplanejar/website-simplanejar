@@ -27,6 +27,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators0.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator0.png",
+        href: "/simulador/de-sonhos-e-projetos",
         color: "#7C4DFF",
         smallImage: "/simulators/simulators-images/s0.png"
     },
@@ -37,6 +38,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators1.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator1.png",
+        href: "/simulador/de-renda-na-aposentadoria",
         color: "#071F6B",
         smallImage: "/simulators/simulators-images/s1.png"
     },
@@ -47,6 +49,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators2.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator2.png",
+        href: "/indice-de-saude-financeira",
         color: "#01AEAA",
         smallImage: "/simulators/simulators-images/s2.png"
     },
@@ -57,6 +60,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators3.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator3.png",
+        href: "/suitability",
         color: "#7C4DFF",
         smallImage: "/simulators/simulators-images/s3.png"
     }],

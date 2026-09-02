@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export interface cardData {
     name: string
     title: string
@@ -5,6 +7,7 @@ export interface cardData {
     image: string
     alt: string
     icon: string
+    href: string
     color?: string
     smallImage?: string
 }
@@ -27,7 +30,8 @@ export function Card({ props }: prop) {
     const accent = props.color ?? "#7C4DFF"
 
     return (
-        <div
+        <Link
+            href={props.href}
             className="w-full md:w-[220px] m-[8px] relative flex flex-col"
             style={{ "--card-accent": accent } as React.CSSProperties}
         >
@@ -58,9 +62,9 @@ export function Card({ props }: prop) {
                         <div className="w-full h-px bg-[var(--card-accent)]"/>
 
                         <div className="flex flex-row justify-between px-[5px] pt-2.5">
-                            <button className="bg-transparent border-none text-[var(--card-accent)] font-nunito font-bold cursor-pointer p-0 text-sm md:text-base">
+                            <span className="text-[var(--card-accent)] font-nunito font-bold text-sm md:text-base">
                                 Acessar Simulador
-                            </button>
+                            </span>
                             <div>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M16.0312 11.0416H0V8.95844H16.0312L8.53125 1.45844L10 0L20 10L10 20L8.53125 18.5416L16.0312 11.0416Z" fill="var(--card-accent)"/>
@@ -70,6 +74,6 @@ export function Card({ props }: prop) {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
