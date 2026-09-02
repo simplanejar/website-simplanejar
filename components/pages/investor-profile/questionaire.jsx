@@ -114,7 +114,7 @@ export function Box() {
 
 export default function Questionaire() {
     return (
-        <section className="font-sans overflow-x-hidden my-[50px] mx-[40px]">
+        <section className="font-sans overflow-x-hidden my-[50px] px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28">
 
             <div className="flex flex-row justify-between items-start">
 
@@ -154,7 +154,7 @@ export default function Questionaire() {
 
 
                     <div className="font-bold hidden md:block md:text-[clamp(12px,1vw,30px)] mt-4">
-                        <Link href="/suitability/form" className="w-full md:w-auto flex flex-row justify-center items-center gap-[1.5vw] py-[1vw] px-[6vw] border-none cursor-pointer rounded-[1vw] bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
+                        <Link href="/suitability/form" className="w-full md:w-fit md:max-w-[320px] flex flex-row justify-center items-center gap-3 py-4 px-8 border-none cursor-pointer rounded-xl bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
                             <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-[4vw] max-w-[30px]" />
                             {button}
                         </Link>
