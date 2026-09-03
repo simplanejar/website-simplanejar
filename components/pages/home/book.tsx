@@ -99,7 +99,7 @@ type AmazonReviewsProps = {
 
 function ReviewCard({ review }: { review: Review }) {
     return (
-        <div className="flex min-h-[150px] flex-col justify-between rounded-[10px] bg-card-bg p-4 shadow-[0_4px_0_0_#00000025]">
+        <div className="max-w-[1440px] w-full flex min-h-[150px] flex-col justify-between rounded-[10px] bg-card-bg p-4 shadow-[0_4px_0_0_#00000025]">
             <div>
                 <div className="mb-2 flex items-center justify-between gap-2">
                     <Image

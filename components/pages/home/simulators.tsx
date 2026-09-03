@@ -78,8 +78,8 @@ const data : simulatorsData = {
 
 export default function Simulators() {
     return(
-        <section id="simuladores" className="w-full py-6 md:py-10 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-[1398px] mx-auto flex flex-col items-center gap-8 lg:gap-10">
+        <section id="simuladores" className="w-full py-6 md:py-10 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto">
+            <div className="mx-auto flex flex-col items-center gap-8 lg:gap-10">
                 
                 <div className="flex flex-col xl:flex-row w-full gap-8 xl:gap-10 items-stretch">
                     

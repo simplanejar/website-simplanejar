@@ -68,7 +68,7 @@ export default function BookSection() {
 
 					{/* colocar o caminho certo pro botão, ainda não tinha no projeto então eu não sabia qual era */}
 					<div className="lg:col-span-4 xl:col-span-4 lg:col-start-4 lg:row-start-4">
-						<a href="#" className="mt-3 flex h-[59px] w-full sm:max-w-[250px] cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--purple)] font-bold text-white hover:bg-[#A280FF]">
+						<a href="#" className="mt-3 flex h-[59px] w-full sm:max-w-[250px] cursor-pointer items-center justify-center gap-4 rounded-[10px] bg-[var(--purple)] font-bold text-white hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 ">
 							<FiBook className="w-5 h-5 lg:w-6 lg:h-6" />
 							<span>Conhecer o livro</span>
 							<FaArrowRight className="text-[14px] lg:text-[16px]" />
