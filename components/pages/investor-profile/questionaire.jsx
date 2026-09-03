@@ -1,7 +1,7 @@
 import "@/app/globals.css";
-import Image from "next/image"
-import Link from "next/link"
-import "@/app/layout"
+import Image from "next/image";
+import Link from "next/link";
+import "@/app/layout";
 
 import Alvo from "./assetsQuestionaire/alvo.svg";
 import CaixaDeTexto from "./assetsQuestionaire/caixadetexto.svg";
@@ -71,7 +71,7 @@ export function Box() {
                 </div>
                 <div className="flex flex-col justify-center min-w-0 text-[#071F6B]">
                     <h3 className="text-sm sm:text-base lg:text-lg m-0 font-bold leading-tight">{box.titles.t1}</h3>
-                    <p className="text-xs sm:text-sm m-0 font-semibold leading-snug">{box.text.p1}</p>
+                    <p className="text-sm m-0 font-semibold leading-snug">{box.text.p1}</p>
                 </div>
             </div>
 
@@ -81,7 +81,7 @@ export function Box() {
                 </div>
                 <div className="flex flex-col justify-center min-w-0 text-[#071F6B]">
                     <h3 className="text-sm sm:text-base lg:text-lg m-0 font-bold leading-tight">{box.titles.t2}</h3>
-                    <p className="text-xs sm:text-sm m-0 font-semibold leading-snug">{box.text.p2}</p>
+                    <p className="text-sm m-0 font-semibold leading-snug">{box.text.p2}</p>
                 </div>
             </div>
 
@@ -91,7 +91,7 @@ export function Box() {
                 </div>
                 <div className="flex flex-col justify-center min-w-0 text-[#071F6B]">
                     <h3 className="text-sm sm:text-base lg:text-lg m-0 font-bold leading-tight">{box.titles.t3}</h3>
-                    <p className="text-xs sm:text-sm m-0 font-semibold leading-snug">{box.text.p3}</p>
+                    <p className="text-sm m-0 font-semibold leading-snug">{box.text.p3}</p>
                 </div>
             </div>
 
@@ -101,7 +101,7 @@ export function Box() {
                 </div>
                 <div className="flex flex-col justify-center min-w-0 text-[#071F6B]">
                     <h3 className="text-sm sm:text-base lg:text-lg m-0 font-bold leading-tight">{box.titles.t4}</h3>
-                    <p className="text-xs sm:text-sm m-0 font-semibold leading-snug">{box.text.p4}</p>
+                    <p className="text-sm m-0 font-semibold leading-snug">{box.text.p4}</p>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@ export function Box() {
 
 export default function Questionaire() {
     return (
-        <section className="font-sans overflow-x-hidden my-[50px] px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28">
+        <section className="font-sans overflow-x-hidden my-[50px] px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28 max-w-[1440px] mx-auto">
 
             <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 lg:gap-12">
 
@@ -118,7 +118,7 @@ export default function Questionaire() {
 
                     {/* primeiro parágrafo */}
                     <div className="flex flex-col gap-3 mt-2 lg:mt-4">
-                        <h3 className={`${gradient} bg-clip-text text-lg sm:text-xl font-extrabold text-transparent uppercase tracking-wide`}>{firstText.prev}</h3>
+                        <h3 className="text-[20px] xl:text-[24px] font-bold gradient-text whitespace-nowrap">{firstText.prev}</h3>
                         <h1 className="w-full font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#000416] leading-tight">
                             {firstText.title.t1}
                             <span className="text-[#7C4DFF]">{firstText.title.t2}</span>
@@ -144,14 +144,14 @@ export default function Questionaire() {
                     {/* segundo parágrafo */}
                     <div className="flex flex-col gap-2">
                         <h1 className="text-[#7C4DFF] font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-tight">{secondText.title}</h1>
-                        <div className={`my-2 h-[5px] w-[40px] rounded-[10px] ${gradient}`} />
+                        <div className="gradient-background my-2 h-[5px] w-[40px] rounded-[10px]" />
                         <p className="font-extrabold text-lg sm:text-xl text-[#000416] leading-snug">{secondText.text.t1} <br /> <span className="text-[#071F6B]">{secondText.text.t2}</span></p>
                     </div>
 
-
-                    <div className="font-bold hidden md:block md:text-[clamp(12px,1vw,30px)] mt-4">
-                        <Link href="/suitability/form" className="w-full md:w-fit md:max-w-[320px] flex flex-row justify-center items-center gap-3 py-4 px-8 border-none cursor-pointer rounded-xl bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
-                            <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-[4vw] max-w-[30px]" />
+                    {/* botão desktop */}
+                    <div className="font-bold hidden md:block mt-4">
+                        <Link href="/suitability/form" className="w-full md:w-fit md:max-w-[320px] flex flex-row justify-center items-center gap-3 py-3.5 px-8 border-none cursor-pointer rounded-xl bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
+                            <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-6 h-6 object-contain" />
                             {button}
                         </Link>
                     </div>
@@ -185,9 +185,10 @@ export default function Questionaire() {
                 />
             </div>
 
-            <div className="font-bold text-[clamp(12px,3vw,20px)] block md:hidden mt-[50px]">
-                <Link href="/suitability/form" className="w-full md:w-auto flex flex-row justify-center items-center gap-[1.5vw] py-[3vw] px-[6vw] border-none cursor-pointer rounded-[1vw] bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#A280FF]">
-                    <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-[4vw] max-w-[30px]" />
+            {/* botão mobile */}
+            <div className="font-bold block md:hidden my-6">
+                <Link href="/suitability/form" className="w-full flex flex-row justify-center items-center gap-3 py-3.5 px-6 border-none cursor-pointer rounded-xl bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8]">
+                    <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-6 h-6 object-contain" />
                     {button}
                 </Link>
             </div>
