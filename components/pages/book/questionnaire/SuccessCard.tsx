@@ -19,7 +19,7 @@ export function SuccessCard() {
 
                 <Link
                     href="/book"
-                    className="flex h-[60px] w-full max-w-[375px] items-center justify-center rounded-[10px] bg-primary text-[20px] font-extrabold text-white transition-colors hover:bg-[#A280FF]"
+                    className="flex h-[60px] w-full max-w-[375px] items-center justify-center rounded-[10px] bg-primary text-[20px] font-extrabold text-white transition-colors hover:bg-[#A280FF] cursor-pointer"
                 >
                     {success.button}
                 </Link>

@@ -36,7 +36,7 @@ export function IntroCard({ onStart }: IntroCardProps) {
                     <button
                         type="button"
                         onClick={onStart}
-                        className="flex h-[60px] w-full items-center justify-center gap-2 rounded-[10px] bg-primary text-[20px] font-extrabold text-white transition-colors hover:bg-[#A280FF] sm:w-[375px]"
+                        className="flex h-[60px] w-full items-center justify-center gap-2 rounded-[10px] bg-primary text-[20px] font-extrabold text-white transition-colors hover:bg-[#A280FF] sm:w-[375px] cursor-pointer"
                     >
                         {intro.startButton}
                         <IoIosArrowForward className="size-5" />
