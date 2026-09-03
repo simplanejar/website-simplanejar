@@ -10,9 +10,9 @@ import { buildSubmission } from "./submission";
 import type { Answers, SubmissionEntry } from "./types";
 
 type View = "intro" | "success" | number;
+type SubmitStatus = "idle" | "sending" | "error";
 
-
-function handleSubmit(submission: SubmissionEntry[]) {
+function handleSubmit(submission: SubmissionEntry[], onSuccess: () => void, onError: () => void) {
     enviarEmail({
         tipo: "feedbackLivro",
         subject: "Novo feedback sobre o livro",
@@ -21,12 +21,15 @@ function handleSubmit(submission: SubmissionEntry[]) {
             success: "Feedback enviado com sucesso!",
             error: "Algo deu errado ao enviar seu feedback.",
         },
+        onSuccess,
+        onError,
     });
 }
 
 export default function BookQuestionnaire() {
     const [view, setView] = useState<View>("intro");
     const [answers, setAnswers] = useState<Answers>({});
+    const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
 
     const totalSteps = steps.length;
 
@@ -42,8 +45,12 @@ export default function BookQuestionnaire() {
 
         if (typeof view === "number") {
             if (view >= totalSteps) {
-                handleSubmit(buildSubmission(steps, answers));
-                setView("success");
+                setSubmitStatus("sending");
+                handleSubmit(
+                    buildSubmission(steps, answers),
+                    () => setView("success"),
+                    () => setSubmitStatus("error")
+                );
             } else {
                 setView(view + 1);
             }
@@ -52,6 +59,7 @@ export default function BookQuestionnaire() {
 
     function handleBack() {
         if (typeof view === "number") {
+            setSubmitStatus("idle");
             setView(view <= 1 ? "intro" : view - 1);
         }
     }
@@ -69,6 +77,8 @@ export default function BookQuestionnaire() {
                     onAnswer={handleAnswer}
                     onBack={handleBack}
                     onNext={handleNext}
+                    isSubmitting={submitStatus === "sending"}
+                    submitError={view >= totalSteps && submitStatus === "error"}
                 />
             )}
 

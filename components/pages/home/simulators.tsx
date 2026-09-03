@@ -27,6 +27,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators0.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator0.png",
+        href: "/simulador/de-sonhos-e-projetos",
         color: "#7C4DFF",
         smallImage: "/simulators/simulators-images/s0.png"
     },
@@ -37,6 +38,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators1.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator1.png",
+        href: "/simulador/de-renda-na-aposentadoria",
         color: "#071F6B",
         smallImage: "/simulators/simulators-images/s1.png"
     },
@@ -47,6 +49,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators2.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator2.png",
+        href: "/indice-de-saude-financeira",
         color: "#01AEAA",
         smallImage: "/simulators/simulators-images/s2.png"
     },
@@ -57,6 +60,7 @@ const data : simulatorsData = {
         image: "/simulators/simulators-images/simulators3.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator3.png",
+        href: "/suitability",
         color: "#7C4DFF",
         smallImage: "/simulators/simulators-images/s3.png"
     }],
@@ -96,16 +100,7 @@ export default function Simulators() {
                         </div>
 
                         {/* Botão (Desktop/Tablet) */}
-                        <div className="hidden md:flex w-full sm:w-[304px] h-[59px] rounded-[10px] bg-primary shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] text-white font-nunito text-base font-extrabold flex-row items-center justify-between p-[15px] cursor-pointer hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200 transition-opacity mt-2">
-                            <button className="bg-transparent border-none font-nunito font-bold p-0 text-white cursor-pointer">
-                                {data.button}
-                            </button>
-                            <div>
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.0312 11.0416H0V8.95844H16.0312L8.53125 1.45844L10 0L20 10L10 20L8.53125 18.5416L16.0312 11.0416Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     {/* Coluna dos Cards */}

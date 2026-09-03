@@ -1,6 +1,7 @@
 import "@/app/globals.css";
-import Image from "next/image";
-import "@/app/layout";
+import Image from "next/image"
+import Link from "next/link"
+import "@/app/layout"
 
 import Alvo from "./assetsQuestionaire/alvo.svg";
 import CaixaDeTexto from "./assetsQuestionaire/caixadetexto.svg";
@@ -109,7 +110,7 @@ export function Box() {
 
 export default function Questionaire() {
     return (
-        <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 my-8 lg:my-12 font-sans overflow-hidden">
+        <section className="font-sans overflow-x-hidden my-[50px] px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28">
 
             <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 lg:gap-12">
 
@@ -147,12 +148,12 @@ export default function Questionaire() {
                         <p className="font-extrabold text-lg sm:text-xl text-[#000416] leading-snug">{secondText.text.t1} <br /> <span className="text-[#071F6B]">{secondText.text.t2}</span></p>
                     </div>
 
-                    {/* botão desktop */}
-                    <div className="font-bold hidden lg:block mt-2">
-                        <button className="inline-flex items-center justify-center gap-3 py-3.5 px-8 border-none cursor-pointer rounded-xl bg-[#7C4DFF] text-white font-bold text-base sm:text-lg hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
-                            <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-6 h-6 object-contain" />
+
+                    <div className="font-bold hidden md:block md:text-[clamp(12px,1vw,30px)] mt-4">
+                        <Link href="/suitability/form" className="w-full md:w-fit md:max-w-[320px] flex flex-row justify-center items-center gap-3 py-4 px-8 border-none cursor-pointer rounded-xl bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200">
+                            <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-[4vw] max-w-[30px]" />
                             {button}
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -184,12 +185,11 @@ export default function Questionaire() {
                 />
             </div>
 
-            {/* botão mobile */}
-            <div className="font-bold block lg:hidden my-6">
-                <a href="" className="w-full flex items-center justify-center gap-3 py-3.5 px-6 border-none cursor-pointer rounded-xl bg-[#7C4DFF] text-white font-bold text-base hover:bg-[#6939E8] transition-all duration-200">
-                    <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-6 h-6 object-contain" />
+            <div className="font-bold text-[clamp(12px,3vw,20px)] block md:hidden mt-[50px]">
+                <Link href="/suitability/form" className="w-full md:w-auto flex flex-row justify-center items-center gap-[1.5vw] py-[3vw] px-[6vw] border-none cursor-pointer rounded-[1vw] bg-[#7C4DFF] text-white transition-colors duration-300 ease-in-out hover:bg-[#A280FF]">
+                    <Image src={Alvo} alt={imageAlt.alvoAlt} className="w-[4vw] max-w-[30px]" />
                     {button}
-                </a>
+                </Link>
             </div>
         </section>
     );

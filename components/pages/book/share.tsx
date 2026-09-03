@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { MdOutlineChat } from "react-icons/md";
 import { SlNote } from "react-icons/sl";
@@ -11,11 +12,13 @@ const data = {
     title: "Sua experiência com o livro",
     call: "Responder à pesquisa",
     description: "Conte como os **conceitos e exercícios práticos** apresentados no livro “Planejamento Financeiro: Você no Controle!” contribuíram para a organização da sua vida financeira e compartilha os **resultados alcançados ao longo das cinco etapas.**",
+    href: "/o-livro/form",
   },
   {
     title: "Fale com a autora",
     call: "Deixar uma mensagem",
     description: "Compartilhe uma **mensagem**, uma **reflexão** ou conte como foi a sua **experiência durante a leitura** e a aplicação dos conteúdos do livro.",
+    href: "/contato",
   }]
 }
 
@@ -69,7 +72,8 @@ export function Share() {
 
             <p className="text-left mt-4">{renderHighlightedText(card.description)}</p>
 
-            <button
+            <Link
+                href={card.href}
                 className={`cursor-pointer mt-10 flex flex-row ${
                     index == 0
                     ? "bg-primary text-background hover:bg-[#6939E8] hover:shadow-lg"
@@ -83,7 +87,7 @@ export function Share() {
                 )}
                 <p className="text-xl font-bold">{card.call}</p>
                 <FaArrowRight className="h-5 w-5" />
-                </button>
+                </Link>
           </div>
         ))}
       </div>
