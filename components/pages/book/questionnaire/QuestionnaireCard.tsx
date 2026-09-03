@@ -107,7 +107,7 @@ export function QuestionnaireCard({
                         type="button"
                         onClick={onBack}
                         disabled={isSubmitting}
-                        className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] border-2 border-primary text-[16px] font-semibold text-primary transition-colors hover:bg-primary/5 disabled:cursor-not-allowed disabled:opacity-40"
+                        className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] border-2 border-primary text-[16px] font-semibold text-primary transition-colors hover:bg-primary/5 disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
                     >
                         <IoIosArrowBack className="size-4" />
                         {navButtons.back}
@@ -117,7 +117,7 @@ export function QuestionnaireCard({
                         type="button"
                         onClick={onNext}
                         disabled={isSubmitting}
-                        className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] bg-primary text-[16px] font-semibold text-white transition-colors hover:bg-[#A280FF] disabled:cursor-not-allowed disabled:opacity-70"
+                        className="flex h-[50px] w-[163px] items-center justify-center gap-2 rounded-[10px] bg-primary text-[16px] font-semibold text-white transition-colors hover:bg-[#A280FF] disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
                     >
                         {isSubmitting ? "Enviando..." : navButtons.next}
                         {!isSubmitting && <IoIosArrowForward className="size-4" />}

@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
       { source: '/contato', destination: '/contact' },
       { source: '/simulador-de-renda-na-aposentadoria', destination: '/simulators/retirement' },
       { source: '/simuladores/simulador-de-sonhos-e-projetos', destination: '/simulators/dreams' },
+      { source: '/lgpd', destination: '/privacy-policy' },
+      { source: '/termos-de-uso', destination: '/terms-of-use' },
     ]
   }
 };

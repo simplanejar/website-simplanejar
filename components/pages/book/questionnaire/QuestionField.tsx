@@ -53,7 +53,7 @@ function OptionsField({
                         type="button"
                         onClick={() => onSelect(index)}
                         aria-pressed={selected}
-                        className={`flex min-h-[74px] items-center gap-3 rounded-[10px] border-2 p-4 text-left transition-colors ${
+                        className={`flex min-h-[74px] cursor-pointer items-center gap-3 rounded-[10px] border-2 p-4 text-left transition-colors ${
                             align === "center" ? "flex-col justify-center text-center" : ""
                         } ${
                             selected
@@ -137,7 +137,7 @@ export function QuestionField({ question, value, onChange }: QuestionFieldProps)
                                                     onChange({ ...rowAnswers, [row.id]: index })
                                                 }
                                                 aria-pressed={selected}
-                                                className="flex flex-col items-center gap-1.5"
+                                                className="flex cursor-pointer flex-col items-center gap-1.5"
                                             >
                                                 <RadioIndicator selected={selected} />
                                                 <span className="text-center text-[12px] leading-tight text-foreground">

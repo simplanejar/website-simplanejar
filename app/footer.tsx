@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import { ImageData, StyledText } from ".";
+import Link from "next/link";
 
 interface PreFooterData {
     icon: ImageData;
@@ -104,11 +105,11 @@ export default function Footer() {
             <h3 className="text-white font-bold text-xl mb-6 text-center md:text-left">Navegue</h3>
             
             <ul className="grid grid-cols-2 gap-y-4 gap-x-4 w-full max-w-[280px] text-center text-white text-lg font-normal md:max-w-none md:flex md:flex-col md:items-start md:text-left md:w-auto md:gap-6">
-              <li><a href="/">Home</a></li>
-              <li><a href="/sobre">Sobre</a></li>
-              <li><a href="/o-livro">Livro</a></li>
-              <li><a href="#">Simuladores</a></li>
-              <li><a href="/contato">Contato</a></li>
+              <li><Link href='/' >Home</Link></li>
+              <li><Link href='/sobre'> Sobre</Link></li>
+              <li><Link href="/o-livro">Livro</Link></li>
+              <li><Link href="#">Simuladores</Link></li>
+              <li><Link href="/contato">Contato</Link></li>
             </ul>
           </div>
 
@@ -116,8 +117,8 @@ export default function Footer() {
           <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <h3 className="text-white font-bold text-lg mb-6">Informações</h3>
             <ul className="space-y-6 text-white text-lg font-normal flex flex-col items-center md:items-start">
-              <li><a href="#">Política de Privacidade</a></li>
-              <li><a href="#">Termos de Uso</a></li>
+              <li><Link href="/lgpd">Política de Privacidade</Link></li>
+              <li><Link href="/termos-de-uso">Termos de Uso</Link></li>
             </ul>
           </div>
 
