@@ -160,90 +160,142 @@ const valuesMockData: ValuesData = {
 export default function Values() {
     const textGradient = "bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent";
     return(
-        <div id='nossos-valores'>
-            <section className="flex flex-col w-full max-w-360 md:items-center justify-center m-auto">
-                <h2 className={`text-start md:text-center uppercase text-[20px] md:text-[24px] font-bold px-5 ${textGradient}`}>{valuesMockData.titleTag}</h2>
-                <h1 className="text-[24px] md:text-[46px] text-start md:text-center px-5 font-extrabold leading-tight ">{valuesMockData.title}</h1>
-                <div className="flex items-center justify-center gap-x-5 gap-y-4 flex-wrap p-5 md:p-0">
+        <div id="nossos-valores" className="w-full overflow-hidden">
+            <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 flex flex-col items-center">
+                <h2 className={`text-center uppercase text-lg sm:text-xl font-bold tracking-wide ${textGradient}`}>{valuesMockData.titleTag}</h2>
+                <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-center leading-tight text-dark-blue max-w-3xl">{valuesMockData.title}</h1>
+                <div className="mt-8 lg:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     {valuesMockData.valuesCard.map((card, index) => {
                         const Icon = card.icon;
+                        const isPrimaryGroup = index < 3;
                         return (
-                            <div key={index} className="rounded-[10px] bg-[##FCFCFE] shadow-[0_8px_4px_0_#F2F0FD] py-4 md:py-9 px-4 flex flex-nowrap gap-5 w-full md:max-w-105">
-                                <div key={card.title} 
-                                    className={`shrink-0 grow-0 flex justify-center items-center rounded-[100px] w-[90px] md:w-30 h-[90px] md:h-30 ${index < 3 ? 'bg-[#F2F0FD]' : 'bg-[#D7ECF1]'}`}
+                            <div key={index}
+                                className="rounded-[10px] bg-[#FCFCFE] shadow-[0_4px_12px_rgba(242,240,253,0.8)] border border-[#F2F0FD] p-5 sm:p-6 flex items-center gap-4 sm:gap-5 w-full transition-shadow hover:shadow-md"
+                            >
+                                <div
+                                    className={`shrink-0 flex justify-center items-center rounded-full w-16 h-16 sm:w-20 sm:h-20 ${
+                                        isPrimaryGroup ? 'bg-[#F2F0FD]' : 'bg-[#D7ECF1]'
+                                    }`}
                                 >
-                                    <Icon size={50} color={index < 3 ? '#7C4DFF' : '#2ED8E8'} />
+                                    <Icon
+                                        size={36}
+                                        className={`w-8 h-8 sm:w-10 sm:h-10 ${
+                                            isPrimaryGroup ? 'text-[#7C4DFF]' : 'text-[#01AEAA]'
+                                        }`}
+                                    />
                                 </div>
-                                <div key={card.description}>
-                                    <h3 className={`text-[18px] md:text-[20px] font-bold ${index < 3 ? 'text-[#7C4DFF]' : 'text-[#2ED8E8]'}`}>{card.title}</h3>
-                                    <p className="text-[14px] md:text-[18px] font-semibold">{card.description}</p>
+                                <div className="flex flex-col min-w-0">
+                                    <h3
+                                        className={`text-lg sm:text-xl font-bold mb-1 ${
+                                            isPrimaryGroup ? 'text-[#7C4DFF]' : 'text-[#01AEAA]'
+                                        }`}
+                                    >
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-sm sm:text-base font-semibold text-foreground/80 leading-snug">
+                                        {card.description}
+                                    </p>
                                 </div>
                             </div>
-                        )
+                        );
                     })}
                 </div>
             </section>
-            <section className="md:flex md:flex-row flex-nowrap w-full max-w-[1440px] items-start justify-center m-auto my-[50px] md:my-[94px] md:pl-[30px]">
-                <div className="md:w-[290px] pl-5 pr-20 md:p-0">
-                    <div className="w-10 h-[5px] rounded-[10px] bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] mb-[18px]"/>
-                    <h2 className="text-[20px] md:text-[24px] font-extrabold mb-[12px] md:pr-4">
-                        <span>{valuesMockData.odsSection.title.firstPart}</span>
-                        <span className={textGradient}>{valuesMockData.odsSection.title.secondPart}</span>
-                    </h2>
-                    <p className="font-semibold md:pr-9">{valuesMockData.odsSection.description.p1}</p>
-                    <p className="font-semibold md:pr-9">{valuesMockData.odsSection.description.p2}</p>
-                </div>
-                <div className="pl-4 md:border-l border-l-[#D9D9D9]">
-                    <h2 className={`text-[20px] md:text-[24px] font-bold uppercase mb-[38px] mt-[25px] pr-4 ${textGradient}`}>{valuesMockData.odsSection.subtitle}</h2>
-                    <div className="hidden md:flex flex-wrap gap-[10px]">
-                        {
-                            valuesMockData.odsSection.actions.map((action, index) => (
-                                <div key={index} className="max-w-[207px]">
-                                    <Image src={action.image.path} alt={action.image.alt} width={180} height={180} />
-                                    <p className="font-semibold mt-[6px]">{action.description}</p>
-                                </div>
-                            ))
-                        }
+
+            <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+                <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr] gap-8 lg:gap-12 items-start">
+                    {/* Coluna Esquerda: Texto */}
+                    <div className="flex flex-col">
+                        <div className="w-10 h-[5px] rounded-[10px] bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] mb-4" />
+                        <h2 className="text-xl sm:text-2xl font-extrabold mb-3 leading-tight">
+                            <span>{valuesMockData.odsSection.title.firstPart}</span>
+                            <span className={textGradient}>{valuesMockData.odsSection.title.secondPart}</span>
+                        </h2>
+                        <p className="font-semibold text-base text-foreground/80 leading-relaxed mb-3">
+                            {valuesMockData.odsSection.description.p1}
+                        </p>
+                        <p className="font-semibold text-base text-foreground/80 leading-relaxed">
+                            {valuesMockData.odsSection.description.p2}
+                        </p>
                     </div>
-                    <div className='md:hidden max-w-[767px]'>
-                        <Swiper
-                            slidesPerView={'auto'}
-                            centeredSlides={true}
-                            spaceBetween={16}
-                            draggable
-                            pagination={{
-                            clickable: true,
-                            }}
-                            modules={[Pagination]}
-                            className="mySwiper"
-                        >
-                            {
-                                valuesMockData.odsSection.actions.map((action, index) => (
-                                    <SwiperSlide key={index}>
-                                        <Image src={action.image.path} alt={action.image.alt} width={180} height={180} />
-                                        <p className="font-semibold mt-[6px]">{action.description}</p>
+
+                    <div className="flex flex-col lg:border-l lg:border-[#D9D9D9] lg:pl-8 xl:pl-12 w-full min-w-0">
+                        <h2 className={`text-lg sm:text-xl font-bold uppercase mb-6 sm:mb-8 ${textGradient}`}>
+                            {valuesMockData.odsSection.subtitle}
+                        </h2>
+
+                        <div className="hidden md:grid grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 w-full">
+                            {valuesMockData.odsSection.actions.map((action, index) => (
+                                <div key={index} className="flex flex-col items-start min-w-0">
+                                    <Image
+                                        src={action.image.path}
+                                        alt={action.image.alt}
+                                        width={180}
+                                        height={180}
+                                        className="w-full max-w-[160px] lg:max-w-[180px] h-auto object-contain rounded-lg"
+                                    />
+                                    <p className="font-semibold text-base text-foreground/90 mt-2 leading-snug">
+                                        {action.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="md:hidden w-full overflow-hidden">
+                            <Swiper
+                                slidesPerView={'auto'}
+                                centeredSlides={true}
+                                spaceBetween={16}
+                                draggable
+                                pagination={{ clickable: true }}
+                                modules={[Pagination]}
+                                className="mySwiper !pb-10"
+                            >
+                                {valuesMockData.odsSection.actions.map((action, index) => (
+                                    <SwiperSlide key={index} className="!w-[200px]">
+                                        <Image
+                                            src={action.image.path}
+                                            alt={action.image.alt}
+                                            width={180}
+                                            height={180}
+                                            className="w-full h-auto object-contain rounded-lg"
+                                        />
+                                        <p className="font-semibold text-base text-foreground/90 mt-2 leading-none">
+                                            {action.description}
+                                        </p>
                                     </SwiperSlide>
-                                ))
-                            }
-            
-                        </Swiper>
+                                ))}
+                            </Swiper>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section className="max-w-360 w-full m-auto px-3 md:px-[55px]">
-                <div className="flex items-center justify-center md:justify-around w-full bg-[#071F6B] rounded-[10px] py-[36px]">
-                    <div className="bg-[#F2F0FD] w-[70px] md:w-[130px] h-[70px] md:h-[130px] rounded-[100px] flex justify-center items-center shrink-0 mx-4">
-                        <Image src={valuesMockData.goalsCard.icon} width={85} height={84} alt={valuesMockData.goalsCard.iconAlt} className='w-[45px] h-[44px] md:w-[85px] md:h-[84px]'/>
+
+            <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+                <div className="w-full bg-[#071F6B] rounded-[10px] p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 shadow-md">
+                    <div className="flex items-center gap-4 sm:gap-6 w-full lg:w-auto">
+                        <div className="bg-[#F2F0FD] w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full flex justify-center items-center shrink-0">
+                            <Image
+                                src={valuesMockData.goalsCard.icon}
+                                width={85}
+                                height={84}
+                                alt={valuesMockData.goalsCard.iconAlt}
+                                className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14 object-contain"
+                            />
+                        </div>
+                        <h2 className="text-[20px] sm:text-[30px] lg:text-[38px] text-white font-extrabold leading-none max-w-md">
+                            <span>{valuesMockData.goalsCard.title.s1}</span>
+                            <span className="text-[#2ED8E8]">{valuesMockData.goalsCard.title.s2}</span>
+                        </h2>
                     </div>
-                    <h2 className="text-[20px] md:text-[38px] text-white font-extrabold max-w-[403px] pr-2 md:pr-5">
-                        <span>{valuesMockData.goalsCard.title.s1}</span>
-                        <span className='text-[#2ED8E8]'>{valuesMockData.goalsCard.title.s2}</span>
-                    </h2>
-                    <div className="hidden md:block w-[1px] self-stretch bg-[#D9D9D9] mr-4"/>
-                    <p className="hidden md:block text-white text-[20px] font-semibold max-w-[519px] pr-4">{valuesMockData.goalsCard.description}</p>
+
+                    <div className="hidden lg:block w-px self-stretch bg-[#D9D9D9]/40 shrink-0" />
+
+                    <p className="text-white text-base lg:text-[20px] font-semibold lg:max-w-md xl:max-w-lg leading-relaxed">
+                        {valuesMockData.goalsCard.description}
+                    </p>
                 </div>
             </section>
         </div>
-    )
-    
-} 
+    );
+}

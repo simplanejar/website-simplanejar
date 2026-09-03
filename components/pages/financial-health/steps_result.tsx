@@ -81,12 +81,12 @@ function CardArrow({ colour = "#7C4DFF" }: { colour?: string }) {
 
 export function StepsResults() {
     return(
-        <section className="p-5 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-30">
+        <section className="max-w-[1440px] p-5 mx-auto">
             {/* Texto de cima: igual, porém menor e mais estreito no mobile */}
             <div className="flex flex-col items-center text-center">
                 <div className="text-primary bg-[#E1D6FE] w-fit py-[5px] px-[8px] rounded-[10px] font-bold text-xs sm:text-sm mb-4 sm:mb-5">{data.top}</div>
                 <h2 className="font-bold text-2xl sm:text-3xl lg:text-4xl w-[90%] sm:w-full">{renderHighlightedText(data.title)}</h2>
-                <div className="w-[50px] h-[6px] mt-4 mb-4 sm:mt-5 sm:mb-5 bg-gradient-to-r from-primary to-secondary rounded-[10px]"/>
+                <div className="w-[40px] h-[5px] mt-4 mb-4 sm:mt-5 sm:mb-5 bg-gradient-to-r from-primary to-secondary rounded-[10px]"/>
                 <p className="w-[85%] sm:w-[80%] md:w-[70%] lg:w-[80%] text-sm sm:text-base">
                     {renderHighlightedText(data.p)}
                 </p>

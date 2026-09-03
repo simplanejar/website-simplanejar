@@ -122,16 +122,16 @@ export function Reviews() {
           <div className="max-w-2xl">
             {/* Tag / Linha decorativa */}
             <div className="mb-4">
-              <span className="text-sm font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#7e42ff] to-[#38b6ff] uppercase block">
+              <span className="text-[20px] xl:text-[24px] font-bold gradient-text whitespace-nowrap">
                 AVALIAÇÕES DOS LEITORES
               </span>
-              <div className="h-1.5 w-16 bg-gradient-to-r from-[#7e42ff] to-[#38b6ff] rounded-full mt-1.5"></div>
+              <div className="h-1.5 w-16 bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] rounded-full mt-1.5"></div>
             </div>
 
             {/* Título Principal */}
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#0e1738] leading-tight mb-4 break-words">
+            <h2 className="text-[24px] md:text-[36px] lg:text-[48px] font-extrabold leading-[32px] md:leading-[46px] lg:leading-[60px] text-[#000416] mb-4 break-words">
              Histórias reais de <br className="hidden md:block" />
-             <span className="text-[#8c52ff] inline">
+             <span className="text-[#7C4DFF] inline">
              transformação financeira.
             </span>
             </h2>
@@ -146,7 +146,7 @@ export function Reviews() {
           <div className="hidden md:block mt-8 md:mt-0">
             <a
               href="#"
-              className="inline-flex items-center gap-4 px-6 py-3.5 border-2 border-[#8c52ff] rounded-xl bg-white hover:bg-[#6939E8]/5 hover:shadow-lg transition-all duration-200"
+              className="inline-flex items-center gap-4 px-6 py-3.5 border-2 border-[#7C4DFF] rounded-xl bg-white hover:bg-[#6939E8]/5 hover:shadow-lg transition-all duration-200"
             >
               <Image
                 src="/images/amazon-logo.png"
@@ -156,10 +156,10 @@ export function Reviews() {
                 unoptimized
                 className="h-6 sm:h-7 w-auto object-contain flex-shrink-0"
               />
-              <span className="text-[#8c52ff] font-bold text-base whitespace-nowrap ">
+              <span className="text-[#7C4DFF] font-bold text-base whitespace-nowrap ">
                 Ver todas as avaliações na Amazon
               </span>
-              <ExternalLink className="w-5 h-5 text-[#8c52ff]" />
+              <ExternalLink className="w-5 h-5 text-[#7C4DFF]" />
             </a>
           </div>
 
@@ -167,7 +167,7 @@ export function Reviews() {
           <div className="md:hidden mt-8 w-full">
             <a
               href="#"
-              className="flex items-center justify-center gap-3 px-4 py-4 border-2 border-[#8c52ff] rounded-xl bg-white hover:bg-[#8c52ff]/5 transition-colors shadow-sm w-full"
+              className="flex items-center justify-center gap-3 px-4 py-4 border-2 border-[#7C4DFF] rounded-xl bg-white hover:bg-[#7C4DFF]/5 transition-colors shadow-sm w-full"
             >
               <Image
                 src="/images/amazon-logo.png"
@@ -176,10 +176,10 @@ export function Reviews() {
                 height={28}
                 className="h-6 sm:h-7 w-auto object-contain flex-shrink-0"
               />
-              <span className="text-[#8c52ff] font-bold text-[15px] sm:text-base">
+              <span className="text-[#7C4DFF] font-bold text-[15px] sm:text-base">
                 Ver todas as avaliações na Amazon
               </span>
-              <ExternalLink className="w-5 h-5 text-[#8c52ff] flex-shrink-0 hidden sm:block" />
+              <ExternalLink className="w-5 h-5 text-[#7C4DFF] flex-shrink-0 hidden sm:block" />
             </a>
           </div>
         </div>
@@ -190,7 +190,7 @@ export function Reviews() {
           <button
             onClick={prevSlide}
             aria-label="Anterior"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border border-gray-200 bg-white text-[#8c52ff] hover:bg-gray-50 transition-colors shadow-md"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border border-gray-200 bg-white text-[#7C4DFF] hover:bg-gray-50 transition-colors shadow-md"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -237,20 +237,20 @@ export function Reviews() {
                       </p>
                     </div>
 
-                    {/* Rodapé do Card */}
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#8c52ff] flex items-center justify-center text-white text-lg font-extrabold shadow-sm">
+                    {/* Rodapé do Card Ajustado */}
+                    <div className="flex flex-wrap items-center justify-between gap-y-2 gap-x-2 mt-auto pt-4 border-t border-gray-50">
+                      <div className="flex items-center gap-2.5 shrink-0">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#7C4DFF] flex items-center justify-center text-white text-base sm:text-lg font-extrabold shadow-sm shrink-0">
                           {review.initial}
                         </div>
-                        <span className="font-bold text-[#0e1738] text-[15px]">
+                        <span className="font-bold text-[#0e1738] text-sm sm:text-[15px]">
                           {review.author}
                         </span>
                       </div>
                       
-                      <div className="flex items-center gap-1.5 text-[#8c52ff]">
-                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span className="font-bold text-[13px] sm:text-sm">
+                      <div className="flex items-center gap-1 text-[#7C4DFF] shrink-0 whitespace-nowrap">
+                        <CheckCircle2 className="w-4 h-4 shrink-0" />
+                        <span className="font-bold text-[12px] sm:text-[13px]">
                           Compra verificada
                         </span>
                       </div>
@@ -266,7 +266,7 @@ export function Reviews() {
           <button
             onClick={nextSlide}
             aria-label="Próximo"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border border-gray-200 bg-white text-[#8c52ff] hover:bg-gray-50 transition-colors shadow-md"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border border-gray-200 bg-white text-[#7C4DFF] hover:bg-gray-50 transition-colors shadow-md"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -285,7 +285,7 @@ export function Reviews() {
               aria-label={`Ir para o slide ${index + 1}`}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 (currentIndex % reviewsData.length) === index
-                  ? 'w-8 bg-[#8c52ff]'
+                  ? 'w-8 bg-[#7C4DFF]'
                   : 'w-2.5 bg-gray-300'
               }`}
             />

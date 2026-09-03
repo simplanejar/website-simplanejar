@@ -140,54 +140,48 @@ const valuesData = [
   { icon: TbTargetArrow, label: cardText.values[0], text: "text-[#7C4DFF]" },
   { icon: HiOutlineBookOpen, label: cardText.values[1], text: "text-[#7C4DFF]" },
   { icon: FaRegHeart, label: cardText.values[2], text: "text-[#7C4DFF]" },
-  { icon: FaRegCompass, label: cardText.values[3], text: "text-[#01AEAA]"},
+  { icon: FaRegCompass, label: cardText.values[3], text: "text-[#01AEAA]" },
   { icon: MdOutlinePerson, label: cardText.values[4], text: "text-[#01AEAA]" },
 ];
 
 export default function Founder() {
   return (
-    <section id="a-idealizadora" className="flex flex-col p-[20px] md:p-[50px] max-w-[1440px] w-full items-center self-center mx-auto">
+    <section id="a-idealizadora" className="flex flex-col px-4 sm:px-6 lg:px-8 py-12 lg:py-20 max-w-[1440px] w-full items-center mx-auto overflow-hidden">
       {/* ---------- MOBILE (< md) ---------- */}
-      <div className="flex flex-col items-center w-full md:hidden">
-        <h2 className="self-start bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent text-[20px] font-bold">
+      <div className="flex flex-col text-left items-center w-full max-w-2xl lg:hidden">
+        <h2 className="self-start text-[20px] xl:text-[24px] font-bold gradient-text whitespace-nowrap">
           {titles.prev}
         </h2>
         <div className="self-start bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] h-[5px] w-[40px] rounded-[10px] my-[8px]" />
 
-        <h1 className="self-start font-extrabold text-[24px] leading-[120%]">
+        <h1 className="self-start text-[24px] sm:text-[28px] md:text-[36px] xl:text-[48px] font-extrabold ">
           {titles.main.t1} <span className="text-[#7C4DFF]">{titles.main.t2}</span>
         </h1>
-        <h2 className="self-start font-extrabold text-[22px] text-[#7C4DFF] mt-[8px] leading-[110%]">
-          {titles.name}
-        </h2>
-        <h3 className="self-start font-bold text-[18px] mb-[14px]">{titles.subname}</h3>
+        <h2 className="self-start font-extrabold text-xl sm:text-2xl text-[#7C4DFF] mt-2">{titles.name}</h2>
+        <h3 className="self-start font-bold text-base sm:text-lg mb-4">{titles.subname}</h3>
 
-        <div className="self-start">
+        <div className="self-start w-full">
           <ParagraphRender text={cardText.global.p1} cor="roxo" tamanho={16} />
         </div>
 
-        <Image
-          src={simone}
-          alt={altImg}
-          className="rounded-[24px] w-full max-w-[280px] h-auto mt-[20px]"
-        />
+        <Image src={simone} alt={altImg} className="rounded-[24px] w-full max-w-[320px] h-auto mt-6 object-cover shadow-md" />
 
-        <div className="bg-[#F2F0FD] rounded-[20px] w-full mt-[20px] p-[20px] flex flex-col gap-[20px]">
-          <div className="flex gap-[12px] items-start">
-            <div className="bg-white rounded-full size-fit p-[10px] shrink-0">
+        <div className="bg-[#F2F0FD] rounded-[20px] w-full mt-6 p-5 sm:p-6 flex flex-col gap-5 border border-[#F2F0FD]">
+          <div className="flex gap-3 items-start">
+            <div className="bg-white rounded-full p-2.5 shrink-0 shadow-sm">
               <MdOutlineStarBorder className="text-[#7C4DFF] text-[24px]" />
             </div>
             <ParagraphRender text={cardText.global.star} cor="roxo" tamanho={16} />
           </div>
-          <div className="flex gap-[12px] items-start">
-            <div className="bg-white rounded-full size-fit p-[10px] shrink-0">
-              <FaRegCompass className="text-[#7C4DFF] text-[24px]" />
+          <div className="flex gap-3 items-start">
+            <div className="bg-white rounded-full p-2.5 shrink-0 shadow-sm">
+              <FaRegCompass className="text-[#7C4DFF] text-2xl" />
             </div>
             <ParagraphRender text={cardText.global.compass} cor="roxo" tamanho={16} />
           </div>
 
           <a href={linkedInLink} target="_blank" className="w-full">
-            <button className="w-full flex gap-[10px] bg-[#0A66C2] rounded-[10px] px-[16px] py-[12px] text-white font-bold text-[16px] items-center justify-center hover:cursor-pointer hover:bg-white hover:text-[#0A66C2] transition duration-200 ease-in-out">
+            <button className="w-full flex gap-[10px] bg-[#0A66C2] rounded-[10px] px-[16px] py-[12px] text-white font-bold text-[16px] items-center justify-center cursor-pointer hover:bg-[#084e96] transition-colors duration-200 ease-in-out">
               <FaLinkedinIn />
               {cardText.global.button}
               <HiOutlineExternalLink />
@@ -195,7 +189,7 @@ export default function Founder() {
           </a>
         </div>
 
-        <div className="flex flex-col gap-[16px] w-full mt-[24px]">
+        <div className="flex flex-col gap-4 w-full mt-8">
           <CardIdealizadora cor="roxo" icon={PiHandHeartLight} title={cardText.fromWhere.title} text={cardText.fromWhere.text} />
           <CardIdealizadora cor="verde" icon={BsGraphUpArrow} title={cardText.experience.title} text={cardText.experience.text} />
           <CardIdealizadora cor="roxo" icon={MdOutlineSchool} title={cardText.graduation.title} text={cardText.graduation.text} />
@@ -204,32 +198,35 @@ export default function Founder() {
         </div>
       </div>
 
-      {/* ---------- DESKTOP (>= md) ---------- */}
-      <div className="hidden md:flex gap-[30px]">
-        <div>
-          <h2 className="inline bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent text-[24px] font-bold">
+      {/* ---------- DESKTOP (>= lg) ---------- */}
+      <div className="hidden lg:flex gap-10 xl:gap-12 w-full items-start">
+        <div className="w-[340px] xl:w-[380px] shrink-0">
+          <h2 className="self-start text-[20px] xl:text-[24px] font-bold gradient-text whitespace-nowrap">
             {titles.prev}
           </h2>
-          <div className="bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] h-[5px] w-[40px] rounded-[10px] mt-[17px] mb-[37px]" />
-          <Image src={simone} alt={altImg} className="rounded-[40px] w-full max-w-[383px]" />
-          <div className="bg-[#F2F0FD] rounded-[10px] w-full mt-[24px] pb-[27px] flex flex-col items-center">
-            <div className="px-[20px] py-[25px]">
+          <div className="bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] h-[5px] w-[40px] rounded-[10px] mt-3 mb-6" />
+          <Image src={simone} alt={altImg} className="rounded-[30px] xl:rounded-[40px] w-full h-auto object-cover shadow-md" />
+          <div className="bg-[#F2F0FD] rounded-[16px] w-full mt-[24px] p-6 flex flex-col items-center">
+            <div className="w-full flex flex-col gap-6">
               <ParagraphRender text={cardText.global.p1} cor="roxo" tamanho={18} />
-              <div className="flex gap-[20px] mt-[24px]">
-                <div className="bg-white rounded-full size-fit p-[8px]">
-                  <MdOutlineStarBorder className="text-[#7C4DFF] text-[28px]" />
+              
+              <div className="flex gap-4 items-start">
+                <div className="bg-white rounded-full p-2.5 shrink-0 shadow-sm">
+                  <MdOutlineStarBorder className="text-[#7C4DFF] text-2xl" />
                 </div>
-                <ParagraphRender text={cardText.global.star} cor="roxo" tamanho={20} />
+                <ParagraphRender text={cardText.global.star} cor="roxo" tamanho={18} />
               </div>
-              <div className="flex gap-[20px] mt-[36px]">
-                <div className="bg-white rounded-full size-fit p-[12px]">
-                  <FaRegCompass className="text-[#7C4DFF] text-[20px]" />
+
+              <div className="flex gap-4 items-start">
+                <div className="bg-white rounded-full p-2.5 shrink-0 shadow-sm">
+                  <FaRegCompass className="text-[#7C4DFF] text-2xl" />
                 </div>
-                <ParagraphRender text={cardText.global.compass} cor="roxo" tamanho={20} />
+                <ParagraphRender text={cardText.global.compass} cor="roxo" tamanho={18} />
               </div>
             </div>
-            <a href={linkedInLink} target="_blank">
-              <button className="flex gap-[12px] bg-[#0A66C2] rounded-[10px] px-[20px] py-[15px] text-white font-bold text-[20px] items-center hover:cursor-pointer hover:bg-white hover:text-[#0A66C2] transition duration-200 ease-in-out">
+
+            <a href={linkedInLink} target="_blank" rel="noreferrer" className="w-full mt-6">
+              <button className="w-full flex gap-2 bg-[#0A66C2] rounded-[10px] px-5 py-3.5 text-white font-bold text-base items-center justify-center hover:bg-[#084e96] transition-colors duration-200">
                 <FaLinkedinIn />
                 {cardText.global.button}
                 <HiOutlineExternalLink />
@@ -237,12 +234,12 @@ export default function Founder() {
             </a>
           </div>
         </div>
-        <div>
-          <h1 className="font-extrabold text-[44px] max-w-[550px]">
+        <div className="flex-1 min-w-0 flex flex-col gap-4">
+          <h1 className="self-start text-[24px] sm:text-[28px] md:text-[36px] xl:text-[48px] font-extrabold ">
             {titles.main.t1} <span className="text-[#7C4DFF]">{titles.main.t2}</span>
           </h1>
-          <h2 className="font-extrabold text-[40px] text-[#7C4DFF] mt-[22px] leading-[110%]">{titles.name}</h2>
-          <h3 className="font-bold text-[24px] mb-[10px]">{titles.subname}</h3>
+          <h2 className="font-extrabold text-[30px] xl:text-[40px] text-[#7C4DFF] mt-1 leading-tight">{titles.name}</h2>
+          <h3 className="font-bold text-lg xl:text-xl text-foreground/80 mb-2">{titles.subname}</h3>
           <CardIdealizadora cor="roxo" icon={PiHandHeartLight} title={cardText.fromWhere.title} text={cardText.fromWhere.text} />
           <CardIdealizadora cor="verde" icon={BsGraphUpArrow} title={cardText.experience.title} text={cardText.experience.text} />
           <CardIdealizadora cor="roxo" icon={MdOutlineSchool} title={cardText.graduation.title} text={cardText.graduation.text} />
@@ -252,15 +249,17 @@ export default function Founder() {
       </div>
 
       {/* ---------- VALORES (compartilhado) ---------- */}
-      <div className="flex flex-wrap justify-center gap-x-[20px] gap-y-[20px] md:gap-[60px] bg-[#FCFCFE] p-[24px] md:p-[40px] shadow-[0_8px_4px_0_#F2F0FD] rounded-[10px] my-[40px] md:my-[74px] w-full md:w-fit">
-        {valuesData.map(({ icon: Icon, label, text }, i) => (
-          <div key={i} className={`flex flex-col items-center gap-[8px] md:gap-0 w-[88px] md:w-auto ${text}`}>
-            <div className={`flex items-center justify-center rounded-full size-[56px] md:size-auto`}>
-              <Icon className="text-[30px] md:text-[80px]" />
+      <div className="mt-12 lg:mt-16 w-full bg-[#FCFCFE] p-6 lg:p-8 shadow-[0_8px_4px_0_#F2F0FD] border border-[#F2F0FD] rounded-[10px]">
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 lg:gap-8 items-center justify-items-center">
+          {valuesData.map(({ icon: Icon, label, text }, i) => (
+            <div key={i} className={`flex flex-col items-center gap-2 ${text}`}>
+              <div className="flex items-center justify-center p-2">
+                <Icon className="text-[36px] lg:text-[48px]" />
+              </div>
+              <p className="text-[14px] md:text-[16px] lg:text-[22px] font-bold text-center leading-snug">{label}</p>
             </div>
-            <p className="text-[14px] md:text-[22px] font-bold text-center leading-tight">{label}</p>
-          </div>
         ))}
+        </div>
       </div>
     </section>
   );

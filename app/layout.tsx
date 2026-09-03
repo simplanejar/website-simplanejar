@@ -27,7 +27,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${nunito.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="bg-[#FAF9FE] min-h-full flex flex-col font-sans">
         <Navbar />
         {children}
         <Footer/>

@@ -3,7 +3,7 @@ import React from 'react';
 export default function Founder() {
   return (
     //Seção princial
-    <section id="sobre" className="relative w-full pt-20 pb-14 px-4 md:px-8 overflow-hidden font-sans">
+    <section id="sobre" className="relative w-full max-w-[1440px] mx-auto pt-20 pb-14 px-4 md:px-8 overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto relative">
 
         {/* Título mobile, aparece apenas em celulares */}
