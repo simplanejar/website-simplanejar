@@ -77,15 +77,69 @@ const reviews: Review[] = [
     {
         rating: 5,
         quote:
-            "Leitura prática, objetiva e fácil de aplicar no dia a dia. Me ajudou a organizar minhas finanças e ter clareza sobre meus objetivos.",
-        author: "Carla M.",
+            "Muito bom para quem busca controles pesoais e domésticos, indico.",
+        author: "José R. M.",
+        initial: "J",
+    },
+    {
+        rating: 5,
+        quote: "Prático e de fácil leitura! Excelente!",
+        author: "Angelyca",
+        initial: "A",
+    },
+    {
+        rating: 5,
+        quote: "Realmente é um ótimo livro para quem está disposto a se reorganizar financeiramente, ter controle sobre seus gastos e voltar a prosperar nas finanças. Mas tem que estar disposto a seguir o passo a passo. Ainda estou lendo e estou seguindo passo a passso as coisas estão melhorando por aqui. Obrigada, Simone Costa.",
+        author: "Stephanie D. S.",
+        initial: "S",
+    },
+    {
+        rating: 5,
+        quote: "Simplesmente maravilhoso. Para iniciantes, mas bem completo",
+        author: "Aline R.",
+        initial: "A",
+    },
+    {
+        rating: 5,
+        quote: "Eu gostei de todo o conteúdo, a parte na planilha é ótima, por não ter a oportunidade de estudar no passado agora aos 55 anos, tudo que leio sobre economia passo o conhecimento pros filhos e netos, na minha opinião economia deveria ser matéria nas escolas desde cedo. Por que agora que estou fazendo minha reserva financeira.",
+        author: "Carmo Maria",
         initial: "C",
     },
     {
         rating: 5,
-        quote: "Mudou completamente a forma como eu penso o meu dinheiro.",
-        author: "Bruno S.",
-        initial: "B",
+        quote: "Gostei muito do livro, tem me ajudado muito no repensar de como minimizar minhas finanças. Ótimo livro.",
+        author: "Eliane",
+        initial: "E",
+    },
+    {
+        rating: 5,
+        quote: "Muito bom para quem deseja construir um propósito financeiro e ter controle de suas ações financeiras.",
+        author: "Carlos Alberto M. F.",
+        initial: "C",
+    },
+    {
+        rating: 5,
+        quote: "O livro estimula a organização financeira, tem tabelas e dicas valiosas.",
+        author: "Elaine S. S.",
+        initial: "E",
+    },
+    {
+        rating: 5,
+        quote: "Excelente conteúdo.",
+        author: "Daniela P. R.",
+        initial: "D",
+    },
+    {
+        rating: 5,
+        quote: "O conteúdo deste livro é uma delícia, já li vários livros de planejamento financeiro, mas nunca vi um livro com tanta praticidade e clareza em seu conteúdo. Estou muito feliz com essa aquisição, super recomendo. Tive o privilégio de conhecer a Simone, uma pessoa ímpar, muito inteligente e humana. Ansiosa por mais livros assim. Obrigada.",
+        author: "Nivia",
+        initial: "N",
+    },
+    {
+        rating: 4,
+        quote: 'O livro traz explicações sobre o tema finanças e você pode acessar um passo a passo de progresso da leitura a medida que os capítulos avançam com uma "pesquisa" ao final de cada tema. Contém muitas tabelas que podem ser usadas como modelos para quem deseja organizar sua vida financeira.',
+        author: "Pâmela F.",
+        initial: "P",
     },
 ];
 
