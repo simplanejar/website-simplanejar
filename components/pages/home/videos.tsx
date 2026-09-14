@@ -104,7 +104,7 @@ export function Videos() {
   };
 
   return (
-    <section className="w-full bg-[#FCFCFE] py-12 lg:py-20 font-['Nunito',sans-serif] overflow-hidden">
+    <section className="w-full bg-[#FCFCFE] py-5 md:py-8 font-['Nunito',sans-serif] overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-12 justify-between">
           

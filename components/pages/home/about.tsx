@@ -124,7 +124,7 @@ export function About() {
      const ButtonIcon = data.button.icon;
  
     return (
-        <section className="overflow-hidden w-full max-w-[1440px] mx-auto px-4 py-16 sm:px-10 lg:px-16 lg:py-24">
+        <section className="overflow-hidden w-full max-w-[1440px] mx-auto px-4 py-5 sm:px-10 lg:px-16">
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-[4fr_6fr] lg:gap-[77px]">
                 {/* Text column */}
                 <div className="flex flex-col lg:block order-2 lg:order-1">

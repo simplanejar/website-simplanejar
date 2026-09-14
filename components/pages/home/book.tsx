@@ -294,8 +294,8 @@ export function Book() {
     const goTo = (index: number) => setPage((index + pageCount) % pageCount);
 
     return (
-        <div className="flex flex-col items-center p-[2%] w-full max-w-[1440px] mx-auto">
-            <div className="flex flex-col w-full p-4 md:p-8 lg:p-10">
+        <div className="flex flex-col items-center p-[2%] py-5 w-full max-w-[1440px] mx-auto">
+            <div className="flex flex-col w-full md:px-8 lg:px-10">
                 <h1 className="font-nunito text-lg md:text-2xl font-extrabold bg-gradient-to-r from-[#7C4DFF] to-[#2ED8E8] bg-clip-text text-transparent w-fit">
                     LIVRO
                 </h1>
