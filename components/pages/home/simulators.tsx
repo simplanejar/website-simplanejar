@@ -86,7 +86,7 @@ export default function Simulators() {
                 
                 <div className="flex flex-col xl:flex-row w-full gap-8 xl:gap-10 items-stretch">
                     
-                    <div className="flex flex-col w-full xl:w-[35%] xl:shrink-0 justify-between">
+                    <div className="flex flex-col w-full xl:w-[32%] xl:shrink-0 justify-between">
                         <div>
                             <h1 className="font-nunito text-lg md:text-2xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                                 {data.title}
