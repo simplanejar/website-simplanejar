@@ -310,26 +310,6 @@ export function Book() {
                             className="w-[220px] md:w-[280px] lg:w-[290px] xl:w-[340px] h-auto object-contain"
                         />
 
-                        <a
-                            href={amazonLink}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="flex items-center gap-3 rounded-[10px] bg-white px-4 py-3 shadow-[0_4px_4px_0_rgba(0,0,0,0.15)]"
-                        >
-                            <Image
-                                src="/book/amazon-logo.svg"
-                                alt="Amazon"
-                                width={40}
-                                height={40}
-                                className="h-9 w-9 shrink-0"
-                            />
-                            <span className="font-nunito text-sm font-semibold text-dark-blue">
-                                Disponível na Amazon
-                                <span className="block text-xs font-normal text-foreground/70">
-                                    Compra segura e entrega rápida.
-                                </span>
-                            </span>
-                        </a>
                     </div>
 
                     <div className="flex flex-col flex-1 min-w-0 lg:max-w-[520px] xl:max-w-[600px]">
@@ -400,7 +380,7 @@ export function Book() {
                                 className="flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[10px] bg-[#7C4DFF] px-5 py-4 font-nunito text-sm xl:text-base font-extrabold text-white shadow-[0_1px_4px_0_rgba(0,0,0,0.25)] hover:bg-[#6939E8] hover:shadow-lg transition-all duration-200"
                             >
                                 <MdOutlineShoppingCart size={20} />
-                                Comprar agora na Amazon
+                                Comprar agora
                                 <ChevronRight className="h-4 w-4" />
                             </a>
 
