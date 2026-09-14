@@ -190,7 +190,7 @@ export function About() {
                                 return (
                                     <div
                                         key={i}
-                                        className="flex flex-col items-center text-center lg:items-start lg:px-3 lg:text-left first:lg:pl-0"
+                                        className="flex flex-col items-center text-center lg:px-3 first:lg:pl-0"
                                     >
                                         <div
                                             className="mb-3 flex h-11 lg:h-15 w-11 lg:w-15 items-center justify-center rounded-full"
