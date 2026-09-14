@@ -7,7 +7,8 @@ interface simulatorsData {
     button : string,
     cards : cardData[],
     bottomItems: bottomItem[],
-    mainBottomItem: bottomItem
+    mainBottomItem: bottomItem,
+    buttonText ?: string
 }
 
 interface bottomItem {
@@ -32,7 +33,7 @@ const data : simulatorsData = {
         smallImage: "/simulators/simulators-images/s0.png"
     },
     {
-        name: "PLANEJAMENTO DE LONGO PRAZO",
+        name: "PLANEJE SEU FUTURO",
         title: "Simulador de **Reserva para Aposentadoria**",
         description: "Planeja seu futuro e veja quanto você precisa investir para ter mais tranquilidade na aposentadoria.",
         image: "/simulators/simulators-images/simulators1.png",
@@ -45,24 +46,26 @@ const data : simulatorsData = {
     {
         name: "AUTOCONHECIMENTO",
         title: "Índice de **Saúde Financeira**",
-        description: "Avalie sua situação financeira atual e receba dicas personalizadas para melhorar seu controle.",
+        description: "Faça o Teste e descubra como está sua saúde financeira. Conte com o SIM PLANEJAR em sua jornada!",
         image: "/simulators/simulators-images/simulators2.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator2.png",
         href: "/indice-de-saude-financeira",
         color: "#01AEAA",
-        smallImage: "/simulators/simulators-images/s2.png"
+        smallImage: "/simulators/simulators-images/s2.png",
+        buttonText: "Acessar o Teste"
     },
     {
-        name: "INVESTIMENTOS",
+        name: "PERFIL DE INVESTIDOR",
         title: "Perfil de **Investidor (Suitability)**",
-        description: "Descubra seu perfil de investidor e conheça os investimentos mais adequados para você.",
+        description: "Conhecer seu perfil de investidor é fundamental para nortear suas decisões de investimentos. Faça o teste e descubra!",
         image: "/simulators/simulators-images/simulators3.png",
         alt: "",
         icon: "/simulators/simulators-icons/simulator3.png",
         href: "/suitability",
         color: "#7C4DFF",
-        smallImage: "/simulators/simulators-images/s3.png"
+        smallImage: "/simulators/simulators-images/s3.png",
+        buttonText: "Acessar o Teste"
     }],
     bottomItems: [
         { iconPath: "simulators/simulators-icons/bottomIcon0.svg", description: "Seguros e confiáveis" },
@@ -72,7 +75,7 @@ const data : simulatorsData = {
     ],
     mainBottomItem: {
         iconPath: "simulators/simulators-icons/bottomIcon3.svg",
-        description: "Todos os simuladores são **gratuitos** e foram desenvolvidos para apoiar suas decisões financeiras."
+        description: "Todos os simuladores e testes são **gratuitos** e apoiam você em sua jornada financeira"
     }
 }
 

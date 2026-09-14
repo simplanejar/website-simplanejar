@@ -52,6 +52,9 @@ const data: AboutSimplanejarData = {
         ],
         [
             {text: "Muitas pessoas sonham com a casa própria, uma aposentadoria mais tranquila, uma viagem ou simplesmente uma vida financeira mais organizada, mas não sabem por onde começar quando o assunto é planejamento financeiro."}
+        ],
+        [
+            {text: "O SIM PLANEJAR nasceu para ajudar você nesta Jornada! Organize suas finanças, faça escolhas conscientes e assuma o controle da sua vida financeira, tornando-se protagonista da sua própria história."}
         ]
     ],
     img: {

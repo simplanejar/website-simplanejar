@@ -271,7 +271,7 @@ export function Videos() {
 
                     <div className="hidden lg:flex flex-col flex-1 min-w-0 justify-center">
                       <h4 className="font-semibold text-[17px] leading-[24px] text-[#000416] group-hover:text-[#7C4DFF] transition-colors line-clamp-2">
-                        {serie.title} — {serie.description}
+                        <span className='font-bold text-[#7C4DFF]'>{serie.title}</span> — {serie.description}
                       </h4>
 
                       <div className="flex items-center gap-2 font-medium text-[15px] leading-[22px] text-[#000416] mt-2">
