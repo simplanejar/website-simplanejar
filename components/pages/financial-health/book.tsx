@@ -15,7 +15,7 @@ export function Book() {
       {/* ================= LAYOUT MOBILE (< lg) ================= */}
       <div className="flex flex-col items-center text-center lg:hidden">
         {/* Tag Superior */}
-        <span className="font-extrabold text-[#7C4DFF] rounded-full bg-[#7C4DFF]/15 px-5 py-2.5 text-sm uppercase tracking-wide mb-4">
+        <span className="text-[20px] font-bold gradient-text whitespace-nowrap uppercase mb-2 mb-4">
           QUER MUDAR ESSA REALIDADE?
         </span>
 
@@ -113,7 +113,7 @@ export function Book() {
       <div className="hidden lg:flex flex-row items-center justify-between gap-12">
         {/* Coluna da Esquerda */}
         <div className="w-[60%] flex flex-col items-start z-10">
-          <span className="font-extrabold text-[#7C4DFF] rounded-full bg-[#7C4DFF]/10 px-6 py-2.5 text-base mb-6">
+          <span className="text-[20px] xl:text-[24px] font-bold gradient-text whitespace-nowrap uppercase mb-2 mb-6">
             QUER MUDAR ESSA REALIDADE?
           </span>
 
