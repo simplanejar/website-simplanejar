@@ -8,8 +8,8 @@ const data = {
     h2: "Entenda o seu **resultado**",
     p: "O Índice de Saúde Financeira do Brasileiro é uma ferramenta desenvolvida pela FEBRABAN, que ajuda você a entender melhor sua relação com o dinheiro.",
     pbold: "Confira abaixo o que significa cada faixa do seu resultado:",
-    lowp1: "Conhecer o significado do seu resultado é o primeiro passo para **transformar sua vida financeira.**",
-    lowp2: "Agora, descubra como evoluir e **conquistar seus objetivos!**",
+    lowp1: "Conhecer o significado do seu resultado é o primeiro passo para transformar sua vida financeira.",
+    lowp2: "Agora, descubra como evoluir e conquistar seus objetivos!",
     cards: [
         {
             number: "83-100",

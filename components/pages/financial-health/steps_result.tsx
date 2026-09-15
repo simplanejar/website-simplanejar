@@ -12,9 +12,7 @@ const data = {
     top: "O QUE FAZER COM O SEU RESULTADO?",
 
     title: "O que fazer com o **seu resultado?**",
-
-    p: "Entender seu Índice de Saúde Financeira é mais do que conhecer uma nota: é **descobrir oportunidades** para tomar decisões mais conscientes e transformar sua relação com o dinheiro. Cada resultado onde você está hoje e o que pode melhorar para alcançar seus objetivos.",
-
+    p: " Entender seu Índice de Saúde Financeira é mais do que conhecer uma nota: é descobrir oportunidades para tomar decisões mais conscientes e transformar sua relação com o dinheiro. Cada resultado onde você está hoje e o que pode melhorar para alcançar seus objetivos.",
     cards: [
         {
             icon: FaMagnifyingGlassChart,
