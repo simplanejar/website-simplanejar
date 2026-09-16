@@ -12,12 +12,16 @@ export default function Book() {
         <section className='w-full max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12 bg-[#F8F9FF]'>
             <header className="text-center max-w-3xl mb-10 lg:mb-12 flex flex-col items-center">
                 
-                <div className='flex items-center gap-2 text-[#7C4DFF] border rounded-full border-[#F2F0FD] mb-4 lg:mb-5 pr-4 shadow-sm font-semibold text-xs'>
-                    <div className="bg-[#F2F0FD] rounded-full p-1.5">
-                        <IoMdStar color="#7C4DFF" size="20px" className="sm:w-6 sm:h-6"/>
+                <div className="w-full flex items-center justify-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-purple"></span>
+                    <span className="w-8 sm:w-12 h-1 bg-brand-purple rounded-full"></span>
+
+                    <div className="text-[25px] xl:text-[30px] font-bold gradient-text whitespace-nowrap mb-4">
+                        QUER IR ALÉM?
                     </div>
 
-                    <span className="flex-1 text-center font-bold text-xs">Quer ir além?</span>
+                    <span className="w-8 sm:w-12 h-1 bg-brand-purple rounded-full"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-purple"></span>
                 </div>
                 
                 <h1 className='text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-[#000416] leading-tight mb-4'>
