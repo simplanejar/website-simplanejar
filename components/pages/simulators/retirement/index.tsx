@@ -17,6 +17,8 @@ import elipse1 from '../../../../media/elipse-1.svg';
 import elipse2 from '../../../../media/elipse-2.svg';
 import elipse3 from '../../../../media/elipse-3.svg';
 
+import { Book } from "../../financial-health/book";
+
 const IconPerson = ({ className = "w-10 h-10" }: { className?: string }) => (
   <Image src={person} alt="Pessoa" className={className} />
 );
@@ -143,7 +145,7 @@ export default function RetirementSimulator() {
               href="/simulador/de-renda-na-aposentadoria/form"
               className="inline-flex items-center gap-2 bg-primary hover:bg-[#7343E0] text-white font-extrabold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-200 transition-all text-base"
             >
-              Acessar o Simulador
+              ACESSAR O SIMULADOR
               <IconArrow />
             </a>
           </div>
@@ -204,6 +206,7 @@ export default function RetirementSimulator() {
             </div>
         </div>
       </section>
+      <Book />
     </div>
   );
 }
