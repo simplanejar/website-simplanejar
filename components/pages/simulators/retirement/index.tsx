@@ -18,8 +18,6 @@ import elipse2 from '../../../../media/elipse-2.svg';
 import elipse3 from '../../../../media/elipse-3.svg';
 import Book from './book';
 
-import { Book } from "../../financial-health/book";
-
 const IconPerson = ({ className = "w-10 h-10" }: { className?: string }) => (
   <Image src={person} alt="Pessoa" className={className} />
 );
