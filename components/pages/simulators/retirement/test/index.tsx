@@ -200,7 +200,7 @@ export default function Simulator() {
       rendaDesejada: formatBRL(desiredIncome),
       patrimonioEstimado: formatBRL(estimatedReserve),
       rendaEstimada: formatBRL(estimatedIncome),
-      taxaConsiderada: form.rentabilityType === "poupanca" ? `Poupança (${POUPANCA_RATE_AA}% a.a.)` : `${annualReturn}% a.a.`,
+      taxaConsiderada: form.rentabilityType === "poupanca" ? `${POUPANCA_RATE_AA}% a.a.` : `${annualReturn}% a.a.`,
     },
     extraParams: { to_email: email }, 
     mensagens: {
